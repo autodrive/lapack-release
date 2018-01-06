@@ -1,0 +1,4 @@
+extern int claswlq_(integer *m, integer *n, integer *mb, integer *nb, doublecomplex *a, integer *lda, doublecomplex *t, integer *ldt, doublecomplex *work, integer *lwork, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: cgelqt_ 14 9 4 4 4 9 4 9 4 9 4 */
+/*:ref: ctplqt_ 14 12 4 4 4 4 9 4 9 4 9 4 9 4 */

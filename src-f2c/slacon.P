@@ -1,0 +1,4 @@
+extern int slacon_(integer *n, doublereal *v, doublereal *x, integer *isgn, doublereal *est, integer *kase);
+/*:ref: sasum_ 7 3 4 7 4 */
+/*:ref: isamax_ 4 3 4 7 4 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */

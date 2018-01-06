@@ -1,0 +1,2 @@
+extern integer iladiag_(char *diag, ftnlen diag_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */

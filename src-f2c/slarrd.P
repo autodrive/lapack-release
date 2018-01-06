@@ -1,0 +1,5 @@
+extern int slarrd_(char *range, char *order, integer *n, doublereal *vl, doublereal *vu, integer *il, integer *iu, doublereal *gers, doublereal *reltol, doublereal *d__, doublereal *e, doublereal *e2, doublereal *pivmin, integer *nsplit, integer *isplit, integer *m, doublereal *w, doublereal *werr, doublereal *wl, doublereal *wu, integer *iblock, integer *indexw, doublereal *work, integer *iwork, integer *info, ftnlen range_len, ftnlen order_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: slaebz_ 14 20 4 4 4 4 4 4 7 7 7 7 7 7 4 7 7 4 4 7 4 4 */

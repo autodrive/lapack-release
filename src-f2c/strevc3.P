@@ -1,0 +1,16 @@
+extern int strevc3_(char *side, char *howmny, logical *select, integer *n, doublereal *t, integer *ldt, doublereal *vl, integer *ldvl, doublereal *vr, integer *ldvr, integer *mm, integer *m, doublereal *work, integer *lwork, integer *info, ftnlen side_len, ftnlen howmny_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slaset_ 14 8 13 4 4 7 7 7 4 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: slabad_ 14 2 7 7 */
+/*:ref: slaln2_ 14 18 12 4 4 7 7 7 4 7 7 7 4 7 7 7 4 7 7 4 */
+/*:ref: sscal_ 14 4 4 7 7 4 */
+/*:ref: saxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: isamax_ 4 3 4 7 4 */
+/*:ref: sgemv_ 14 12 13 4 4 7 7 4 7 4 7 7 4 124 */
+/*:ref: sgemm_ 14 15 13 13 4 4 4 7 7 4 7 4 7 7 4 124 124 */
+/*:ref: slacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: sdot_ 7 5 4 7 4 7 4 */

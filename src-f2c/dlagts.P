@@ -1,0 +1,3 @@
+extern int dlagts_(integer *job, integer *n, doublereal *a, doublereal *b, doublereal *c__, doublereal *d__, integer *in, doublereal *y, doublereal *tol, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlamch_ 7 2 13 124 */

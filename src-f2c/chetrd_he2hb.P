@@ -1,0 +1,12 @@
+extern int chetrd_he2hb__(char *uplo, integer *n, integer *kd, doublecomplex *a, integer *lda, doublecomplex *ab, integer *ldab, doublecomplex *tau, doublecomplex *work, integer *lwork, integer *info, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: ccopy_ 14 5 4 9 4 9 4 */
+/*:ref: claset_ 14 8 13 4 4 9 9 9 4 124 */
+/*:ref: cgelqf_ 14 8 4 4 9 4 9 9 4 4 */
+/*:ref: clarft_ 14 11 13 13 4 4 9 4 9 9 4 124 124 */
+/*:ref: cgemm_ 14 15 13 13 4 4 4 9 9 4 9 4 9 9 4 124 124 */
+/*:ref: chemm_ 14 14 13 13 4 4 9 9 4 9 4 9 9 4 124 124 */
+/*:ref: cher2k_ 14 14 13 13 4 4 9 9 4 9 4 7 9 4 124 124 */
+/*:ref: cgeqrf_ 14 8 4 4 9 4 9 9 4 4 */

@@ -1,0 +1,18 @@
+extern int clalsd_(char *uplo, integer *smlsiz, integer *n, integer *nrhs, doublereal *d__, doublereal *e, doublecomplex *b, integer *ldb, doublereal *rcond, integer *rank, doublecomplex *work, doublereal *rwork, integer *iwork, integer *info, ftnlen uplo_len);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: claset_ 14 8 13 4 4 9 9 9 4 124 */
+/*:ref: clascl_ 14 11 13 4 4 7 7 4 4 9 4 4 124 */
+/*:ref: slartg_ 14 5 7 7 7 7 7 */
+/*:ref: csrot_ 14 7 4 9 4 9 4 7 7 */
+/*:ref: slanst_ 7 5 13 4 7 7 124 */
+/*:ref: slascl_ 14 11 13 4 4 7 7 4 4 7 4 4 124 */
+/*:ref: slaset_ 14 8 13 4 4 7 7 7 4 124 */
+/*:ref: slasdq_ 14 17 13 4 4 4 4 4 7 7 7 4 7 4 7 4 7 4 124 */
+/*:ref: sgemm_ 14 15 13 13 4 4 4 7 7 4 7 4 7 7 4 124 124 */
+/*:ref: isamax_ 4 3 4 7 4 */
+/*:ref: slasrt_ 14 5 13 4 7 4 124 */
+/*:ref: ccopy_ 14 5 4 9 4 9 4 */
+/*:ref: clacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: slasda_ 14 24 4 4 4 4 7 7 7 4 7 4 7 7 7 7 4 4 4 4 7 7 7 7 4 4 */
+/*:ref: clalsa_ 14 26 4 4 4 4 9 4 9 4 7 4 7 4 7 7 7 7 4 4 4 4 7 7 7 7 4 4 */

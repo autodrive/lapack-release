@@ -1,0 +1,6 @@
+extern int sgebrd_(integer *m, integer *n, doublereal *a, integer *lda, doublereal *d__, doublereal *e, doublereal *tauq, doublereal *taup, doublereal *work, integer *lwork, integer *info);
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slabrd_ 14 13 4 4 4 7 4 7 7 7 7 7 4 7 4 */
+/*:ref: sgemm_ 14 15 13 13 4 4 4 7 7 4 7 4 7 7 4 124 124 */
+/*:ref: sgebd2_ 14 10 4 4 7 4 7 7 7 7 7 4 */

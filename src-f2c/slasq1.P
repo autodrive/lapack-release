@@ -1,0 +1,8 @@
+extern int slasq1_(integer *n, doublereal *d__, doublereal *e, doublereal *work, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slas2_ 14 5 7 7 7 7 7 */
+/*:ref: slasrt_ 14 5 13 4 7 4 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: slascl_ 14 11 13 4 4 7 7 4 4 7 4 4 124 */
+/*:ref: slasq2_ 14 3 4 7 4 */

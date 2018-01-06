@@ -1,0 +1,2 @@
+extern int zla_lin_berr__(integer *n, integer *nz, integer *nrhs, doublecomplex *res, doublereal *ayb, doublereal *berr);
+/*:ref: dlamch_ 7 2 13 124 */

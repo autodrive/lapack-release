@@ -1,0 +1,9 @@
+extern int slaqr5_(logical *wantt, logical *wantz, integer *kacc22, integer *n, integer *ktop, integer *kbot, integer *nshfts, doublereal *sr, doublereal *si, doublereal *h__, integer *ldh, integer *iloz, integer *ihiz, doublereal *z__, integer *ldz, doublereal *v, integer *ldv, doublereal *u, integer *ldu, integer *nv, doublereal *wv, integer *ldwv, integer *nh, doublereal *wh, integer *ldwh);
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: slabad_ 14 2 7 7 */
+/*:ref: slaset_ 14 8 13 4 4 7 7 7 4 124 */
+/*:ref: slaqr1_ 14 8 4 7 4 7 7 7 7 7 */
+/*:ref: slarfg_ 14 5 4 7 7 4 7 */
+/*:ref: sgemm_ 14 15 13 13 4 4 4 7 7 4 7 4 7 7 4 124 124 */
+/*:ref: slacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: strmm_ 14 15 13 13 13 13 4 4 7 7 4 7 4 124 124 124 124 */

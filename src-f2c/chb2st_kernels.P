@@ -1,0 +1,5 @@
+extern int chb2st_kernels__(char *uplo, logical *wantz, integer *ttype, integer *st, integer *ed, integer *sweep, integer *n, integer *nb, integer *ib, doublecomplex *a, integer *lda, doublecomplex *v, doublecomplex *tau, integer *ldvt, doublecomplex *work, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: clarfg_ 14 5 4 9 9 4 9 */
+/*:ref: clarfy_ 14 9 13 4 9 4 9 9 4 9 124 */
+/*:ref: clarfx_ 14 9 13 4 4 9 9 9 4 9 124 */

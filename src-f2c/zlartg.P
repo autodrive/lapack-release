@@ -1,0 +1,4 @@
+extern int zlartg_(doublecomplex *f, doublecomplex *g, doublereal *cs, doublecomplex *sn, doublecomplex *r__);
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: disnan_ 12 1 7 */
+/*:ref: dlapy2_ 7 2 7 7 */

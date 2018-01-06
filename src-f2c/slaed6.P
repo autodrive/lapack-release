@@ -1,0 +1,2 @@
+extern int slaed6_(integer *kniter, logical *orgati, doublereal *rho, doublereal *d__, doublereal *z__, doublereal *finit, doublereal *tau, integer *info);
+/*:ref: slamch_ 7 2 13 124 */

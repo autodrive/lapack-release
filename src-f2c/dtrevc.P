@@ -1,0 +1,12 @@
+extern int dtrevc_(char *side, char *howmny, logical *select, integer *n, doublereal *t, integer *ldt, doublereal *vl, integer *ldvl, doublereal *vr, integer *ldvr, integer *mm, integer *m, doublereal *work, integer *info, ftnlen side_len, ftnlen howmny_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dlabad_ 14 2 7 7 */
+/*:ref: dlaln2_ 14 18 12 4 4 7 7 7 4 7 7 7 4 7 7 7 4 7 7 4 */
+/*:ref: dscal_ 14 4 4 7 7 4 */
+/*:ref: daxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: dcopy_ 14 5 4 7 4 7 4 */
+/*:ref: idamax_ 4 3 4 7 4 */
+/*:ref: dgemv_ 14 12 13 4 4 7 7 4 7 4 7 7 4 124 */
+/*:ref: ddot_ 7 5 4 7 4 7 4 */

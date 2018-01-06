@@ -1,0 +1,3 @@
+extern int clar1v_(integer *n, integer *b1, integer *bn, doublereal *lambda, doublereal *d__, doublereal *l, doublereal *ld, doublereal *lld, doublereal *pivmin, doublereal *gaptol, doublecomplex *z__, logical *wantnc, integer *negcnt, doublereal *ztz, doublereal *mingma, integer *r__, integer *isuppz, doublereal *nrminv, doublereal *resid, doublereal *rqcorr, doublereal *work);
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: sisnan_ 12 1 7 */

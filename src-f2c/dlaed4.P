@@ -1,0 +1,4 @@
+extern int dlaed4_(integer *n, integer *i__, doublereal *d__, doublereal *z__, doublereal *delta, doublereal *rho, doublereal *dlam, integer *info);
+/*:ref: dlaed5_ 14 6 4 7 7 7 7 7 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dlaed6_ 14 8 4 12 7 7 7 7 7 4 */

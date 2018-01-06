@@ -1,0 +1,2 @@
+extern int xerbla_(char *srname, integer *info, ftnlen srname_len);
+/*:ref: len_trim__ 4 2 13 124 */

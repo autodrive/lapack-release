@@ -1,0 +1,5 @@
+extern int dgeqrt_(integer *m, integer *n, integer *nb, doublereal *a, integer *lda, doublereal *t, integer *ldt, doublereal *work, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dgeqrt3_ 14 7 4 4 7 4 7 4 4 */
+/*:ref: dgeqrt2_ 14 7 4 4 7 4 7 4 4 */
+/*:ref: dlarfb_ 14 19 13 13 13 13 4 4 4 7 4 7 4 7 4 7 4 124 124 124 124 */

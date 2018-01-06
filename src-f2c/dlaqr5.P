@@ -1,0 +1,9 @@
+extern int dlaqr5_(logical *wantt, logical *wantz, integer *kacc22, integer *n, integer *ktop, integer *kbot, integer *nshfts, doublereal *sr, doublereal *si, doublereal *h__, integer *ldh, integer *iloz, integer *ihiz, doublereal *z__, integer *ldz, doublereal *v, integer *ldv, doublereal *u, integer *ldu, integer *nv, doublereal *wv, integer *ldwv, integer *nh, doublereal *wh, integer *ldwh);
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dlabad_ 14 2 7 7 */
+/*:ref: dlaset_ 14 8 13 4 4 7 7 7 4 124 */
+/*:ref: dlaqr1_ 14 8 4 7 4 7 7 7 7 7 */
+/*:ref: dlarfg_ 14 5 4 7 7 4 7 */
+/*:ref: dgemm_ 14 15 13 13 4 4 4 7 7 4 7 4 7 7 4 124 124 */
+/*:ref: dlacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: dtrmm_ 14 15 13 13 13 13 4 4 7 7 4 7 4 124 124 124 124 */

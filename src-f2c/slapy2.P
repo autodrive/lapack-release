@@ -1,0 +1,1 @@
+extern doublereal slapy2_(doublereal *x, doublereal *y);

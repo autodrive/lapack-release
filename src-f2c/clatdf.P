@@ -1,0 +1,10 @@
+extern int clatdf_(integer *ijob, integer *n, doublecomplex *z__, integer *ldz, doublecomplex *rhs, doublereal *rdsum, doublereal *rdscal, integer *ipiv, integer *jpiv);
+/*:ref: claswp_ 14 7 4 9 4 4 4 4 4 */
+/*:ref: cdotc_ 9 6 9 4 9 4 9 4 */
+/*:ref: caxpy_ 14 6 4 9 9 4 9 4 */
+/*:ref: ccopy_ 14 5 4 9 4 9 4 */
+/*:ref: classq_ 14 5 4 9 4 7 7 */
+/*:ref: cgecon_ 14 10 13 4 9 4 7 7 9 7 4 124 */
+/*:ref: cscal_ 14 4 4 9 9 4 */
+/*:ref: cgesc2_ 14 7 4 9 4 9 4 4 7 */
+/*:ref: scasum_ 7 3 4 9 4 */

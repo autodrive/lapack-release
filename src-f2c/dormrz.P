@@ -1,0 +1,7 @@
+extern int dormrz_(char *side, char *trans, integer *m, integer *n, integer *k, integer *l, doublereal *a, integer *lda, doublereal *tau, doublereal *c__, integer *ldc, doublereal *work, integer *lwork, integer *info, ftnlen side_len, ftnlen trans_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dormr3_ 14 15 13 13 4 4 4 4 7 4 7 7 4 7 4 124 124 */
+/*:ref: dlarzt_ 14 11 13 13 4 4 7 4 7 7 4 124 124 */
+/*:ref: dlarzb_ 14 20 13 13 13 13 4 4 4 4 7 4 7 4 7 4 7 4 124 124 124 124 */

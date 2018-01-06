@@ -1,0 +1,8 @@
+extern int clarfgp_(integer *n, doublecomplex *alpha, doublecomplex *x, integer *incx, doublecomplex *tau);
+/*:ref: scnrm2_ 7 3 4 9 4 */
+/*:ref: slapy2_ 7 2 7 7 */
+/*:ref: slapy3_ 7 3 7 7 7 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: csscal_ 14 4 4 7 9 4 */
+/*:ref: cladiv_ 9 3 9 9 9 */
+/*:ref: cscal_ 14 4 4 9 9 4 */

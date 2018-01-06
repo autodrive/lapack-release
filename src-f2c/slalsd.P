@@ -1,0 +1,16 @@
+extern int slalsd_(char *uplo, integer *smlsiz, integer *n, integer *nrhs, doublereal *d__, doublereal *e, doublereal *b, integer *ldb, doublereal *rcond, integer *rank, doublereal *work, integer *iwork, integer *info, ftnlen uplo_len);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: slaset_ 14 8 13 4 4 7 7 7 4 124 */
+/*:ref: slascl_ 14 11 13 4 4 7 7 4 4 7 4 4 124 */
+/*:ref: slartg_ 14 5 7 7 7 7 7 */
+/*:ref: srot_ 14 7 4 7 4 7 4 7 7 */
+/*:ref: slanst_ 7 5 13 4 7 7 124 */
+/*:ref: slasdq_ 14 17 13 4 4 4 4 4 7 7 7 4 7 4 7 4 7 4 124 */
+/*:ref: isamax_ 4 3 4 7 4 */
+/*:ref: sgemm_ 14 15 13 13 4 4 4 7 7 4 7 4 7 7 4 124 124 */
+/*:ref: slacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: slasrt_ 14 5 13 4 7 4 124 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: slasda_ 14 24 4 4 4 4 7 7 7 4 7 4 7 7 7 7 4 4 4 4 7 7 7 7 4 4 */
+/*:ref: slalsa_ 14 26 4 4 4 4 7 4 7 4 7 4 7 4 7 7 7 7 4 4 4 4 7 7 7 7 4 4 */

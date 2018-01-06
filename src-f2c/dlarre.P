@@ -1,0 +1,11 @@
+extern int dlarre_(char *range, integer *n, doublereal *vl, doublereal *vu, integer *il, integer *iu, doublereal *d__, doublereal *e, doublereal *e2, doublereal *rtol1, doublereal *rtol2, doublereal *spltol, integer *nsplit, integer *isplit, integer *m, doublereal *w, doublereal *werr, doublereal *wgap, integer *iblock, integer *indexw, doublereal *gers, doublereal *pivmin, doublereal *work, integer *iwork, integer *info, ftnlen range_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dlarra_ 14 9 4 7 7 7 7 7 4 4 4 */
+/*:ref: dlarrd_ 14 27 13 13 4 7 7 4 4 7 7 7 7 7 7 4 4 4 7 7 7 7 4 4 7 4 4 124 124 */
+/*:ref: dlarrk_ 14 11 4 4 7 7 7 7 7 7 7 7 4 */
+/*:ref: dlarrc_ 14 12 13 4 7 7 7 7 7 4 4 4 4 124 */
+/*:ref: dcopy_ 14 5 4 7 4 7 4 */
+/*:ref: dlarnv_ 14 4 4 4 4 7 */
+/*:ref: dlarrb_ 14 17 4 7 7 4 4 7 7 4 7 7 7 7 4 7 7 4 4 */
+/*:ref: dlasq2_ 14 3 4 7 4 */

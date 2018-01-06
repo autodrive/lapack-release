@@ -1,0 +1,1 @@
+extern int dlapmt_(logical *forwrd, integer *m, integer *n, doublereal *x, integer *ldx, integer *k);

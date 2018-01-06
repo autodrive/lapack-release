@@ -1,0 +1,4 @@
+extern int cptsv_(integer *n, integer *nrhs, doublereal *d__, doublecomplex *e, doublecomplex *b, integer *ldb, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: cpttrf_ 14 4 4 7 9 4 */
+/*:ref: cpttrs_ 14 9 13 4 4 7 9 9 4 4 124 */

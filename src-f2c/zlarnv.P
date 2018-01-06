@@ -1,0 +1,2 @@
+extern int zlarnv_(integer *idist, integer *iseed, integer *n, doublecomplex *x);
+/*:ref: dlaruv_ 14 3 4 4 7 */

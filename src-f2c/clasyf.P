@@ -1,0 +1,8 @@
+extern int clasyf_(char *uplo, integer *n, integer *nb, integer *kb, doublecomplex *a, integer *lda, integer *ipiv, doublecomplex *w, integer *ldw, integer *info, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: ccopy_ 14 5 4 9 4 9 4 */
+/*:ref: cgemv_ 14 12 13 4 4 9 9 4 9 4 9 9 4 124 */
+/*:ref: icamax_ 4 3 4 9 4 */
+/*:ref: cswap_ 14 5 4 9 4 9 4 */
+/*:ref: cscal_ 14 4 4 9 9 4 */
+/*:ref: cgemm_ 14 15 13 13 4 4 4 9 9 4 9 4 9 9 4 124 124 */

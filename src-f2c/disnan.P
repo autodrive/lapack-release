@@ -1,0 +1,2 @@
+extern logical disnan_(doublereal *din);
+/*:ref: dlaisnan_ 12 2 7 7 */

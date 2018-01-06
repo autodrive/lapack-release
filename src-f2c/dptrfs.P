@@ -1,0 +1,6 @@
+extern int dptrfs_(integer *n, integer *nrhs, doublereal *d__, doublereal *e, doublereal *df, doublereal *ef, doublereal *b, integer *ldb, doublereal *x, integer *ldx, doublereal *ferr, doublereal *berr, doublereal *work, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dpttrs_ 14 7 4 4 7 7 7 4 4 */
+/*:ref: daxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: idamax_ 4 3 4 7 4 */

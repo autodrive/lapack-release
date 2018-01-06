@@ -1,0 +1,13 @@
+extern int sgetsls_(char *trans, integer *m, integer *n, integer *nrhs, doublereal *a, integer *lda, doublereal *b, integer *ldb, doublereal *work, integer *lwork, integer *info, ftnlen trans_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: sgeqr_ 14 9 4 4 7 4 7 4 7 4 4 */
+/*:ref: sgemqr_ 14 16 13 13 4 4 4 7 4 7 4 7 4 7 4 4 124 124 */
+/*:ref: sgelq_ 14 9 4 4 7 4 7 4 7 4 4 */
+/*:ref: sgemlq_ 14 16 13 13 4 4 4 7 4 7 4 7 4 7 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slaset_ 14 8 13 4 4 7 7 7 4 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: slabad_ 14 2 7 7 */
+/*:ref: slange_ 7 7 13 4 4 7 4 7 124 */
+/*:ref: slascl_ 14 11 13 4 4 7 7 4 4 7 4 4 124 */
+/*:ref: strtrs_ 14 13 13 13 13 4 4 7 4 7 4 4 124 124 124 */

@@ -1,0 +1,9 @@
+extern int dsyrfsx_(char *uplo, char *equed, integer *n, integer *nrhs, doublereal *a, integer *lda, doublereal *af, integer *ldaf, integer *ipiv, doublereal *s, doublereal *b, integer *ldb, doublereal *x, integer *ldx, doublereal *rcond, doublereal *berr, integer *n_err_bnds__, doublereal *err_bnds_norm__, doublereal *err_bnds_comp__, integer *nparams, doublereal *params, doublereal *work, integer *iwork, integer *info, ftnlen uplo_len, ftnlen equed_len);
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlansy_ 7 7 4 13 4 7 4 7 124 */
+/*:ref: dsycon_ 14 11 13 4 7 4 4 7 7 7 4 4 124 */
+/*:ref: ilaprec_ 4 2 13 124 */
+/*:ref: dla_syrfsx_extended__ 14 30 4 13 4 4 7 4 7 4 4 12 7 7 4 7 4 7 4 7 7 7 7 7 7 7 4 7 7 12 4 124 */
+/*:ref: dla_syrcond__ 7 13 13 4 7 4 7 4 4 4 7 4 7 4 124 */

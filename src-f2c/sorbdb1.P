@@ -1,0 +1,7 @@
+extern int sorbdb1_(integer *m, integer *p, integer *q, doublereal *x11, integer *ldx11, doublereal *x21, integer *ldx21, doublereal *theta, doublereal *phi, doublereal *taup1, doublereal *taup2, doublereal *tauq1, doublereal *work, integer *lwork, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slarfgp_ 14 5 4 7 7 4 7 */
+/*:ref: slarf_ 14 10 13 4 4 7 4 7 7 4 7 124 */
+/*:ref: srot_ 14 7 4 7 4 7 4 7 7 */
+/*:ref: snrm2_ 7 3 4 7 4 */
+/*:ref: sorbdb5_ 14 14 4 4 4 7 4 7 4 7 4 7 4 7 4 4 */

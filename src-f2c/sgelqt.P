@@ -1,0 +1,4 @@
+extern int sgelqt_(integer *m, integer *n, integer *mb, doublereal *a, integer *lda, doublereal *t, integer *ldt, doublereal *work, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: sgelqt3_ 14 7 4 4 7 4 7 4 4 */
+/*:ref: slarfb_ 14 19 13 13 13 13 4 4 4 7 4 7 4 7 4 7 4 124 124 124 124 */

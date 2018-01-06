@@ -1,0 +1,9 @@
+extern int dporfsx_(char *uplo, char *equed, integer *n, integer *nrhs, doublereal *a, integer *lda, doublereal *af, integer *ldaf, doublereal *s, doublereal *b, integer *ldb, doublereal *x, integer *ldx, doublereal *rcond, doublereal *berr, integer *n_err_bnds__, doublereal *err_bnds_norm__, doublereal *err_bnds_comp__, integer *nparams, doublereal *params, doublereal *work, integer *iwork, integer *info, ftnlen uplo_len, ftnlen equed_len);
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlansy_ 7 7 4 13 4 7 4 7 124 */
+/*:ref: dpocon_ 14 10 13 4 7 4 7 7 7 4 4 124 */
+/*:ref: ilaprec_ 4 2 13 124 */
+/*:ref: dla_porfsx_extended__ 14 29 4 13 4 4 7 4 7 4 12 7 7 4 7 4 7 4 7 7 7 7 7 7 7 4 7 7 12 4 124 */
+/*:ref: dla_porcond__ 7 12 13 4 7 4 7 4 4 7 4 7 4 124 */

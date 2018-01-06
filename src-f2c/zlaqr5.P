@@ -1,0 +1,9 @@
+extern int zlaqr5_(logical *wantt, logical *wantz, integer *kacc22, integer *n, integer *ktop, integer *kbot, integer *nshfts, doublecomplex *s, doublecomplex *h__, integer *ldh, integer *iloz, integer *ihiz, doublecomplex *z__, integer *ldz, doublecomplex *v, integer *ldv, doublecomplex *u, integer *ldu, integer *nv, doublecomplex *wv, integer *ldwv, integer *nh, doublecomplex *wh, integer *ldwh);
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dlabad_ 14 2 7 7 */
+/*:ref: zlaset_ 14 8 13 4 4 9 9 9 4 124 */
+/*:ref: zlaqr1_ 14 6 4 9 4 9 9 9 */
+/*:ref: zlarfg_ 14 5 4 9 9 4 9 */
+/*:ref: zgemm_ 14 15 13 13 4 4 4 9 9 4 9 4 9 9 4 124 124 */
+/*:ref: zlacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: ztrmm_ 14 15 13 13 13 13 4 4 9 9 4 9 4 124 124 124 124 */

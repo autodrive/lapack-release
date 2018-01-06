@@ -1,0 +1,12 @@
+extern int sla_gerfsx_extended__(integer *prec_type__, integer *trans_type__, integer *n, integer *nrhs, doublereal *a, integer *lda, doublereal *af, integer *ldaf, integer *ipiv, logical *colequ, doublereal *c__, doublereal *b, integer *ldb, doublereal *y, integer *ldy, doublereal *berr_out__, integer *n_norms__, doublereal *errs_n__, doublereal *errs_c__, doublereal *res, doublereal *ayb, doublereal *dy, doublereal *y_tail__, doublereal *rcond, integer *ithresh, doublereal *rthresh, doublereal *dz_ub__, logical *ignore_cwise__, integer *info);
+/*:ref: chla_transtype__ 13 3 13 124 4 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: sgemv_ 14 12 13 4 4 7 7 4 7 4 7 7 4 124 */
+/*:ref: blas_sgemv_x__ 14 12 4 4 4 7 7 4 7 4 7 7 4 4 */
+/*:ref: blas_sgemv2_x__ 14 13 4 4 4 7 7 4 7 7 4 7 7 4 4 */
+/*:ref: sgetrs_ 14 10 13 4 4 7 4 4 7 4 4 124 */
+/*:ref: saxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: sla_wwaddw__ 14 4 4 7 7 7 */
+/*:ref: sla_geamv__ 14 11 4 4 4 7 7 4 7 4 7 7 4 */
+/*:ref: sla_lin_berr__ 14 6 4 4 4 7 7 7 */

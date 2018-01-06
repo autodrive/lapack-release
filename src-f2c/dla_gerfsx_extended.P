@@ -1,0 +1,12 @@
+extern int dla_gerfsx_extended__(integer *prec_type__, integer *trans_type__, integer *n, integer *nrhs, doublereal *a, integer *lda, doublereal *af, integer *ldaf, integer *ipiv, logical *colequ, doublereal *c__, doublereal *b, integer *ldb, doublereal *y, integer *ldy, doublereal *berr_out__, integer *n_norms__, doublereal *errs_n__, doublereal *errs_c__, doublereal *res, doublereal *ayb, doublereal *dy, doublereal *y_tail__, doublereal *rcond, integer *ithresh, doublereal *rthresh, doublereal *dz_ub__, logical *ignore_cwise__, integer *info);
+/*:ref: chla_transtype__ 13 3 13 124 4 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dcopy_ 14 5 4 7 4 7 4 */
+/*:ref: dgemv_ 14 12 13 4 4 7 7 4 7 4 7 7 4 124 */
+/*:ref: blas_dgemv_x__ 14 12 4 4 4 7 7 4 7 4 7 7 4 4 */
+/*:ref: blas_dgemv2_x__ 14 13 4 4 4 7 7 4 7 7 4 7 7 4 4 */
+/*:ref: dgetrs_ 14 10 13 4 4 7 4 4 7 4 4 124 */
+/*:ref: daxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: dla_wwaddw__ 14 4 4 7 7 7 */
+/*:ref: dla_geamv__ 14 11 4 4 4 7 7 4 7 4 7 7 4 */
+/*:ref: dla_lin_berr__ 14 6 4 4 4 7 7 7 */

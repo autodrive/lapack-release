@@ -1,0 +1,2 @@
+extern int zlaqge_(integer *m, integer *n, doublecomplex *a, integer *lda, doublereal *r__, doublereal *c__, doublereal *rowcnd, doublereal *colcnd, doublereal *amax, char *equed, ftnlen equed_len);
+/*:ref: dlamch_ 7 2 13 124 */

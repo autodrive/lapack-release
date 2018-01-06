@@ -1,0 +1,14 @@
+extern int dorcsd2by1_(char *jobu1, char *jobu2, char *jobv1t, integer *m, integer *p, integer *q, doublereal *x11, integer *ldx11, doublereal *x21, integer *ldx21, doublereal *theta, doublereal *u1, integer *ldu1, doublereal *u2, integer *ldu2, doublereal *v1t, integer *ldv1t, doublereal *work, integer *lwork, integer *iwork, integer *info, ftnlen jobu1_len, ftnlen jobu2_len, ftnlen jobv1t_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: dorbdb1_ 14 15 4 4 4 7 4 7 4 7 7 7 7 7 7 4 4 */
+/*:ref: dorgqr_ 14 9 4 4 4 7 4 7 7 4 4 */
+/*:ref: dorglq_ 14 9 4 4 4 7 4 7 7 4 4 */
+/*:ref: dbbcsd_ 14 34 13 13 13 13 13 4 4 4 7 7 7 4 7 4 7 4 7 4 7 7 7 7 7 7 7 7 7 4 4 124 124 124 124 124 */
+/*:ref: dorbdb2_ 14 15 4 4 4 7 4 7 4 7 7 7 7 7 7 4 4 */
+/*:ref: dorbdb3_ 14 15 4 4 4 7 4 7 4 7 7 7 7 7 7 4 4 */
+/*:ref: dorbdb4_ 14 16 4 4 4 7 4 7 4 7 7 7 7 7 7 7 4 4 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: dlapmt_ 14 6 12 4 4 7 4 4 */
+/*:ref: dlapmr_ 14 6 12 4 4 7 4 4 */
+/*:ref: dcopy_ 14 5 4 7 4 7 4 */

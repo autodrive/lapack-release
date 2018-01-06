@@ -1,0 +1,11 @@
+extern int zhbev_2stage__(char *jobz, char *uplo, integer *n, integer *kd, doublecomplex *ab, integer *ldab, doublereal *w, doublecomplex *z__, integer *ldz, doublecomplex *work, integer *lwork, doublereal *rwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: zlanhb_ 7 9 13 13 4 4 9 4 7 124 124 */
+/*:ref: zlascl_ 14 11 13 4 4 7 7 4 4 9 4 4 124 */
+/*:ref: zhetrd_hb2st__ 14 17 13 13 13 4 4 9 4 7 7 9 4 9 4 4 124 124 124 */
+/*:ref: dsterf_ 14 4 4 7 7 4 */
+/*:ref: zsteqr_ 14 9 13 4 7 7 9 4 7 4 124 */
+/*:ref: dscal_ 14 4 4 7 7 4 */

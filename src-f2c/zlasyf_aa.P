@@ -1,0 +1,9 @@
+extern int zlasyf_aa__(char *uplo, integer *j1, integer *m, integer *nb, doublecomplex *a, integer *lda, integer *ipiv, doublecomplex *h__, integer *ldh, doublecomplex *work, integer *info, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: zgemv_ 14 12 13 4 4 9 9 4 9 4 9 9 4 124 */
+/*:ref: zcopy_ 14 5 4 9 4 9 4 */
+/*:ref: zaxpy_ 14 6 4 9 9 4 9 4 */
+/*:ref: izamax_ 4 3 4 9 4 */
+/*:ref: zswap_ 14 5 4 9 4 9 4 */
+/*:ref: zscal_ 14 4 4 9 9 4 */
+/*:ref: zlaset_ 14 8 13 4 4 9 9 9 4 124 */

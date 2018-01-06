@@ -1,0 +1,4 @@
+extern int zgelqt_(integer *m, integer *n, integer *mb, doublecomplex *a, integer *lda, doublecomplex *t, integer *ldt, doublecomplex *work, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zgelqt3_ 14 7 4 4 9 4 9 4 4 */
+/*:ref: zlarfb_ 14 19 13 13 13 13 4 4 4 9 4 9 4 9 4 9 4 124 124 124 124 */

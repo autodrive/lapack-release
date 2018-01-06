@@ -1,0 +1,12 @@
+extern int ztgsna_(char *job, char *howmny, logical *select, integer *n, doublecomplex *a, integer *lda, doublecomplex *b, integer *ldb, doublecomplex *vl, integer *ldvl, doublecomplex *vr, integer *ldvr, doublereal *s, doublereal *dif, integer *mm, integer *m, doublecomplex *work, integer *lwork, integer *iwork, integer *info, ftnlen job_len, ftnlen howmny_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dlabad_ 14 2 7 7 */
+/*:ref: dznrm2_ 7 3 4 9 4 */
+/*:ref: zgemv_ 14 12 13 4 4 9 9 4 9 4 9 9 4 124 */
+/*:ref: zdotc_ 9 6 9 4 9 4 9 4 */
+/*:ref: dlapy2_ 7 2 7 7 */
+/*:ref: zlacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: ztgexc_ 14 14 12 12 4 9 4 9 4 9 4 9 4 4 4 4 */
+/*:ref: ztgsyl_ 14 23 13 4 4 4 9 4 9 4 9 4 9 4 9 4 9 4 7 7 9 4 4 4 124 */

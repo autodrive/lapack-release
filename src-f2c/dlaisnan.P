@@ -1,0 +1,1 @@
+extern logical dlaisnan_(doublereal *din1, doublereal *din2);

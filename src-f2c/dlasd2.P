@@ -1,0 +1,9 @@
+extern int dlasd2_(integer *nl, integer *nr, integer *sqre, integer *k, doublereal *d__, doublereal *z__, doublereal *alpha, doublereal *beta, doublereal *u, integer *ldu, doublereal *vt, integer *ldvt, doublereal *dsigma, doublereal *u2, integer *ldu2, doublereal *vt2, integer *ldvt2, integer *idxp, integer *idx, integer *idxc, integer *idxq, integer *coltyp, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlamrg_ 14 6 4 4 7 4 4 4 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dlapy2_ 7 2 7 7 */
+/*:ref: drot_ 14 7 4 7 4 7 4 7 7 */
+/*:ref: dcopy_ 14 5 4 7 4 7 4 */
+/*:ref: dlaset_ 14 8 13 4 4 7 7 7 4 124 */
+/*:ref: dlacpy_ 14 8 13 4 4 7 4 7 4 124 */

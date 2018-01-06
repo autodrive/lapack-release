@@ -1,0 +1,8 @@
+extern int slarrv_(integer *n, doublereal *vl, doublereal *vu, doublereal *d__, doublereal *l, doublereal *pivmin, integer *isplit, integer *m, integer *dol, integer *dou, doublereal *minrgp, doublereal *rtol1, doublereal *rtol2, doublereal *w, doublereal *werr, doublereal *wgap, integer *iblock, integer *indexw, doublereal *gers, doublereal *z__, integer *ldz, integer *isuppz, doublereal *work, integer *iwork, integer *info);
+/*:ref: slaset_ 14 8 13 4 4 7 7 7 4 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: slarrb_ 14 17 4 7 7 4 4 7 7 4 7 7 7 7 4 7 7 4 4 */
+/*:ref: slarrf_ 14 18 4 7 7 7 4 4 7 7 7 7 7 7 7 7 7 7 7 4 */
+/*:ref: slar1v_ 14 21 4 4 4 7 7 7 7 7 7 7 7 12 4 7 7 4 4 7 7 7 7 */
+/*:ref: sscal_ 14 4 4 7 7 4 */

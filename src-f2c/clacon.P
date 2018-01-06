@@ -1,0 +1,5 @@
+extern int clacon_(integer *n, doublecomplex *v, doublecomplex *x, doublereal *est, integer *kase);
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: scsum1_ 7 3 4 9 4 */
+/*:ref: icmax1_ 4 3 4 9 4 */
+/*:ref: ccopy_ 14 5 4 9 4 9 4 */

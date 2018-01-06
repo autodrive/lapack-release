@@ -1,0 +1,10 @@
+extern int zbbcsd_(char *jobu1, char *jobu2, char *jobv1t, char *jobv2t, char *trans, integer *m, integer *p, integer *q, doublereal *theta, doublereal *phi, doublecomplex *u1, integer *ldu1, doublecomplex *u2, integer *ldu2, doublecomplex *v1t, integer *ldv1t, doublecomplex *v2t, integer *ldv2t, doublereal *b11d, doublereal *b11e, doublereal *b12d, doublereal *b12e, doublereal *b21d, doublereal *b21e, doublereal *b22d, doublereal *b22e, doublereal *rwork, integer *lrwork, integer *info, ftnlen jobu1_len, ftnlen jobu2_len, ftnlen jobv1t_len, ftnlen jobv2t_len, ftnlen trans_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dlas2_ 14 5 7 7 7 7 7 */
+/*:ref: dlartgs_ 14 5 7 7 7 7 7 */
+/*:ref: dlartgp_ 14 5 7 7 7 7 7 */
+/*:ref: zlasr_ 14 12 13 13 13 4 4 7 7 9 4 124 124 124 */
+/*:ref: zscal_ 14 4 4 9 9 4 */
+/*:ref: zswap_ 14 5 4 9 4 9 4 */

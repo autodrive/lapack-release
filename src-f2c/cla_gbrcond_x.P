@@ -1,0 +1,5 @@
+extern doublereal cla_gbrcond_x__(char *trans, integer *n, integer *kl, integer *ku, doublecomplex *ab, integer *ldab, doublecomplex *afb, integer *ldafb, integer *ipiv, doublecomplex *x, integer *info, doublecomplex *work, doublereal *rwork, ftnlen trans_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: clacn2_ 14 6 4 9 9 7 4 4 */
+/*:ref: cgbtrs_ 14 12 13 4 4 4 4 9 4 4 9 4 4 124 */

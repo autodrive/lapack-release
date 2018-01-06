@@ -1,0 +1,14 @@
+extern int cuncsd2by1_(char *jobu1, char *jobu2, char *jobv1t, integer *m, integer *p, integer *q, doublecomplex *x11, integer *ldx11, doublecomplex *x21, integer *ldx21, doublereal *theta, doublecomplex *u1, integer *ldu1, doublecomplex *u2, integer *ldu2, doublecomplex *v1t, integer *ldv1t, doublecomplex *work, integer *lwork, doublereal *rwork, integer *lrwork, integer *iwork, integer *info, ftnlen jobu1_len, ftnlen jobu2_len, ftnlen jobv1t_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: cunbdb1_ 14 15 4 4 4 9 4 9 4 7 7 9 9 9 9 4 4 */
+/*:ref: cungqr_ 14 9 4 4 4 9 4 9 9 4 4 */
+/*:ref: cunglq_ 14 9 4 4 4 9 4 9 9 4 4 */
+/*:ref: cbbcsd_ 14 34 13 13 13 13 13 4 4 4 7 7 9 4 9 4 9 4 9 4 7 7 7 7 7 7 7 7 7 4 4 124 124 124 124 124 */
+/*:ref: cunbdb2_ 14 15 4 4 4 9 4 9 4 7 7 9 9 9 9 4 4 */
+/*:ref: cunbdb3_ 14 15 4 4 4 9 4 9 4 7 7 9 9 9 9 4 4 */
+/*:ref: cunbdb4_ 14 16 4 4 4 9 4 9 4 7 7 9 9 9 9 9 4 4 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: clacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: clapmt_ 14 6 12 4 4 9 4 4 */
+/*:ref: clapmr_ 14 6 12 4 4 9 4 4 */
+/*:ref: ccopy_ 14 5 4 9 4 9 4 */

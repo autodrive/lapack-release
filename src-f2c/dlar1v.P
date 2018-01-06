@@ -1,0 +1,3 @@
+extern int dlar1v_(integer *n, integer *b1, integer *bn, doublereal *lambda, doublereal *d__, doublereal *l, doublereal *ld, doublereal *lld, doublereal *pivmin, doublereal *gaptol, doublereal *z__, logical *wantnc, integer *negcnt, doublereal *ztz, doublereal *mingma, integer *r__, integer *isuppz, doublereal *nrminv, doublereal *resid, doublereal *rqcorr, doublereal *work);
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: disnan_ 12 1 7 */

@@ -1,0 +1,12 @@
+extern int cposvx_(char *fact, char *uplo, integer *n, integer *nrhs, doublecomplex *a, integer *lda, doublecomplex *af, integer *ldaf, char *equed, doublereal *s, doublecomplex *b, integer *ldb, doublecomplex *x, integer *ldx, doublereal *rcond, doublereal *ferr, doublereal *berr, doublecomplex *work, doublereal *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len, ftnlen equed_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: cpoequ_ 14 7 4 9 4 7 7 7 4 */
+/*:ref: claqhe_ 14 10 13 4 9 4 7 7 7 13 124 124 */
+/*:ref: clacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: cpotrf_ 14 6 13 4 9 4 4 124 */
+/*:ref: clanhe_ 7 8 13 13 4 9 4 7 124 124 */
+/*:ref: cpocon_ 14 10 13 4 9 4 7 7 9 7 4 124 */
+/*:ref: cpotrs_ 14 9 13 4 4 9 4 9 4 4 124 */
+/*:ref: cporfs_ 14 17 13 4 4 9 4 9 4 9 4 9 4 7 7 9 7 4 124 */

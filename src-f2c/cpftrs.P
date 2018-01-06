@@ -1,0 +1,4 @@
+extern int cpftrs_(char *transr, char *uplo, integer *n, integer *nrhs, doublecomplex *a, doublecomplex *b, integer *ldb, integer *info, ftnlen transr_len, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: ctfsm_ 14 16 13 13 13 13 13 4 4 9 9 9 4 124 124 124 124 124 */

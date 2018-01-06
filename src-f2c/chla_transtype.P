@@ -1,0 +1,1 @@
+extern H_f chla_transtype__(char *ret_val, ftnlen ret_val_len, integer *trans);

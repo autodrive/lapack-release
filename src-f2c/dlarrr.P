@@ -1,0 +1,2 @@
+extern int dlarrr_(integer *n, doublereal *d__, doublereal *e, integer *info);
+/*:ref: dlamch_ 7 2 13 124 */

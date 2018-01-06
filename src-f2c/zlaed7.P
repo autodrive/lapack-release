@@ -1,0 +1,7 @@
+extern int zlaed7_(integer *n, integer *cutpnt, integer *qsiz, integer *tlvls, integer *curlvl, integer *curpbm, doublereal *d__, doublecomplex *q, integer *ldq, doublereal *rho, integer *indxq, doublereal *qstore, integer *qptr, integer *prmptr, integer *perm, integer *givptr, integer *givcol, doublereal *givnum, doublecomplex *work, doublereal *rwork, integer *iwork, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlaeda_ 14 14 4 4 4 4 4 4 4 4 7 7 4 7 7 4 */
+/*:ref: zlaed8_ 14 21 4 4 4 9 4 7 7 4 7 7 9 4 7 4 4 4 4 4 4 7 4 */
+/*:ref: dlaed9_ 14 13 4 4 4 4 7 7 4 7 7 7 7 4 4 */
+/*:ref: zlacrm_ 14 9 4 4 9 4 7 4 9 4 7 */
+/*:ref: dlamrg_ 14 6 4 4 7 4 4 4 */

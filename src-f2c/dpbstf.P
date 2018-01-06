@@ -1,0 +1,5 @@
+extern int dpbstf_(char *uplo, integer *n, integer *kd, doublereal *ab, integer *ldab, integer *info, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dscal_ 14 4 4 7 7 4 */
+/*:ref: dsyr_ 14 8 13 4 7 7 4 7 4 124 */

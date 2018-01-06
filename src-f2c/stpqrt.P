@@ -1,0 +1,4 @@
+extern int stpqrt_(integer *m, integer *n, integer *l, integer *nb, doublereal *a, integer *lda, doublereal *b, integer *ldb, doublereal *t, integer *ldt, doublereal *work, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: stpqrt2_ 14 10 4 4 4 7 4 7 4 7 4 4 */
+/*:ref: stprfb_ 14 22 13 13 13 13 4 4 4 4 7 4 7 4 7 4 7 4 7 4 124 124 124 124 */

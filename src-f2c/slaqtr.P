@@ -1,0 +1,10 @@
+extern int slaqtr_(logical *ltran, logical *lreal, integer *n, doublereal *t, integer *ldt, doublereal *b, doublereal *w, doublereal *scale, doublereal *x, doublereal *work, integer *info);
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: slange_ 7 7 13 4 4 7 4 7 124 */
+/*:ref: sasum_ 7 3 4 7 4 */
+/*:ref: isamax_ 4 3 4 7 4 */
+/*:ref: sscal_ 14 4 4 7 7 4 */
+/*:ref: saxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: slaln2_ 14 18 12 4 4 7 7 7 4 7 7 7 4 7 7 7 4 7 7 4 */
+/*:ref: sdot_ 7 5 4 7 4 7 4 */
+/*:ref: sladiv_ 14 6 7 7 7 7 7 7 */

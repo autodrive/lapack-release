@@ -1,0 +1,11 @@
+extern int ssysvx_(char *fact, char *uplo, integer *n, integer *nrhs, doublereal *a, integer *lda, doublereal *af, integer *ldaf, integer *ipiv, doublereal *b, integer *ldb, doublereal *x, integer *ldx, doublereal *rcond, doublereal *ferr, doublereal *berr, doublereal *work, integer *lwork, integer *iwork, integer *info, ftnlen fact_len, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: ssytrf_ 14 9 13 4 7 4 4 7 4 4 124 */
+/*:ref: slansy_ 7 8 13 13 4 7 4 7 124 124 */
+/*:ref: ssycon_ 14 11 13 4 7 4 4 7 7 7 4 4 124 */
+/*:ref: ssytrs_ 14 10 13 4 4 7 4 4 7 4 4 124 */
+/*:ref: ssyrfs_ 14 18 13 4 4 7 4 7 4 4 7 4 7 4 7 7 7 4 4 124 */
+/*:ref: slamch_ 7 2 13 124 */

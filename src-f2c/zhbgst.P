@@ -1,0 +1,13 @@
+extern int zhbgst_(char *vect, char *uplo, integer *n, integer *ka, integer *kb, doublecomplex *ab, integer *ldab, doublecomplex *bb, integer *ldbb, doublecomplex *x, integer *ldx, doublecomplex *work, doublereal *rwork, integer *info, ftnlen vect_len, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zlaset_ 14 8 13 4 4 9 9 9 4 124 */
+/*:ref: zdscal_ 14 4 4 7 9 4 */
+/*:ref: zgerc_ 14 9 4 4 9 9 4 9 4 9 4 */
+/*:ref: zlartg_ 14 5 9 9 7 9 9 */
+/*:ref: zlargv_ 14 7 4 9 4 9 4 7 4 */
+/*:ref: zlartv_ 14 8 4 9 4 9 4 7 9 4 */
+/*:ref: zlar2v_ 14 8 4 9 9 9 4 7 9 4 */
+/*:ref: zlacgv_ 14 3 4 9 4 */
+/*:ref: zrot_ 14 7 4 9 4 9 4 7 9 */
+/*:ref: zgeru_ 14 9 4 4 9 9 4 9 4 9 4 */

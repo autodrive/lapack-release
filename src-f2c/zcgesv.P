@@ -1,0 +1,14 @@
+extern int zcgesv_(integer *n, integer *nrhs, doublecomplex *a, integer *lda, integer *ipiv, doublecomplex *b, integer *ldb, doublecomplex *x, integer *ldx, doublecomplex *work, doublecomplex *swork, doublereal *rwork, integer *iter, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zlange_ 7 7 13 4 4 9 4 7 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: zlag2c_ 14 7 4 4 9 4 9 4 4 */
+/*:ref: cgetrf_ 14 6 4 4 9 4 4 4 */
+/*:ref: cgetrs_ 14 10 13 4 4 9 4 4 9 4 4 124 */
+/*:ref: clag2z_ 14 7 4 4 9 4 9 4 4 */
+/*:ref: zlacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: zgemm_ 14 15 13 13 4 4 4 9 9 4 9 4 9 9 4 124 124 */
+/*:ref: izamax_ 4 3 4 9 4 */
+/*:ref: zaxpy_ 14 6 4 9 9 4 9 4 */
+/*:ref: zgetrf_ 14 6 4 4 9 4 4 4 */
+/*:ref: zgetrs_ 14 10 13 4 4 9 4 4 9 4 4 124 */

@@ -1,0 +1,2 @@
+extern int dlarrb_(integer *n, doublereal *d__, doublereal *lld, integer *ifirst, integer *ilast, doublereal *rtol1, doublereal *rtol2, integer *offset, doublereal *w, doublereal *wgap, doublereal *werr, doublereal *work, integer *iwork, doublereal *pivmin, doublereal *spdiam, integer *twist, integer *info);
+/*:ref: dlaneg_ 4 6 4 7 7 7 7 4 */

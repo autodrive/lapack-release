@@ -1,0 +1,12 @@
+extern int cla_gbrfsx_extended__(integer *prec_type__, integer *trans_type__, integer *n, integer *kl, integer *ku, integer *nrhs, doublecomplex *ab, integer *ldab, doublecomplex *afb, integer *ldafb, integer *ipiv, logical *colequ, doublereal *c__, doublecomplex *b, integer *ldb, doublecomplex *y, integer *ldy, doublereal *berr_out__, integer *n_norms__, doublereal *err_bnds_norm__, doublereal *err_bnds_comp__, doublecomplex *res, doublereal *ayb, doublecomplex *dy, doublecomplex *y_tail__, doublereal *rcond, integer *ithresh, doublereal *rthresh, doublereal *dz_ub__, logical *ignore_cwise__, integer *info);
+/*:ref: chla_transtype__ 13 3 13 124 4 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: ccopy_ 14 5 4 9 4 9 4 */
+/*:ref: cgbmv_ 14 14 13 4 4 4 4 9 9 4 9 4 9 9 4 124 */
+/*:ref: blas_cgbmv_x__ 14 14 4 4 4 4 4 9 9 4 9 4 9 9 4 4 */
+/*:ref: blas_cgbmv2_x__ 14 15 4 4 4 4 4 9 9 4 9 9 4 9 9 4 4 */
+/*:ref: cgbtrs_ 14 12 13 4 4 4 4 9 4 4 9 4 4 124 */
+/*:ref: caxpy_ 14 6 4 9 9 4 9 4 */
+/*:ref: cla_wwaddw__ 14 4 4 9 9 9 */
+/*:ref: cla_gbamv__ 14 13 4 4 4 4 4 7 9 4 9 4 7 7 4 */
+/*:ref: cla_lin_berr__ 14 6 4 4 4 9 7 7 */

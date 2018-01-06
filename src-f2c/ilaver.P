@@ -1,0 +1,1 @@
+extern int ilaver_(integer *vers_major__, integer *vers_minor__, integer *vers_patch__);

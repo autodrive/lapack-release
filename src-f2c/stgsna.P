@@ -1,0 +1,12 @@
+extern int stgsna_(char *job, char *howmny, logical *select, integer *n, doublereal *a, integer *lda, doublereal *b, integer *ldb, doublereal *vl, integer *ldvl, doublereal *vr, integer *ldvr, doublereal *s, doublereal *dif, integer *mm, integer *m, doublereal *work, integer *lwork, integer *iwork, integer *info, ftnlen job_len, ftnlen howmny_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: snrm2_ 7 3 4 7 4 */
+/*:ref: slapy2_ 7 2 7 7 */
+/*:ref: sgemv_ 14 12 13 4 4 7 7 4 7 4 7 7 4 124 */
+/*:ref: sdot_ 7 5 4 7 4 7 4 */
+/*:ref: slag2_ 14 10 7 4 7 4 7 7 7 7 7 7 */
+/*:ref: slacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: stgexc_ 14 16 12 12 4 7 4 7 4 7 4 7 4 4 4 7 4 4 */
+/*:ref: stgsyl_ 14 23 13 4 4 4 7 4 7 4 7 4 7 4 7 4 7 4 7 7 7 4 4 4 124 */

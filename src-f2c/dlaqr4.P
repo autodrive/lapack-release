@@ -1,0 +1,7 @@
+extern int dlaqr4_(logical *wantt, logical *wantz, integer *n, integer *ilo, integer *ihi, doublereal *h__, integer *ldh, doublereal *wr, doublereal *wi, integer *iloz, integer *ihiz, doublereal *z__, integer *ldz, doublereal *work, integer *lwork, integer *info);
+/*:ref: dlahqr_ 14 14 12 12 4 4 4 7 4 7 7 4 4 7 4 4 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: dlaqr2_ 14 26 12 12 4 4 4 4 7 4 4 4 7 4 4 4 7 7 7 4 4 7 4 4 7 4 7 4 */
+/*:ref: dlanv2_ 14 10 7 7 7 7 7 7 7 7 7 7 */
+/*:ref: dlacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: dlaqr5_ 14 25 12 12 4 4 4 4 4 7 7 7 4 4 4 7 4 7 4 7 4 4 7 4 4 7 4 */

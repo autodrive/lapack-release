@@ -1,0 +1,1 @@
+extern int slag2d_(integer *m, integer *n, doublereal *sa, integer *ldsa, doublereal *a, integer *lda, integer *info);

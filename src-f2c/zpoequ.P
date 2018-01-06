@@ -1,0 +1,2 @@
+extern int zpoequ_(integer *n, doublecomplex *a, integer *lda, doublereal *s, doublereal *scond, doublereal *amax, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */

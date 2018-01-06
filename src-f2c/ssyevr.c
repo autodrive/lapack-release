@@ -1,0 +1,1026 @@
+#line 1 "ssyevr.f"
+/* ssyevr.f -- translated by f2c (version 20100827).
+   You must link the resulting object file with libf2c:
+	on Microsoft Windows system, link with libf2c.lib;
+	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
+	or, if you install libf2c.a in a standard place, with -lf2c -lm
+	-- in that order, at the end of the command line, as in
+		cc *.o -lf2c -lm
+	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
+
+		http://www.netlib.org/f2c/libf2c.zip
+*/
+
+#include "f2c.h"
+
+#line 1 "ssyevr.f"
+/* Table of constant values */
+
+static integer c__10 = 10;
+static integer c__1 = 1;
+static integer c__2 = 2;
+static integer c__3 = 3;
+static integer c__4 = 4;
+static integer c_n1 = -1;
+
+/* > \brief <b> SSYEVR computes the eigenvalues and, optionally, the left and/or right eigenvectors for SY mat
+rices</b> */
+
+/*  =========== DOCUMENTATION =========== */
+
+/* Online html documentation available at */
+/*            http://www.netlib.org/lapack/explore-html/ */
+
+/* > \htmlonly */
+/* > Download SSYEVR + dependencies */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ssyevr.
+f"> */
+/* > [TGZ]</a> */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ssyevr.
+f"> */
+/* > [ZIP]</a> */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ssyevr.
+f"> */
+/* > [TXT]</a> */
+/* > \endhtmlonly */
+
+/*  Definition: */
+/*  =========== */
+
+/*       SUBROUTINE SSYEVR( JOBZ, RANGE, UPLO, N, A, LDA, VL, VU, IL, IU, */
+/*                          ABSTOL, M, W, Z, LDZ, ISUPPZ, WORK, LWORK, */
+/*                          IWORK, LIWORK, INFO ) */
+
+/*       .. Scalar Arguments .. */
+/*       CHARACTER          JOBZ, RANGE, UPLO */
+/*       INTEGER            IL, INFO, IU, LDA, LDZ, LIWORK, LWORK, M, N */
+/*       REAL               ABSTOL, VL, VU */
+/*       .. */
+/*       .. Array Arguments .. */
+/*       INTEGER            ISUPPZ( * ), IWORK( * ) */
+/*       REAL               A( LDA, * ), W( * ), WORK( * ), Z( LDZ, * ) */
+/*       .. */
+
+
+/* > \par Purpose: */
+/*  ============= */
+/* > */
+/* > \verbatim */
+/* > */
+/* > SSYEVR computes selected eigenvalues and, optionally, eigenvectors */
+/* > of a real symmetric matrix A.  Eigenvalues and eigenvectors can be */
+/* > selected by specifying either a range of values or a range of */
+/* > indices for the desired eigenvalues. */
+/* > */
+/* > SSYEVR first reduces the matrix A to tridiagonal form T with a call */
+/* > to SSYTRD.  Then, whenever possible, SSYEVR calls SSTEMR to compute */
+/* > the eigenspectrum using Relatively Robust Representations.  SSTEMR */
+/* > computes eigenvalues by the dqds algorithm, while orthogonal */
+/* > eigenvectors are computed from various "good" L D L^T representations */
+/* > (also known as Relatively Robust Representations). Gram-Schmidt */
+/* > orthogonalization is avoided as far as possible. More specifically, */
+/* > the various steps of the algorithm are as follows. */
+/* > */
+/* > For each unreduced block (submatrix) of T, */
+/* >    (a) Compute T - sigma I  = L D L^T, so that L and D */
+/* >        define all the wanted eigenvalues to high relative accuracy. */
+/* >        This means that small relative changes in the entries of D and L */
+/* >        cause only small relative changes in the eigenvalues and */
+/* >        eigenvectors. The standard (unfactored) representation of the */
+/* >        tridiagonal matrix T does not have this property in general. */
+/* >    (b) Compute the eigenvalues to suitable accuracy. */
+/* >        If the eigenvectors are desired, the algorithm attains full */
+/* >        accuracy of the computed eigenvalues only right before */
+/* >        the corresponding vectors have to be computed, see steps c) and d). */
+/* >    (c) For each cluster of close eigenvalues, select a new */
+/* >        shift close to the cluster, find a new factorization, and refine */
+/* >        the shifted eigenvalues to suitable accuracy. */
+/* >    (d) For each eigenvalue with a large enough relative separation compute */
+/* >        the corresponding eigenvector by forming a rank revealing twisted */
+/* >        factorization. Go back to (c) for any clusters that remain. */
+/* > */
+/* > The desired accuracy of the output can be specified by the input */
+/* > parameter ABSTOL. */
+/* > */
+/* > For more details, see SSTEMR's documentation and: */
+/* > - Inderjit S. Dhillon and Beresford N. Parlett: "Multiple representations */
+/* >   to compute orthogonal eigenvectors of symmetric tridiagonal matrices," */
+/* >   Linear Algebra and its Applications, 387(1), pp. 1-28, August 2004. */
+/* > - Inderjit Dhillon and Beresford Parlett: "Orthogonal Eigenvectors and */
+/* >   Relative Gaps," SIAM Journal on Matrix Analysis and Applications, Vol. 25, */
+/* >   2004.  Also LAPACK Working Note 154. */
+/* > - Inderjit Dhillon: "A new O(n^2) algorithm for the symmetric */
+/* >   tridiagonal eigenvalue/eigenvector problem", */
+/* >   Computer Science Division Technical Report No. UCB/CSD-97-971, */
+/* >   UC Berkeley, May 1997. */
+/* > */
+/* > */
+/* > Note 1 : SSYEVR calls SSTEMR when the full spectrum is requested */
+/* > on machines which conform to the ieee-754 floating point standard. */
+/* > SSYEVR calls SSTEBZ and SSTEIN on non-ieee machines and */
+/* > when partial spectrum requests are made. */
+/* > */
+/* > Normal execution of SSTEMR may create NaNs and infinities and */
+/* > hence may abort due to a floating point exception in environments */
+/* > which do not handle NaNs and infinities in the ieee standard default */
+/* > manner. */
+/* > \endverbatim */
+
+/*  Arguments: */
+/*  ========== */
+
+/* > \param[in] JOBZ */
+/* > \verbatim */
+/* >          JOBZ is CHARACTER*1 */
+/* >          = 'N':  Compute eigenvalues only; */
+/* >          = 'V':  Compute eigenvalues and eigenvectors. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] RANGE */
+/* > \verbatim */
+/* >          RANGE is CHARACTER*1 */
+/* >          = 'A': all eigenvalues will be found. */
+/* >          = 'V': all eigenvalues in the half-open interval (VL,VU] */
+/* >                 will be found. */
+/* >          = 'I': the IL-th through IU-th eigenvalues will be found. */
+/* >          For RANGE = 'V' or 'I' and IU - IL < N - 1, SSTEBZ and */
+/* >          SSTEIN are called */
+/* > \endverbatim */
+/* > */
+/* > \param[in] UPLO */
+/* > \verbatim */
+/* >          UPLO is CHARACTER*1 */
+/* >          = 'U':  Upper triangle of A is stored; */
+/* >          = 'L':  Lower triangle of A is stored. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] N */
+/* > \verbatim */
+/* >          N is INTEGER */
+/* >          The order of the matrix A.  N >= 0. */
+/* > \endverbatim */
+/* > */
+/* > \param[in,out] A */
+/* > \verbatim */
+/* >          A is REAL array, dimension (LDA, N) */
+/* >          On entry, the symmetric matrix A.  If UPLO = 'U', the */
+/* >          leading N-by-N upper triangular part of A contains the */
+/* >          upper triangular part of the matrix A.  If UPLO = 'L', */
+/* >          the leading N-by-N lower triangular part of A contains */
+/* >          the lower triangular part of the matrix A. */
+/* >          On exit, the lower triangle (if UPLO='L') or the upper */
+/* >          triangle (if UPLO='U') of A, including the diagonal, is */
+/* >          destroyed. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LDA */
+/* > \verbatim */
+/* >          LDA is INTEGER */
+/* >          The leading dimension of the array A.  LDA >= max(1,N). */
+/* > \endverbatim */
+/* > */
+/* > \param[in] VL */
+/* > \verbatim */
+/* >          VL is REAL */
+/* > \endverbatim */
+/* > */
+/* > \param[in] VU */
+/* > \verbatim */
+/* >          VU is REAL */
+/* >          If RANGE='V', the lower and upper bounds of the interval to */
+/* >          be searched for eigenvalues. VL < VU. */
+/* >          Not referenced if RANGE = 'A' or 'I'. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] IL */
+/* > \verbatim */
+/* >          IL is INTEGER */
+/* > \endverbatim */
+/* > */
+/* > \param[in] IU */
+/* > \verbatim */
+/* >          IU is INTEGER */
+/* >          If RANGE='I', the indices (in ascending order) of the */
+/* >          smallest and largest eigenvalues to be returned. */
+/* >          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0. */
+/* >          Not referenced if RANGE = 'A' or 'V'. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] ABSTOL */
+/* > \verbatim */
+/* >          ABSTOL is REAL */
+/* >          The absolute error tolerance for the eigenvalues. */
+/* >          An approximate eigenvalue is accepted as converged */
+/* >          when it is determined to lie in an interval [a,b] */
+/* >          of width less than or equal to */
+/* > */
+/* >                  ABSTOL + EPS *   max( |a|,|b| ) , */
+/* > */
+/* >          where EPS is the machine precision.  If ABSTOL is less than */
+/* >          or equal to zero, then  EPS*|T|  will be used in its place, */
+/* >          where |T| is the 1-norm of the tridiagonal matrix obtained */
+/* >          by reducing A to tridiagonal form. */
+/* > */
+/* >          See "Computing Small Singular Values of Bidiagonal Matrices */
+/* >          with Guaranteed High Relative Accuracy," by Demmel and */
+/* >          Kahan, LAPACK Working Note #3. */
+/* > */
+/* >          If high relative accuracy is important, set ABSTOL to */
+/* >          SLAMCH( 'Safe minimum' ).  Doing so will guarantee that */
+/* >          eigenvalues are computed to high relative accuracy when */
+/* >          possible in future releases.  The current code does not */
+/* >          make any guarantees about high relative accuracy, but */
+/* >          future releases will. See J. Barlow and J. Demmel, */
+/* >          "Computing Accurate Eigensystems of Scaled Diagonally */
+/* >          Dominant Matrices", LAPACK Working Note #7, for a discussion */
+/* >          of which matrices define their eigenvalues to high relative */
+/* >          accuracy. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] M */
+/* > \verbatim */
+/* >          M is INTEGER */
+/* >          The total number of eigenvalues found.  0 <= M <= N. */
+/* >          If RANGE = 'A', M = N, and if RANGE = 'I', M = IU-IL+1. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] W */
+/* > \verbatim */
+/* >          W is REAL array, dimension (N) */
+/* >          The first M elements contain the selected eigenvalues in */
+/* >          ascending order. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] Z */
+/* > \verbatim */
+/* >          Z is REAL array, dimension (LDZ, max(1,M)) */
+/* >          If JOBZ = 'V', then if INFO = 0, the first M columns of Z */
+/* >          contain the orthonormal eigenvectors of the matrix A */
+/* >          corresponding to the selected eigenvalues, with the i-th */
+/* >          column of Z holding the eigenvector associated with W(i). */
+/* >          If JOBZ = 'N', then Z is not referenced. */
+/* >          Note: the user must ensure that at least max(1,M) columns are */
+/* >          supplied in the array Z; if RANGE = 'V', the exact value of M */
+/* >          is not known in advance and an upper bound must be used. */
+/* >          Supplying N columns is always safe. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LDZ */
+/* > \verbatim */
+/* >          LDZ is INTEGER */
+/* >          The leading dimension of the array Z.  LDZ >= 1, and if */
+/* >          JOBZ = 'V', LDZ >= max(1,N). */
+/* > \endverbatim */
+/* > */
+/* > \param[out] ISUPPZ */
+/* > \verbatim */
+/* >          ISUPPZ is INTEGER array, dimension ( 2*max(1,M) ) */
+/* >          The support of the eigenvectors in Z, i.e., the indices */
+/* >          indicating the nonzero elements in Z. The i-th eigenvector */
+/* >          is nonzero only in elements ISUPPZ( 2*i-1 ) through */
+/* >          ISUPPZ( 2*i ). */
+/* >          Implemented only for RANGE = 'A' or 'I' and IU - IL = N - 1 */
+/* > \endverbatim */
+/* > */
+/* > \param[out] WORK */
+/* > \verbatim */
+/* >          WORK is REAL array, dimension (MAX(1,LWORK)) */
+/* >          On exit, if INFO = 0, WORK(1) returns the optimal LWORK. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LWORK */
+/* > \verbatim */
+/* >          LWORK is INTEGER */
+/* >          The dimension of the array WORK.  LWORK >= max(1,26*N). */
+/* >          For optimal efficiency, LWORK >= (NB+6)*N, */
+/* >          where NB is the max of the blocksize for SSYTRD and SORMTR */
+/* >          returned by ILAENV. */
+/* > */
+/* >          If LWORK = -1, then a workspace query is assumed; the routine */
+/* >          only calculates the optimal sizes of the WORK and IWORK */
+/* >          arrays, returns these values as the first entries of the WORK */
+/* >          and IWORK arrays, and no error message related to LWORK or */
+/* >          LIWORK is issued by XERBLA. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] IWORK */
+/* > \verbatim */
+/* >          IWORK is INTEGER array, dimension (MAX(1,LIWORK)) */
+/* >          On exit, if INFO = 0, IWORK(1) returns the optimal LWORK. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LIWORK */
+/* > \verbatim */
+/* >          LIWORK is INTEGER */
+/* >          The dimension of the array IWORK.  LIWORK >= max(1,10*N). */
+/* > */
+/* >          If LIWORK = -1, then a workspace query is assumed; the */
+/* >          routine only calculates the optimal sizes of the WORK and */
+/* >          IWORK arrays, returns these values as the first entries of */
+/* >          the WORK and IWORK arrays, and no error message related to */
+/* >          LWORK or LIWORK is issued by XERBLA. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] INFO */
+/* > \verbatim */
+/* >          INFO is INTEGER */
+/* >          = 0:  successful exit */
+/* >          < 0:  if INFO = -i, the i-th argument had an illegal value */
+/* >          > 0:  Internal error */
+/* > \endverbatim */
+
+/*  Authors: */
+/*  ======== */
+
+/* > \author Univ. of Tennessee */
+/* > \author Univ. of California Berkeley */
+/* > \author Univ. of Colorado Denver */
+/* > \author NAG Ltd. */
+
+/* > \date September 2012 */
+
+/* > \ingroup realSYeigen */
+
+/* > \par Contributors: */
+/*  ================== */
+/* > */
+/* >     Inderjit Dhillon, IBM Almaden, USA \n */
+/* >     Osni Marques, LBNL/NERSC, USA \n */
+/* >     Ken Stanley, Computer Science Division, University of */
+/* >       California at Berkeley, USA \n */
+/* >     Jason Riedy, Computer Science Division, University of */
+/* >       California at Berkeley, USA \n */
+/* > */
+/*  ===================================================================== */
+/* Subroutine */ int ssyevr_(char *jobz, char *range, char *uplo, integer *n, 
+	doublereal *a, integer *lda, doublereal *vl, doublereal *vu, integer *
+	il, integer *iu, doublereal *abstol, integer *m, doublereal *w, 
+	doublereal *z__, integer *ldz, integer *isuppz, doublereal *work, 
+	integer *lwork, integer *iwork, integer *liwork, integer *info, 
+	ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len)
+{
+    /* System generated locals */
+    integer a_dim1, a_offset, z_dim1, z_offset, i__1, i__2;
+    doublereal d__1, d__2;
+
+    /* Builtin functions */
+    double sqrt(doublereal);
+
+    /* Local variables */
+    static integer i__, j, nb, jj;
+    static doublereal eps, vll, vuu, tmp1;
+    static integer indd, inde;
+    static doublereal anrm;
+    static integer imax;
+    static doublereal rmin, rmax;
+    static logical test;
+    static integer inddd, indee;
+    static doublereal sigma;
+    extern logical lsame_(char *, char *, ftnlen, ftnlen);
+    static integer iinfo;
+    extern /* Subroutine */ int sscal_(integer *, doublereal *, doublereal *, 
+	    integer *);
+    static char order[1];
+    static integer indwk, lwmin;
+    static logical lower;
+    extern /* Subroutine */ int scopy_(integer *, doublereal *, integer *, 
+	    doublereal *, integer *), sswap_(integer *, doublereal *, integer 
+	    *, doublereal *, integer *);
+    static logical wantz, alleig, indeig;
+    static integer iscale, ieeeok, indibl, indifl;
+    static logical valeig;
+    extern doublereal slamch_(char *, ftnlen);
+    static doublereal safmin;
+    extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
+	    integer *, integer *, ftnlen, ftnlen);
+    extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
+    static doublereal abstll, bignum;
+    static integer indtau, indisp, indiwo, indwkn, liwmin;
+    static logical tryrac;
+    extern /* Subroutine */ int sstein_(integer *, doublereal *, doublereal *,
+	     integer *, doublereal *, integer *, integer *, doublereal *, 
+	    integer *, doublereal *, integer *, integer *, integer *), 
+	    ssterf_(integer *, doublereal *, doublereal *, integer *);
+    static integer llwrkn, llwork, nsplit;
+    static doublereal smlnum;
+    extern doublereal slansy_(char *, char *, integer *, doublereal *, 
+	    integer *, doublereal *, ftnlen, ftnlen);
+    extern /* Subroutine */ int sstebz_(char *, char *, integer *, doublereal 
+	    *, doublereal *, integer *, integer *, doublereal *, doublereal *,
+	     doublereal *, integer *, integer *, doublereal *, integer *, 
+	    integer *, doublereal *, integer *, integer *, ftnlen, ftnlen), 
+	    sstemr_(char *, char *, integer *, doublereal *, doublereal *, 
+	    doublereal *, doublereal *, integer *, integer *, integer *, 
+	    doublereal *, doublereal *, integer *, integer *, integer *, 
+	    logical *, doublereal *, integer *, integer *, integer *, integer 
+	    *, ftnlen, ftnlen);
+    static integer lwkopt;
+    static logical lquery;
+    extern /* Subroutine */ int sormtr_(char *, char *, char *, integer *, 
+	    integer *, doublereal *, integer *, doublereal *, doublereal *, 
+	    integer *, doublereal *, integer *, integer *, ftnlen, ftnlen, 
+	    ftnlen), ssytrd_(char *, integer *, doublereal *, integer *, 
+	    doublereal *, doublereal *, doublereal *, doublereal *, integer *,
+	     integer *, ftnlen);
+
+
+/*  -- LAPACK driver routine (version 3.4.2) -- */
+/*  -- LAPACK is a software package provided by Univ. of Tennessee,    -- */
+/*  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..-- */
+/*     September 2012 */
+
+/*     .. Scalar Arguments .. */
+/*     .. */
+/*     .. Array Arguments .. */
+/*     .. */
+
+/* ===================================================================== */
+
+/*     .. Parameters .. */
+/*     .. */
+/*     .. Local Scalars .. */
+/*     .. */
+/*     .. External Functions .. */
+/*     .. */
+/*     .. External Subroutines .. */
+/*     .. */
+/*     .. Intrinsic Functions .. */
+/*     .. */
+/*     .. Executable Statements .. */
+
+/*     Test the input parameters. */
+
+#line 379 "ssyevr.f"
+    /* Parameter adjustments */
+#line 379 "ssyevr.f"
+    a_dim1 = *lda;
+#line 379 "ssyevr.f"
+    a_offset = 1 + a_dim1;
+#line 379 "ssyevr.f"
+    a -= a_offset;
+#line 379 "ssyevr.f"
+    --w;
+#line 379 "ssyevr.f"
+    z_dim1 = *ldz;
+#line 379 "ssyevr.f"
+    z_offset = 1 + z_dim1;
+#line 379 "ssyevr.f"
+    z__ -= z_offset;
+#line 379 "ssyevr.f"
+    --isuppz;
+#line 379 "ssyevr.f"
+    --work;
+#line 379 "ssyevr.f"
+    --iwork;
+#line 379 "ssyevr.f"
+
+#line 379 "ssyevr.f"
+    /* Function Body */
+#line 379 "ssyevr.f"
+    ieeeok = ilaenv_(&c__10, "SSYEVR", "N", &c__1, &c__2, &c__3, &c__4, (
+	    ftnlen)6, (ftnlen)1);
+
+#line 381 "ssyevr.f"
+    lower = lsame_(uplo, "L", (ftnlen)1, (ftnlen)1);
+#line 382 "ssyevr.f"
+    wantz = lsame_(jobz, "V", (ftnlen)1, (ftnlen)1);
+#line 383 "ssyevr.f"
+    alleig = lsame_(range, "A", (ftnlen)1, (ftnlen)1);
+#line 384 "ssyevr.f"
+    valeig = lsame_(range, "V", (ftnlen)1, (ftnlen)1);
+#line 385 "ssyevr.f"
+    indeig = lsame_(range, "I", (ftnlen)1, (ftnlen)1);
+
+#line 387 "ssyevr.f"
+    lquery = *lwork == -1 || *liwork == -1;
+
+/* Computing MAX */
+#line 389 "ssyevr.f"
+    i__1 = 1, i__2 = *n * 26;
+#line 389 "ssyevr.f"
+    lwmin = max(i__1,i__2);
+/* Computing MAX */
+#line 390 "ssyevr.f"
+    i__1 = 1, i__2 = *n * 10;
+#line 390 "ssyevr.f"
+    liwmin = max(i__1,i__2);
+
+#line 392 "ssyevr.f"
+    *info = 0;
+#line 393 "ssyevr.f"
+    if (! (wantz || lsame_(jobz, "N", (ftnlen)1, (ftnlen)1))) {
+#line 394 "ssyevr.f"
+	*info = -1;
+#line 395 "ssyevr.f"
+    } else if (! (alleig || valeig || indeig)) {
+#line 396 "ssyevr.f"
+	*info = -2;
+#line 397 "ssyevr.f"
+    } else if (! (lower || lsame_(uplo, "U", (ftnlen)1, (ftnlen)1))) {
+#line 398 "ssyevr.f"
+	*info = -3;
+#line 399 "ssyevr.f"
+    } else if (*n < 0) {
+#line 400 "ssyevr.f"
+	*info = -4;
+#line 401 "ssyevr.f"
+    } else if (*lda < max(1,*n)) {
+#line 402 "ssyevr.f"
+	*info = -6;
+#line 403 "ssyevr.f"
+    } else {
+#line 404 "ssyevr.f"
+	if (valeig) {
+#line 405 "ssyevr.f"
+	    if (*n > 0 && *vu <= *vl) {
+#line 405 "ssyevr.f"
+		*info = -8;
+#line 405 "ssyevr.f"
+	    }
+#line 407 "ssyevr.f"
+	} else if (indeig) {
+#line 408 "ssyevr.f"
+	    if (*il < 1 || *il > max(1,*n)) {
+#line 409 "ssyevr.f"
+		*info = -9;
+#line 410 "ssyevr.f"
+	    } else if (*iu < min(*n,*il) || *iu > *n) {
+#line 411 "ssyevr.f"
+		*info = -10;
+#line 412 "ssyevr.f"
+	    }
+#line 413 "ssyevr.f"
+	}
+#line 414 "ssyevr.f"
+    }
+#line 415 "ssyevr.f"
+    if (*info == 0) {
+#line 416 "ssyevr.f"
+	if (*ldz < 1 || wantz && *ldz < *n) {
+#line 417 "ssyevr.f"
+	    *info = -15;
+#line 418 "ssyevr.f"
+	}
+#line 419 "ssyevr.f"
+    }
+
+#line 421 "ssyevr.f"
+    if (*info == 0) {
+#line 422 "ssyevr.f"
+	nb = ilaenv_(&c__1, "SSYTRD", uplo, n, &c_n1, &c_n1, &c_n1, (ftnlen)6,
+		 (ftnlen)1);
+/* Computing MAX */
+#line 423 "ssyevr.f"
+	i__1 = nb, i__2 = ilaenv_(&c__1, "SORMTR", uplo, n, &c_n1, &c_n1, &
+		c_n1, (ftnlen)6, (ftnlen)1);
+#line 423 "ssyevr.f"
+	nb = max(i__1,i__2);
+/* Computing MAX */
+#line 424 "ssyevr.f"
+	i__1 = (nb + 1) * *n;
+#line 424 "ssyevr.f"
+	lwkopt = max(i__1,lwmin);
+#line 425 "ssyevr.f"
+	work[1] = (doublereal) lwkopt;
+#line 426 "ssyevr.f"
+	iwork[1] = liwmin;
+
+#line 428 "ssyevr.f"
+	if (*lwork < lwmin && ! lquery) {
+#line 429 "ssyevr.f"
+	    *info = -18;
+#line 430 "ssyevr.f"
+	} else if (*liwork < liwmin && ! lquery) {
+#line 431 "ssyevr.f"
+	    *info = -20;
+#line 432 "ssyevr.f"
+	}
+#line 433 "ssyevr.f"
+    }
+
+#line 435 "ssyevr.f"
+    if (*info != 0) {
+#line 436 "ssyevr.f"
+	i__1 = -(*info);
+#line 436 "ssyevr.f"
+	xerbla_("SSYEVR", &i__1, (ftnlen)6);
+#line 437 "ssyevr.f"
+	return 0;
+#line 438 "ssyevr.f"
+    } else if (lquery) {
+#line 439 "ssyevr.f"
+	return 0;
+#line 440 "ssyevr.f"
+    }
+
+/*     Quick return if possible */
+
+#line 444 "ssyevr.f"
+    *m = 0;
+#line 445 "ssyevr.f"
+    if (*n == 0) {
+#line 446 "ssyevr.f"
+	work[1] = 1.;
+#line 447 "ssyevr.f"
+	return 0;
+#line 448 "ssyevr.f"
+    }
+
+#line 450 "ssyevr.f"
+    if (*n == 1) {
+#line 451 "ssyevr.f"
+	work[1] = 26.;
+#line 452 "ssyevr.f"
+	if (alleig || indeig) {
+#line 453 "ssyevr.f"
+	    *m = 1;
+#line 454 "ssyevr.f"
+	    w[1] = a[a_dim1 + 1];
+#line 455 "ssyevr.f"
+	} else {
+#line 456 "ssyevr.f"
+	    if (*vl < a[a_dim1 + 1] && *vu >= a[a_dim1 + 1]) {
+#line 457 "ssyevr.f"
+		*m = 1;
+#line 458 "ssyevr.f"
+		w[1] = a[a_dim1 + 1];
+#line 459 "ssyevr.f"
+	    }
+#line 460 "ssyevr.f"
+	}
+#line 461 "ssyevr.f"
+	if (wantz) {
+#line 462 "ssyevr.f"
+	    z__[z_dim1 + 1] = 1.;
+#line 463 "ssyevr.f"
+	    isuppz[1] = 1;
+#line 464 "ssyevr.f"
+	    isuppz[2] = 1;
+#line 465 "ssyevr.f"
+	}
+#line 466 "ssyevr.f"
+	return 0;
+#line 467 "ssyevr.f"
+    }
+
+/*     Get machine constants. */
+
+#line 471 "ssyevr.f"
+    safmin = slamch_("Safe minimum", (ftnlen)12);
+#line 472 "ssyevr.f"
+    eps = slamch_("Precision", (ftnlen)9);
+#line 473 "ssyevr.f"
+    smlnum = safmin / eps;
+#line 474 "ssyevr.f"
+    bignum = 1. / smlnum;
+#line 475 "ssyevr.f"
+    rmin = sqrt(smlnum);
+/* Computing MIN */
+#line 476 "ssyevr.f"
+    d__1 = sqrt(bignum), d__2 = 1. / sqrt(sqrt(safmin));
+#line 476 "ssyevr.f"
+    rmax = min(d__1,d__2);
+
+/*     Scale matrix to allowable range, if necessary. */
+
+#line 480 "ssyevr.f"
+    iscale = 0;
+#line 481 "ssyevr.f"
+    abstll = *abstol;
+#line 482 "ssyevr.f"
+    if (valeig) {
+#line 483 "ssyevr.f"
+	vll = *vl;
+#line 484 "ssyevr.f"
+	vuu = *vu;
+#line 485 "ssyevr.f"
+    }
+#line 486 "ssyevr.f"
+    anrm = slansy_("M", uplo, n, &a[a_offset], lda, &work[1], (ftnlen)1, (
+	    ftnlen)1);
+#line 487 "ssyevr.f"
+    if (anrm > 0. && anrm < rmin) {
+#line 488 "ssyevr.f"
+	iscale = 1;
+#line 489 "ssyevr.f"
+	sigma = rmin / anrm;
+#line 490 "ssyevr.f"
+    } else if (anrm > rmax) {
+#line 491 "ssyevr.f"
+	iscale = 1;
+#line 492 "ssyevr.f"
+	sigma = rmax / anrm;
+#line 493 "ssyevr.f"
+    }
+#line 494 "ssyevr.f"
+    if (iscale == 1) {
+#line 495 "ssyevr.f"
+	if (lower) {
+#line 496 "ssyevr.f"
+	    i__1 = *n;
+#line 496 "ssyevr.f"
+	    for (j = 1; j <= i__1; ++j) {
+#line 497 "ssyevr.f"
+		i__2 = *n - j + 1;
+#line 497 "ssyevr.f"
+		sscal_(&i__2, &sigma, &a[j + j * a_dim1], &c__1);
+#line 498 "ssyevr.f"
+/* L10: */
+#line 498 "ssyevr.f"
+	    }
+#line 499 "ssyevr.f"
+	} else {
+#line 500 "ssyevr.f"
+	    i__1 = *n;
+#line 500 "ssyevr.f"
+	    for (j = 1; j <= i__1; ++j) {
+#line 501 "ssyevr.f"
+		sscal_(&j, &sigma, &a[j * a_dim1 + 1], &c__1);
+#line 502 "ssyevr.f"
+/* L20: */
+#line 502 "ssyevr.f"
+	    }
+#line 503 "ssyevr.f"
+	}
+#line 504 "ssyevr.f"
+	if (*abstol > 0.) {
+#line 504 "ssyevr.f"
+	    abstll = *abstol * sigma;
+#line 504 "ssyevr.f"
+	}
+#line 506 "ssyevr.f"
+	if (valeig) {
+#line 507 "ssyevr.f"
+	    vll = *vl * sigma;
+#line 508 "ssyevr.f"
+	    vuu = *vu * sigma;
+#line 509 "ssyevr.f"
+	}
+#line 510 "ssyevr.f"
+    }
+/*     Initialize indices into workspaces.  Note: The IWORK indices are */
+/*     used only if SSTERF or SSTEMR fail. */
+/*     WORK(INDTAU:INDTAU+N-1) stores the scalar factors of the */
+/*     elementary reflectors used in SSYTRD. */
+#line 517 "ssyevr.f"
+    indtau = 1;
+/*     WORK(INDD:INDD+N-1) stores the tridiagonal's diagonal entries. */
+#line 519 "ssyevr.f"
+    indd = indtau + *n;
+/*     WORK(INDE:INDE+N-1) stores the off-diagonal entries of the */
+/*     tridiagonal matrix from SSYTRD. */
+#line 522 "ssyevr.f"
+    inde = indd + *n;
+/*     WORK(INDDD:INDDD+N-1) is a copy of the diagonal entries over */
+/*     -written by SSTEMR (the SSTERF path copies the diagonal to W). */
+#line 525 "ssyevr.f"
+    inddd = inde + *n;
+/*     WORK(INDEE:INDEE+N-1) is a copy of the off-diagonal entries over */
+/*     -written while computing the eigenvalues in SSTERF and SSTEMR. */
+#line 528 "ssyevr.f"
+    indee = inddd + *n;
+/*     INDWK is the starting offset of the left-over workspace, and */
+/*     LLWORK is the remaining workspace size. */
+#line 531 "ssyevr.f"
+    indwk = indee + *n;
+#line 532 "ssyevr.f"
+    llwork = *lwork - indwk + 1;
+/*     IWORK(INDIBL:INDIBL+M-1) corresponds to IBLOCK in SSTEBZ and */
+/*     stores the block indices of each of the M<=N eigenvalues. */
+#line 536 "ssyevr.f"
+    indibl = 1;
+/*     IWORK(INDISP:INDISP+NSPLIT-1) corresponds to ISPLIT in SSTEBZ and */
+/*     stores the starting and finishing indices of each block. */
+#line 539 "ssyevr.f"
+    indisp = indibl + *n;
+/*     IWORK(INDIFL:INDIFL+N-1) stores the indices of eigenvectors */
+/*     that corresponding to eigenvectors that fail to converge in */
+/*     SSTEIN.  This information is discarded; if any fail, the driver */
+/*     returns INFO > 0. */
+#line 544 "ssyevr.f"
+    indifl = indisp + *n;
+/*     INDIWO is the offset of the remaining integer workspace. */
+#line 546 "ssyevr.f"
+    indiwo = indifl + *n;
+
+/*     Call SSYTRD to reduce symmetric matrix to tridiagonal form. */
+
+#line 551 "ssyevr.f"
+    ssytrd_(uplo, n, &a[a_offset], lda, &work[indd], &work[inde], &work[
+	    indtau], &work[indwk], &llwork, &iinfo, (ftnlen)1);
+
+/*     If all eigenvalues are desired */
+/*     then call SSTERF or SSTEMR and SORMTR. */
+
+#line 557 "ssyevr.f"
+    test = FALSE_;
+#line 558 "ssyevr.f"
+    if (indeig) {
+#line 559 "ssyevr.f"
+	if (*il == 1 && *iu == *n) {
+#line 560 "ssyevr.f"
+	    test = TRUE_;
+#line 561 "ssyevr.f"
+	}
+#line 562 "ssyevr.f"
+    }
+#line 563 "ssyevr.f"
+    if ((alleig || test) && ieeeok == 1) {
+#line 564 "ssyevr.f"
+	if (! wantz) {
+#line 565 "ssyevr.f"
+	    scopy_(n, &work[indd], &c__1, &w[1], &c__1);
+#line 566 "ssyevr.f"
+	    i__1 = *n - 1;
+#line 566 "ssyevr.f"
+	    scopy_(&i__1, &work[inde], &c__1, &work[indee], &c__1);
+#line 567 "ssyevr.f"
+	    ssterf_(n, &w[1], &work[indee], info);
+#line 568 "ssyevr.f"
+	} else {
+#line 569 "ssyevr.f"
+	    i__1 = *n - 1;
+#line 569 "ssyevr.f"
+	    scopy_(&i__1, &work[inde], &c__1, &work[indee], &c__1);
+#line 570 "ssyevr.f"
+	    scopy_(n, &work[indd], &c__1, &work[inddd], &c__1);
+
+#line 572 "ssyevr.f"
+	    if (*abstol <= *n * 2. * eps) {
+#line 573 "ssyevr.f"
+		tryrac = TRUE_;
+#line 574 "ssyevr.f"
+	    } else {
+#line 575 "ssyevr.f"
+		tryrac = FALSE_;
+#line 576 "ssyevr.f"
+	    }
+#line 577 "ssyevr.f"
+	    sstemr_(jobz, "A", n, &work[inddd], &work[indee], vl, vu, il, iu, 
+		    m, &w[1], &z__[z_offset], ldz, n, &isuppz[1], &tryrac, &
+		    work[indwk], lwork, &iwork[1], liwork, info, (ftnlen)1, (
+		    ftnlen)1);
+
+
+
+/*        Apply orthogonal matrix used in reduction to tridiagonal */
+/*        form to eigenvectors returned by SSTEIN. */
+
+#line 587 "ssyevr.f"
+	    if (wantz && *info == 0) {
+#line 588 "ssyevr.f"
+		indwkn = inde;
+#line 589 "ssyevr.f"
+		llwrkn = *lwork - indwkn + 1;
+#line 590 "ssyevr.f"
+		sormtr_("L", uplo, "N", n, m, &a[a_offset], lda, &work[indtau]
+			, &z__[z_offset], ldz, &work[indwkn], &llwrkn, &iinfo,
+			 (ftnlen)1, (ftnlen)1, (ftnlen)1);
+#line 593 "ssyevr.f"
+	    }
+#line 594 "ssyevr.f"
+	}
+
+
+#line 597 "ssyevr.f"
+	if (*info == 0) {
+/*           Everything worked.  Skip SSTEBZ/SSTEIN.  IWORK(:) are */
+/*           undefined. */
+#line 600 "ssyevr.f"
+	    *m = *n;
+#line 601 "ssyevr.f"
+	    goto L30;
+#line 602 "ssyevr.f"
+	}
+#line 603 "ssyevr.f"
+	*info = 0;
+#line 604 "ssyevr.f"
+    }
+
+/*     Otherwise, call SSTEBZ and, if eigenvectors are desired, SSTEIN. */
+/*     Also call SSTEBZ and SSTEIN if SSTEMR fails. */
+
+#line 609 "ssyevr.f"
+    if (wantz) {
+#line 610 "ssyevr.f"
+	*(unsigned char *)order = 'B';
+#line 611 "ssyevr.f"
+    } else {
+#line 612 "ssyevr.f"
+	*(unsigned char *)order = 'E';
+#line 613 "ssyevr.f"
+    }
+#line 615 "ssyevr.f"
+    sstebz_(range, order, n, &vll, &vuu, il, iu, &abstll, &work[indd], &work[
+	    inde], m, &nsplit, &w[1], &iwork[indibl], &iwork[indisp], &work[
+	    indwk], &iwork[indiwo], info, (ftnlen)1, (ftnlen)1);
+
+#line 620 "ssyevr.f"
+    if (wantz) {
+#line 621 "ssyevr.f"
+	sstein_(n, &work[indd], &work[inde], m, &w[1], &iwork[indibl], &iwork[
+		indisp], &z__[z_offset], ldz, &work[indwk], &iwork[indiwo], &
+		iwork[indifl], info);
+
+/*        Apply orthogonal matrix used in reduction to tridiagonal */
+/*        form to eigenvectors returned by SSTEIN. */
+
+#line 629 "ssyevr.f"
+	indwkn = inde;
+#line 630 "ssyevr.f"
+	llwrkn = *lwork - indwkn + 1;
+#line 631 "ssyevr.f"
+	sormtr_("L", uplo, "N", n, m, &a[a_offset], lda, &work[indtau], &z__[
+		z_offset], ldz, &work[indwkn], &llwrkn, &iinfo, (ftnlen)1, (
+		ftnlen)1, (ftnlen)1);
+#line 633 "ssyevr.f"
+    }
+
+/*     If matrix was scaled, then rescale eigenvalues appropriately. */
+
+/*  Jump here if SSTEMR/SSTEIN succeeded. */
+#line 638 "ssyevr.f"
+L30:
+#line 639 "ssyevr.f"
+    if (iscale == 1) {
+#line 640 "ssyevr.f"
+	if (*info == 0) {
+#line 641 "ssyevr.f"
+	    imax = *m;
+#line 642 "ssyevr.f"
+	} else {
+#line 643 "ssyevr.f"
+	    imax = *info - 1;
+#line 644 "ssyevr.f"
+	}
+#line 645 "ssyevr.f"
+	d__1 = 1. / sigma;
+#line 645 "ssyevr.f"
+	sscal_(&imax, &d__1, &w[1], &c__1);
+#line 646 "ssyevr.f"
+    }
+
+/*     If eigenvalues are not in order, then sort them, along with */
+/*     eigenvectors.  Note: We do not sort the IFAIL portion of IWORK. */
+/*     It may not be initialized (if SSTEMR/SSTEIN succeeded), and we do */
+/*     not return this detailed information to the user. */
+
+#line 653 "ssyevr.f"
+    if (wantz) {
+#line 654 "ssyevr.f"
+	i__1 = *m - 1;
+#line 654 "ssyevr.f"
+	for (j = 1; j <= i__1; ++j) {
+#line 655 "ssyevr.f"
+	    i__ = 0;
+#line 656 "ssyevr.f"
+	    tmp1 = w[j];
+#line 657 "ssyevr.f"
+	    i__2 = *m;
+#line 657 "ssyevr.f"
+	    for (jj = j + 1; jj <= i__2; ++jj) {
+#line 658 "ssyevr.f"
+		if (w[jj] < tmp1) {
+#line 659 "ssyevr.f"
+		    i__ = jj;
+#line 660 "ssyevr.f"
+		    tmp1 = w[jj];
+#line 661 "ssyevr.f"
+		}
+#line 662 "ssyevr.f"
+/* L40: */
+#line 662 "ssyevr.f"
+	    }
+
+#line 664 "ssyevr.f"
+	    if (i__ != 0) {
+#line 665 "ssyevr.f"
+		w[i__] = w[j];
+#line 666 "ssyevr.f"
+		w[j] = tmp1;
+#line 667 "ssyevr.f"
+		sswap_(n, &z__[i__ * z_dim1 + 1], &c__1, &z__[j * z_dim1 + 1],
+			 &c__1);
+#line 668 "ssyevr.f"
+	    }
+#line 669 "ssyevr.f"
+/* L50: */
+#line 669 "ssyevr.f"
+	}
+#line 670 "ssyevr.f"
+    }
+
+/*     Set WORK(1) to optimal workspace size. */
+
+#line 674 "ssyevr.f"
+    work[1] = (doublereal) lwkopt;
+#line 675 "ssyevr.f"
+    iwork[1] = liwmin;
+
+#line 677 "ssyevr.f"
+    return 0;
+
+/*     End of SSYEVR */
+
+} /* ssyevr_ */
+

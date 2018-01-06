@@ -1,0 +1,2 @@
+extern doublereal zla_porpvgrw__(char *uplo, integer *ncols, doublecomplex *a, integer *lda, doublecomplex *af, integer *ldaf, doublereal *work, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */

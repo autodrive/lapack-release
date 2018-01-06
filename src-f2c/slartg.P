@@ -1,0 +1,2 @@
+extern int slartg_(doublereal *f, doublereal *g, doublereal *cs, doublereal *sn, doublereal *r__);
+/*:ref: slamch_ 7 2 13 124 */

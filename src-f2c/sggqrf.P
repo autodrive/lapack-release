@@ -1,0 +1,6 @@
+extern int sggqrf_(integer *n, integer *m, integer *p, doublereal *a, integer *lda, doublereal *taua, doublereal *b, integer *ldb, doublereal *taub, doublereal *work, integer *lwork, integer *info);
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: sgeqrf_ 14 8 4 4 7 4 7 7 4 4 */
+/*:ref: sormqr_ 14 15 13 13 4 4 4 7 4 7 7 4 7 4 4 124 124 */
+/*:ref: sgerqf_ 14 8 4 4 7 4 7 7 4 4 */

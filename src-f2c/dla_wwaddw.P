@@ -1,0 +1,1 @@
+extern int dla_wwaddw__(integer *n, doublereal *x, doublereal *y, doublereal *w);

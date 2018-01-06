@@ -1,0 +1,9 @@
+extern int cpprfs_(char *uplo, integer *n, integer *nrhs, doublecomplex *ap, doublecomplex *afp, doublecomplex *b, integer *ldb, doublecomplex *x, integer *ldx, doublereal *ferr, doublereal *berr, doublecomplex *work, doublereal *rwork, integer *info, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: ccopy_ 14 5 4 9 4 9 4 */
+/*:ref: chpmv_ 14 10 13 4 9 9 9 4 9 9 4 124 */
+/*:ref: cpptrs_ 14 8 13 4 4 9 9 4 4 124 */
+/*:ref: caxpy_ 14 6 4 9 9 4 9 4 */
+/*:ref: clacn2_ 14 6 4 9 9 7 4 4 */

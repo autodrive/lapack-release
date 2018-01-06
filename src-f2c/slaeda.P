@@ -1,0 +1,5 @@
+extern int slaeda_(integer *n, integer *tlvls, integer *curlvl, integer *curpbm, integer *prmptr, integer *perm, integer *givptr, integer *givcol, doublereal *givnum, doublereal *q, integer *qptr, doublereal *z__, doublereal *ztemp, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: srot_ 14 7 4 7 4 7 4 7 7 */
+/*:ref: sgemv_ 14 12 13 4 4 7 7 4 7 4 7 7 4 124 */

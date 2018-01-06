@@ -1,0 +1,4 @@
+extern int dpbtrs_(char *uplo, integer *n, integer *kd, integer *nrhs, doublereal *ab, integer *ldab, doublereal *b, integer *ldb, integer *info, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dtbsv_ 14 12 13 13 13 4 4 7 4 7 4 124 124 124 */

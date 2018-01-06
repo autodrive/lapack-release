@@ -1,0 +1,883 @@
+#line 1 "zhbevx.f"
+/* zhbevx.f -- translated by f2c (version 20100827).
+   You must link the resulting object file with libf2c:
+	on Microsoft Windows system, link with libf2c.lib;
+	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
+	or, if you install libf2c.a in a standard place, with -lf2c -lm
+	-- in that order, at the end of the command line, as in
+		cc *.o -lf2c -lm
+	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
+
+		http://www.netlib.org/f2c/libf2c.zip
+*/
+
+#include "f2c.h"
+
+#line 1 "zhbevx.f"
+/* Table of constant values */
+
+static doublecomplex c_b1 = {0.,0.};
+static doublecomplex c_b2 = {1.,0.};
+static doublereal c_b16 = 1.;
+static integer c__1 = 1;
+
+/* > \brief <b> ZHBEVX computes the eigenvalues and, optionally, the left and/or right eigenvectors for OTHER 
+matrices</b> */
+
+/*  =========== DOCUMENTATION =========== */
+
+/* Online html documentation available at */
+/*            http://www.netlib.org/lapack/explore-html/ */
+
+/* > \htmlonly */
+/* > Download ZHBEVX + dependencies */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/zhbevx.
+f"> */
+/* > [TGZ]</a> */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/zhbevx.
+f"> */
+/* > [ZIP]</a> */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/zhbevx.
+f"> */
+/* > [TXT]</a> */
+/* > \endhtmlonly */
+
+/*  Definition: */
+/*  =========== */
+
+/*       SUBROUTINE ZHBEVX( JOBZ, RANGE, UPLO, N, KD, AB, LDAB, Q, LDQ, VL, */
+/*                          VU, IL, IU, ABSTOL, M, W, Z, LDZ, WORK, RWORK, */
+/*                          IWORK, IFAIL, INFO ) */
+
+/*       .. Scalar Arguments .. */
+/*       CHARACTER          JOBZ, RANGE, UPLO */
+/*       INTEGER            IL, INFO, IU, KD, LDAB, LDQ, LDZ, M, N */
+/*       DOUBLE PRECISION   ABSTOL, VL, VU */
+/*       .. */
+/*       .. Array Arguments .. */
+/*       INTEGER            IFAIL( * ), IWORK( * ) */
+/*       DOUBLE PRECISION   RWORK( * ), W( * ) */
+/*       COMPLEX*16         AB( LDAB, * ), Q( LDQ, * ), WORK( * ), */
+/*      $                   Z( LDZ, * ) */
+/*       .. */
+
+
+/* > \par Purpose: */
+/*  ============= */
+/* > */
+/* > \verbatim */
+/* > */
+/* > ZHBEVX computes selected eigenvalues and, optionally, eigenvectors */
+/* > of a complex Hermitian band matrix A.  Eigenvalues and eigenvectors */
+/* > can be selected by specifying either a range of values or a range of */
+/* > indices for the desired eigenvalues. */
+/* > \endverbatim */
+
+/*  Arguments: */
+/*  ========== */
+
+/* > \param[in] JOBZ */
+/* > \verbatim */
+/* >          JOBZ is CHARACTER*1 */
+/* >          = 'N':  Compute eigenvalues only; */
+/* >          = 'V':  Compute eigenvalues and eigenvectors. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] RANGE */
+/* > \verbatim */
+/* >          RANGE is CHARACTER*1 */
+/* >          = 'A': all eigenvalues will be found; */
+/* >          = 'V': all eigenvalues in the half-open interval (VL,VU] */
+/* >                 will be found; */
+/* >          = 'I': the IL-th through IU-th eigenvalues will be found. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] UPLO */
+/* > \verbatim */
+/* >          UPLO is CHARACTER*1 */
+/* >          = 'U':  Upper triangle of A is stored; */
+/* >          = 'L':  Lower triangle of A is stored. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] N */
+/* > \verbatim */
+/* >          N is INTEGER */
+/* >          The order of the matrix A.  N >= 0. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] KD */
+/* > \verbatim */
+/* >          KD is INTEGER */
+/* >          The number of superdiagonals of the matrix A if UPLO = 'U', */
+/* >          or the number of subdiagonals if UPLO = 'L'.  KD >= 0. */
+/* > \endverbatim */
+/* > */
+/* > \param[in,out] AB */
+/* > \verbatim */
+/* >          AB is COMPLEX*16 array, dimension (LDAB, N) */
+/* >          On entry, the upper or lower triangle of the Hermitian band */
+/* >          matrix A, stored in the first KD+1 rows of the array.  The */
+/* >          j-th column of A is stored in the j-th column of the array AB */
+/* >          as follows: */
+/* >          if UPLO = 'U', AB(kd+1+i-j,j) = A(i,j) for max(1,j-kd)<=i<=j; */
+/* >          if UPLO = 'L', AB(1+i-j,j)    = A(i,j) for j<=i<=min(n,j+kd). */
+/* > */
+/* >          On exit, AB is overwritten by values generated during the */
+/* >          reduction to tridiagonal form. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LDAB */
+/* > \verbatim */
+/* >          LDAB is INTEGER */
+/* >          The leading dimension of the array AB.  LDAB >= KD + 1. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] Q */
+/* > \verbatim */
+/* >          Q is COMPLEX*16 array, dimension (LDQ, N) */
+/* >          If JOBZ = 'V', the N-by-N unitary matrix used in the */
+/* >                          reduction to tridiagonal form. */
+/* >          If JOBZ = 'N', the array Q is not referenced. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LDQ */
+/* > \verbatim */
+/* >          LDQ is INTEGER */
+/* >          The leading dimension of the array Q.  If JOBZ = 'V', then */
+/* >          LDQ >= max(1,N). */
+/* > \endverbatim */
+/* > */
+/* > \param[in] VL */
+/* > \verbatim */
+/* >          VL is DOUBLE PRECISION */
+/* > \endverbatim */
+/* > */
+/* > \param[in] VU */
+/* > \verbatim */
+/* >          VU is DOUBLE PRECISION */
+/* >          If RANGE='V', the lower and upper bounds of the interval to */
+/* >          be searched for eigenvalues. VL < VU. */
+/* >          Not referenced if RANGE = 'A' or 'I'. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] IL */
+/* > \verbatim */
+/* >          IL is INTEGER */
+/* > \endverbatim */
+/* > */
+/* > \param[in] IU */
+/* > \verbatim */
+/* >          IU is INTEGER */
+/* >          If RANGE='I', the indices (in ascending order) of the */
+/* >          smallest and largest eigenvalues to be returned. */
+/* >          1 <= IL <= IU <= N, if N > 0; IL = 1 and IU = 0 if N = 0. */
+/* >          Not referenced if RANGE = 'A' or 'V'. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] ABSTOL */
+/* > \verbatim */
+/* >          ABSTOL is DOUBLE PRECISION */
+/* >          The absolute error tolerance for the eigenvalues. */
+/* >          An approximate eigenvalue is accepted as converged */
+/* >          when it is determined to lie in an interval [a,b] */
+/* >          of width less than or equal to */
+/* > */
+/* >                  ABSTOL + EPS *   max( |a|,|b| ) , */
+/* > */
+/* >          where EPS is the machine precision.  If ABSTOL is less than */
+/* >          or equal to zero, then  EPS*|T|  will be used in its place, */
+/* >          where |T| is the 1-norm of the tridiagonal matrix obtained */
+/* >          by reducing AB to tridiagonal form. */
+/* > */
+/* >          Eigenvalues will be computed most accurately when ABSTOL is */
+/* >          set to twice the underflow threshold 2*DLAMCH('S'), not zero. */
+/* >          If this routine returns with INFO>0, indicating that some */
+/* >          eigenvectors did not converge, try setting ABSTOL to */
+/* >          2*DLAMCH('S'). */
+/* > */
+/* >          See "Computing Small Singular Values of Bidiagonal Matrices */
+/* >          with Guaranteed High Relative Accuracy," by Demmel and */
+/* >          Kahan, LAPACK Working Note #3. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] M */
+/* > \verbatim */
+/* >          M is INTEGER */
+/* >          The total number of eigenvalues found.  0 <= M <= N. */
+/* >          If RANGE = 'A', M = N, and if RANGE = 'I', M = IU-IL+1. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] W */
+/* > \verbatim */
+/* >          W is DOUBLE PRECISION array, dimension (N) */
+/* >          The first M elements contain the selected eigenvalues in */
+/* >          ascending order. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] Z */
+/* > \verbatim */
+/* >          Z is COMPLEX*16 array, dimension (LDZ, max(1,M)) */
+/* >          If JOBZ = 'V', then if INFO = 0, the first M columns of Z */
+/* >          contain the orthonormal eigenvectors of the matrix A */
+/* >          corresponding to the selected eigenvalues, with the i-th */
+/* >          column of Z holding the eigenvector associated with W(i). */
+/* >          If an eigenvector fails to converge, then that column of Z */
+/* >          contains the latest approximation to the eigenvector, and the */
+/* >          index of the eigenvector is returned in IFAIL. */
+/* >          If JOBZ = 'N', then Z is not referenced. */
+/* >          Note: the user must ensure that at least max(1,M) columns are */
+/* >          supplied in the array Z; if RANGE = 'V', the exact value of M */
+/* >          is not known in advance and an upper bound must be used. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LDZ */
+/* > \verbatim */
+/* >          LDZ is INTEGER */
+/* >          The leading dimension of the array Z.  LDZ >= 1, and if */
+/* >          JOBZ = 'V', LDZ >= max(1,N). */
+/* > \endverbatim */
+/* > */
+/* > \param[out] WORK */
+/* > \verbatim */
+/* >          WORK is COMPLEX*16 array, dimension (N) */
+/* > \endverbatim */
+/* > */
+/* > \param[out] RWORK */
+/* > \verbatim */
+/* >          RWORK is DOUBLE PRECISION array, dimension (7*N) */
+/* > \endverbatim */
+/* > */
+/* > \param[out] IWORK */
+/* > \verbatim */
+/* >          IWORK is INTEGER array, dimension (5*N) */
+/* > \endverbatim */
+/* > */
+/* > \param[out] IFAIL */
+/* > \verbatim */
+/* >          IFAIL is INTEGER array, dimension (N) */
+/* >          If JOBZ = 'V', then if INFO = 0, the first M elements of */
+/* >          IFAIL are zero.  If INFO > 0, then IFAIL contains the */
+/* >          indices of the eigenvectors that failed to converge. */
+/* >          If JOBZ = 'N', then IFAIL is not referenced. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] INFO */
+/* > \verbatim */
+/* >          INFO is INTEGER */
+/* >          = 0:  successful exit */
+/* >          < 0:  if INFO = -i, the i-th argument had an illegal value */
+/* >          > 0:  if INFO = i, then i eigenvectors failed to converge. */
+/* >                Their indices are stored in array IFAIL. */
+/* > \endverbatim */
+
+/*  Authors: */
+/*  ======== */
+
+/* > \author Univ. of Tennessee */
+/* > \author Univ. of California Berkeley */
+/* > \author Univ. of Colorado Denver */
+/* > \author NAG Ltd. */
+
+/* > \date November 2011 */
+
+/* > \ingroup complex16OTHEReigen */
+
+/*  ===================================================================== */
+/* Subroutine */ int zhbevx_(char *jobz, char *range, char *uplo, integer *n, 
+	integer *kd, doublecomplex *ab, integer *ldab, doublecomplex *q, 
+	integer *ldq, doublereal *vl, doublereal *vu, integer *il, integer *
+	iu, doublereal *abstol, integer *m, doublereal *w, doublecomplex *z__,
+	 integer *ldz, doublecomplex *work, doublereal *rwork, integer *iwork,
+	 integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, 
+	ftnlen uplo_len)
+{
+    /* System generated locals */
+    integer ab_dim1, ab_offset, q_dim1, q_offset, z_dim1, z_offset, i__1, 
+	    i__2;
+    doublereal d__1, d__2;
+
+    /* Builtin functions */
+    double sqrt(doublereal);
+
+    /* Local variables */
+    static integer i__, j, jj;
+    static doublereal eps, vll, vuu, tmp1;
+    static integer indd, inde;
+    static doublereal anrm;
+    static integer imax;
+    static doublereal rmin, rmax;
+    static logical test;
+    static doublecomplex ctmp1;
+    static integer itmp1, indee;
+    extern /* Subroutine */ int dscal_(integer *, doublereal *, doublereal *, 
+	    integer *);
+    static doublereal sigma;
+    extern logical lsame_(char *, char *, ftnlen, ftnlen);
+    static integer iinfo;
+    static char order[1];
+    extern /* Subroutine */ int dcopy_(integer *, doublereal *, integer *, 
+	    doublereal *, integer *);
+    static logical lower;
+    extern /* Subroutine */ int zgemv_(char *, integer *, integer *, 
+	    doublecomplex *, doublecomplex *, integer *, doublecomplex *, 
+	    integer *, doublecomplex *, doublecomplex *, integer *, ftnlen);
+    static logical wantz;
+    extern /* Subroutine */ int zcopy_(integer *, doublecomplex *, integer *, 
+	    doublecomplex *, integer *), zswap_(integer *, doublecomplex *, 
+	    integer *, doublecomplex *, integer *);
+    extern doublereal dlamch_(char *, ftnlen);
+    static logical alleig, indeig;
+    static integer iscale, indibl;
+    static logical valeig;
+    static doublereal safmin;
+    extern doublereal zlanhb_(char *, char *, integer *, integer *, 
+	    doublecomplex *, integer *, doublereal *, ftnlen, ftnlen);
+    extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
+    static doublereal abstll, bignum;
+    static integer indiwk, indisp;
+    extern /* Subroutine */ int dsterf_(integer *, doublereal *, doublereal *,
+	     integer *), zlascl_(char *, integer *, integer *, doublereal *, 
+	    doublereal *, integer *, integer *, doublecomplex *, integer *, 
+	    integer *, ftnlen), dstebz_(char *, char *, integer *, doublereal 
+	    *, doublereal *, integer *, integer *, doublereal *, doublereal *,
+	     doublereal *, integer *, integer *, doublereal *, integer *, 
+	    integer *, doublereal *, integer *, integer *, ftnlen, ftnlen), 
+	    zhbtrd_(char *, char *, integer *, integer *, doublecomplex *, 
+	    integer *, doublereal *, doublereal *, doublecomplex *, integer *,
+	     doublecomplex *, integer *, ftnlen, ftnlen);
+    static integer indrwk, indwrk;
+    extern /* Subroutine */ int zlacpy_(char *, integer *, integer *, 
+	    doublecomplex *, integer *, doublecomplex *, integer *, ftnlen);
+    static integer nsplit;
+    static doublereal smlnum;
+    extern /* Subroutine */ int zstein_(integer *, doublereal *, doublereal *,
+	     integer *, doublereal *, integer *, integer *, doublecomplex *, 
+	    integer *, doublereal *, integer *, integer *, integer *), 
+	    zsteqr_(char *, integer *, doublereal *, doublereal *, 
+	    doublecomplex *, integer *, doublereal *, integer *, ftnlen);
+
+
+/*  -- LAPACK driver routine (version 3.4.0) -- */
+/*  -- LAPACK is a software package provided by Univ. of Tennessee,    -- */
+/*  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..-- */
+/*     November 2011 */
+
+/*     .. Scalar Arguments .. */
+/*     .. */
+/*     .. Array Arguments .. */
+/*     .. */
+
+/*  ===================================================================== */
+
+/*     .. Parameters .. */
+/*     .. */
+/*     .. Local Scalars .. */
+/*     .. */
+/*     .. External Functions .. */
+/*     .. */
+/*     .. External Subroutines .. */
+/*     .. */
+/*     .. Intrinsic Functions .. */
+/*     .. */
+/*     .. Executable Statements .. */
+
+/*     Test the input parameters. */
+
+#line 316 "zhbevx.f"
+    /* Parameter adjustments */
+#line 316 "zhbevx.f"
+    ab_dim1 = *ldab;
+#line 316 "zhbevx.f"
+    ab_offset = 1 + ab_dim1;
+#line 316 "zhbevx.f"
+    ab -= ab_offset;
+#line 316 "zhbevx.f"
+    q_dim1 = *ldq;
+#line 316 "zhbevx.f"
+    q_offset = 1 + q_dim1;
+#line 316 "zhbevx.f"
+    q -= q_offset;
+#line 316 "zhbevx.f"
+    --w;
+#line 316 "zhbevx.f"
+    z_dim1 = *ldz;
+#line 316 "zhbevx.f"
+    z_offset = 1 + z_dim1;
+#line 316 "zhbevx.f"
+    z__ -= z_offset;
+#line 316 "zhbevx.f"
+    --work;
+#line 316 "zhbevx.f"
+    --rwork;
+#line 316 "zhbevx.f"
+    --iwork;
+#line 316 "zhbevx.f"
+    --ifail;
+#line 316 "zhbevx.f"
+
+#line 316 "zhbevx.f"
+    /* Function Body */
+#line 316 "zhbevx.f"
+    wantz = lsame_(jobz, "V", (ftnlen)1, (ftnlen)1);
+#line 317 "zhbevx.f"
+    alleig = lsame_(range, "A", (ftnlen)1, (ftnlen)1);
+#line 318 "zhbevx.f"
+    valeig = lsame_(range, "V", (ftnlen)1, (ftnlen)1);
+#line 319 "zhbevx.f"
+    indeig = lsame_(range, "I", (ftnlen)1, (ftnlen)1);
+#line 320 "zhbevx.f"
+    lower = lsame_(uplo, "L", (ftnlen)1, (ftnlen)1);
+
+#line 322 "zhbevx.f"
+    *info = 0;
+#line 323 "zhbevx.f"
+    if (! (wantz || lsame_(jobz, "N", (ftnlen)1, (ftnlen)1))) {
+#line 324 "zhbevx.f"
+	*info = -1;
+#line 325 "zhbevx.f"
+    } else if (! (alleig || valeig || indeig)) {
+#line 326 "zhbevx.f"
+	*info = -2;
+#line 327 "zhbevx.f"
+    } else if (! (lower || lsame_(uplo, "U", (ftnlen)1, (ftnlen)1))) {
+#line 328 "zhbevx.f"
+	*info = -3;
+#line 329 "zhbevx.f"
+    } else if (*n < 0) {
+#line 330 "zhbevx.f"
+	*info = -4;
+#line 331 "zhbevx.f"
+    } else if (*kd < 0) {
+#line 332 "zhbevx.f"
+	*info = -5;
+#line 333 "zhbevx.f"
+    } else if (*ldab < *kd + 1) {
+#line 334 "zhbevx.f"
+	*info = -7;
+#line 335 "zhbevx.f"
+    } else if (wantz && *ldq < max(1,*n)) {
+#line 336 "zhbevx.f"
+	*info = -9;
+#line 337 "zhbevx.f"
+    } else {
+#line 338 "zhbevx.f"
+	if (valeig) {
+#line 339 "zhbevx.f"
+	    if (*n > 0 && *vu <= *vl) {
+#line 339 "zhbevx.f"
+		*info = -11;
+#line 339 "zhbevx.f"
+	    }
+#line 341 "zhbevx.f"
+	} else if (indeig) {
+#line 342 "zhbevx.f"
+	    if (*il < 1 || *il > max(1,*n)) {
+#line 343 "zhbevx.f"
+		*info = -12;
+#line 344 "zhbevx.f"
+	    } else if (*iu < min(*n,*il) || *iu > *n) {
+#line 345 "zhbevx.f"
+		*info = -13;
+#line 346 "zhbevx.f"
+	    }
+#line 347 "zhbevx.f"
+	}
+#line 348 "zhbevx.f"
+    }
+#line 349 "zhbevx.f"
+    if (*info == 0) {
+#line 350 "zhbevx.f"
+	if (*ldz < 1 || wantz && *ldz < *n) {
+#line 350 "zhbevx.f"
+	    *info = -18;
+#line 350 "zhbevx.f"
+	}
+#line 352 "zhbevx.f"
+    }
+
+#line 354 "zhbevx.f"
+    if (*info != 0) {
+#line 355 "zhbevx.f"
+	i__1 = -(*info);
+#line 355 "zhbevx.f"
+	xerbla_("ZHBEVX", &i__1, (ftnlen)6);
+#line 356 "zhbevx.f"
+	return 0;
+#line 357 "zhbevx.f"
+    }
+
+/*     Quick return if possible */
+
+#line 361 "zhbevx.f"
+    *m = 0;
+#line 362 "zhbevx.f"
+    if (*n == 0) {
+#line 362 "zhbevx.f"
+	return 0;
+#line 362 "zhbevx.f"
+    }
+
+#line 365 "zhbevx.f"
+    if (*n == 1) {
+#line 366 "zhbevx.f"
+	*m = 1;
+#line 367 "zhbevx.f"
+	if (lower) {
+#line 368 "zhbevx.f"
+	    i__1 = ab_dim1 + 1;
+#line 368 "zhbevx.f"
+	    ctmp1.r = ab[i__1].r, ctmp1.i = ab[i__1].i;
+#line 369 "zhbevx.f"
+	} else {
+#line 370 "zhbevx.f"
+	    i__1 = *kd + 1 + ab_dim1;
+#line 370 "zhbevx.f"
+	    ctmp1.r = ab[i__1].r, ctmp1.i = ab[i__1].i;
+#line 371 "zhbevx.f"
+	}
+#line 372 "zhbevx.f"
+	tmp1 = ctmp1.r;
+#line 373 "zhbevx.f"
+	if (valeig) {
+#line 374 "zhbevx.f"
+	    if (! (*vl < tmp1 && *vu >= tmp1)) {
+#line 374 "zhbevx.f"
+		*m = 0;
+#line 374 "zhbevx.f"
+	    }
+#line 376 "zhbevx.f"
+	}
+#line 377 "zhbevx.f"
+	if (*m == 1) {
+#line 378 "zhbevx.f"
+	    w[1] = ctmp1.r;
+#line 379 "zhbevx.f"
+	    if (wantz) {
+#line 379 "zhbevx.f"
+		i__1 = z_dim1 + 1;
+#line 379 "zhbevx.f"
+		z__[i__1].r = 1., z__[i__1].i = 0.;
+#line 379 "zhbevx.f"
+	    }
+#line 381 "zhbevx.f"
+	}
+#line 382 "zhbevx.f"
+	return 0;
+#line 383 "zhbevx.f"
+    }
+
+/*     Get machine constants. */
+
+#line 387 "zhbevx.f"
+    safmin = dlamch_("Safe minimum", (ftnlen)12);
+#line 388 "zhbevx.f"
+    eps = dlamch_("Precision", (ftnlen)9);
+#line 389 "zhbevx.f"
+    smlnum = safmin / eps;
+#line 390 "zhbevx.f"
+    bignum = 1. / smlnum;
+#line 391 "zhbevx.f"
+    rmin = sqrt(smlnum);
+/* Computing MIN */
+#line 392 "zhbevx.f"
+    d__1 = sqrt(bignum), d__2 = 1. / sqrt(sqrt(safmin));
+#line 392 "zhbevx.f"
+    rmax = min(d__1,d__2);
+
+/*     Scale matrix to allowable range, if necessary. */
+
+#line 396 "zhbevx.f"
+    iscale = 0;
+#line 397 "zhbevx.f"
+    abstll = *abstol;
+#line 398 "zhbevx.f"
+    if (valeig) {
+#line 399 "zhbevx.f"
+	vll = *vl;
+#line 400 "zhbevx.f"
+	vuu = *vu;
+#line 401 "zhbevx.f"
+    } else {
+#line 402 "zhbevx.f"
+	vll = 0.;
+#line 403 "zhbevx.f"
+	vuu = 0.;
+#line 404 "zhbevx.f"
+    }
+#line 405 "zhbevx.f"
+    anrm = zlanhb_("M", uplo, n, kd, &ab[ab_offset], ldab, &rwork[1], (ftnlen)
+	    1, (ftnlen)1);
+#line 406 "zhbevx.f"
+    if (anrm > 0. && anrm < rmin) {
+#line 407 "zhbevx.f"
+	iscale = 1;
+#line 408 "zhbevx.f"
+	sigma = rmin / anrm;
+#line 409 "zhbevx.f"
+    } else if (anrm > rmax) {
+#line 410 "zhbevx.f"
+	iscale = 1;
+#line 411 "zhbevx.f"
+	sigma = rmax / anrm;
+#line 412 "zhbevx.f"
+    }
+#line 413 "zhbevx.f"
+    if (iscale == 1) {
+#line 414 "zhbevx.f"
+	if (lower) {
+#line 415 "zhbevx.f"
+	    zlascl_("B", kd, kd, &c_b16, &sigma, n, n, &ab[ab_offset], ldab, 
+		    info, (ftnlen)1);
+#line 416 "zhbevx.f"
+	} else {
+#line 417 "zhbevx.f"
+	    zlascl_("Q", kd, kd, &c_b16, &sigma, n, n, &ab[ab_offset], ldab, 
+		    info, (ftnlen)1);
+#line 418 "zhbevx.f"
+	}
+#line 419 "zhbevx.f"
+	if (*abstol > 0.) {
+#line 419 "zhbevx.f"
+	    abstll = *abstol * sigma;
+#line 419 "zhbevx.f"
+	}
+#line 421 "zhbevx.f"
+	if (valeig) {
+#line 422 "zhbevx.f"
+	    vll = *vl * sigma;
+#line 423 "zhbevx.f"
+	    vuu = *vu * sigma;
+#line 424 "zhbevx.f"
+	}
+#line 425 "zhbevx.f"
+    }
+
+/*     Call ZHBTRD to reduce Hermitian band matrix to tridiagonal form. */
+
+#line 429 "zhbevx.f"
+    indd = 1;
+#line 430 "zhbevx.f"
+    inde = indd + *n;
+#line 431 "zhbevx.f"
+    indrwk = inde + *n;
+#line 432 "zhbevx.f"
+    indwrk = 1;
+#line 433 "zhbevx.f"
+    zhbtrd_(jobz, uplo, n, kd, &ab[ab_offset], ldab, &rwork[indd], &rwork[
+	    inde], &q[q_offset], ldq, &work[indwrk], &iinfo, (ftnlen)1, (
+	    ftnlen)1);
+
+/*     If all eigenvalues are desired and ABSTOL is less than or equal */
+/*     to zero, then call DSTERF or ZSTEQR.  If this fails for some */
+/*     eigenvalue, then try DSTEBZ. */
+
+#line 440 "zhbevx.f"
+    test = FALSE_;
+#line 441 "zhbevx.f"
+    if (indeig) {
+#line 442 "zhbevx.f"
+	if (*il == 1 && *iu == *n) {
+#line 443 "zhbevx.f"
+	    test = TRUE_;
+#line 444 "zhbevx.f"
+	}
+#line 445 "zhbevx.f"
+    }
+#line 446 "zhbevx.f"
+    if ((alleig || test) && *abstol <= 0.) {
+#line 447 "zhbevx.f"
+	dcopy_(n, &rwork[indd], &c__1, &w[1], &c__1);
+#line 448 "zhbevx.f"
+	indee = indrwk + (*n << 1);
+#line 449 "zhbevx.f"
+	if (! wantz) {
+#line 450 "zhbevx.f"
+	    i__1 = *n - 1;
+#line 450 "zhbevx.f"
+	    dcopy_(&i__1, &rwork[inde], &c__1, &rwork[indee], &c__1);
+#line 451 "zhbevx.f"
+	    dsterf_(n, &w[1], &rwork[indee], info);
+#line 452 "zhbevx.f"
+	} else {
+#line 453 "zhbevx.f"
+	    zlacpy_("A", n, n, &q[q_offset], ldq, &z__[z_offset], ldz, (
+		    ftnlen)1);
+#line 454 "zhbevx.f"
+	    i__1 = *n - 1;
+#line 454 "zhbevx.f"
+	    dcopy_(&i__1, &rwork[inde], &c__1, &rwork[indee], &c__1);
+#line 455 "zhbevx.f"
+	    zsteqr_(jobz, n, &w[1], &rwork[indee], &z__[z_offset], ldz, &
+		    rwork[indrwk], info, (ftnlen)1);
+#line 457 "zhbevx.f"
+	    if (*info == 0) {
+#line 458 "zhbevx.f"
+		i__1 = *n;
+#line 458 "zhbevx.f"
+		for (i__ = 1; i__ <= i__1; ++i__) {
+#line 459 "zhbevx.f"
+		    ifail[i__] = 0;
+#line 460 "zhbevx.f"
+/* L10: */
+#line 460 "zhbevx.f"
+		}
+#line 461 "zhbevx.f"
+	    }
+#line 462 "zhbevx.f"
+	}
+#line 463 "zhbevx.f"
+	if (*info == 0) {
+#line 464 "zhbevx.f"
+	    *m = *n;
+#line 465 "zhbevx.f"
+	    goto L30;
+#line 466 "zhbevx.f"
+	}
+#line 467 "zhbevx.f"
+	*info = 0;
+#line 468 "zhbevx.f"
+    }
+
+/*     Otherwise, call DSTEBZ and, if eigenvectors are desired, ZSTEIN. */
+
+#line 472 "zhbevx.f"
+    if (wantz) {
+#line 473 "zhbevx.f"
+	*(unsigned char *)order = 'B';
+#line 474 "zhbevx.f"
+    } else {
+#line 475 "zhbevx.f"
+	*(unsigned char *)order = 'E';
+#line 476 "zhbevx.f"
+    }
+#line 477 "zhbevx.f"
+    indibl = 1;
+#line 478 "zhbevx.f"
+    indisp = indibl + *n;
+#line 479 "zhbevx.f"
+    indiwk = indisp + *n;
+#line 480 "zhbevx.f"
+    dstebz_(range, order, n, &vll, &vuu, il, iu, &abstll, &rwork[indd], &
+	    rwork[inde], m, &nsplit, &w[1], &iwork[indibl], &iwork[indisp], &
+	    rwork[indrwk], &iwork[indiwk], info, (ftnlen)1, (ftnlen)1);
+
+#line 485 "zhbevx.f"
+    if (wantz) {
+#line 486 "zhbevx.f"
+	zstein_(n, &rwork[indd], &rwork[inde], m, &w[1], &iwork[indibl], &
+		iwork[indisp], &z__[z_offset], ldz, &rwork[indrwk], &iwork[
+		indiwk], &ifail[1], info);
+
+/*        Apply unitary matrix used in reduction to tridiagonal */
+/*        form to eigenvectors returned by ZSTEIN. */
+
+#line 493 "zhbevx.f"
+	i__1 = *m;
+#line 493 "zhbevx.f"
+	for (j = 1; j <= i__1; ++j) {
+#line 494 "zhbevx.f"
+	    zcopy_(n, &z__[j * z_dim1 + 1], &c__1, &work[1], &c__1);
+#line 495 "zhbevx.f"
+	    zgemv_("N", n, n, &c_b2, &q[q_offset], ldq, &work[1], &c__1, &
+		    c_b1, &z__[j * z_dim1 + 1], &c__1, (ftnlen)1);
+#line 497 "zhbevx.f"
+/* L20: */
+#line 497 "zhbevx.f"
+	}
+#line 498 "zhbevx.f"
+    }
+
+/*     If matrix was scaled, then rescale eigenvalues appropriately. */
+
+#line 502 "zhbevx.f"
+L30:
+#line 503 "zhbevx.f"
+    if (iscale == 1) {
+#line 504 "zhbevx.f"
+	if (*info == 0) {
+#line 505 "zhbevx.f"
+	    imax = *m;
+#line 506 "zhbevx.f"
+	} else {
+#line 507 "zhbevx.f"
+	    imax = *info - 1;
+#line 508 "zhbevx.f"
+	}
+#line 509 "zhbevx.f"
+	d__1 = 1. / sigma;
+#line 509 "zhbevx.f"
+	dscal_(&imax, &d__1, &w[1], &c__1);
+#line 510 "zhbevx.f"
+    }
+
+/*     If eigenvalues are not in order, then sort them, along with */
+/*     eigenvectors. */
+
+#line 515 "zhbevx.f"
+    if (wantz) {
+#line 516 "zhbevx.f"
+	i__1 = *m - 1;
+#line 516 "zhbevx.f"
+	for (j = 1; j <= i__1; ++j) {
+#line 517 "zhbevx.f"
+	    i__ = 0;
+#line 518 "zhbevx.f"
+	    tmp1 = w[j];
+#line 519 "zhbevx.f"
+	    i__2 = *m;
+#line 519 "zhbevx.f"
+	    for (jj = j + 1; jj <= i__2; ++jj) {
+#line 520 "zhbevx.f"
+		if (w[jj] < tmp1) {
+#line 521 "zhbevx.f"
+		    i__ = jj;
+#line 522 "zhbevx.f"
+		    tmp1 = w[jj];
+#line 523 "zhbevx.f"
+		}
+#line 524 "zhbevx.f"
+/* L40: */
+#line 524 "zhbevx.f"
+	    }
+
+#line 526 "zhbevx.f"
+	    if (i__ != 0) {
+#line 527 "zhbevx.f"
+		itmp1 = iwork[indibl + i__ - 1];
+#line 528 "zhbevx.f"
+		w[i__] = w[j];
+#line 529 "zhbevx.f"
+		iwork[indibl + i__ - 1] = iwork[indibl + j - 1];
+#line 530 "zhbevx.f"
+		w[j] = tmp1;
+#line 531 "zhbevx.f"
+		iwork[indibl + j - 1] = itmp1;
+#line 532 "zhbevx.f"
+		zswap_(n, &z__[i__ * z_dim1 + 1], &c__1, &z__[j * z_dim1 + 1],
+			 &c__1);
+#line 533 "zhbevx.f"
+		if (*info != 0) {
+#line 534 "zhbevx.f"
+		    itmp1 = ifail[i__];
+#line 535 "zhbevx.f"
+		    ifail[i__] = ifail[j];
+#line 536 "zhbevx.f"
+		    ifail[j] = itmp1;
+#line 537 "zhbevx.f"
+		}
+#line 538 "zhbevx.f"
+	    }
+#line 539 "zhbevx.f"
+/* L50: */
+#line 539 "zhbevx.f"
+	}
+#line 540 "zhbevx.f"
+    }
+
+#line 542 "zhbevx.f"
+    return 0;
+
+/*     End of ZHBEVX */
+
+} /* zhbevx_ */
+

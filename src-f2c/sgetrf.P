@@ -1,0 +1,7 @@
+extern int sgetrf_(integer *m, integer *n, doublereal *a, integer *lda, integer *ipiv, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: sgetf2_ 14 6 4 4 7 4 4 4 */
+/*:ref: slaswp_ 14 7 4 7 4 4 4 4 4 */
+/*:ref: strsm_ 14 15 13 13 13 13 4 4 7 7 4 7 4 124 124 124 124 */
+/*:ref: sgemm_ 14 15 13 13 4 4 4 7 7 4 7 4 7 7 4 124 124 */

@@ -1,0 +1,4 @@
+extern int zgesv_(integer *n, integer *nrhs, doublecomplex *a, integer *lda, integer *ipiv, doublecomplex *b, integer *ldb, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zgetrf_ 14 6 4 4 9 4 4 4 */
+/*:ref: zgetrs_ 14 10 13 4 4 9 4 4 9 4 4 124 */

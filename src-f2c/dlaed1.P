@@ -1,0 +1,6 @@
+extern int dlaed1_(integer *n, doublereal *d__, doublereal *q, integer *ldq, integer *indxq, doublereal *rho, integer *cutpnt, doublereal *work, integer *iwork, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dcopy_ 14 5 4 7 4 7 4 */
+/*:ref: dlaed2_ 14 17 4 4 4 7 7 4 4 7 7 7 7 7 4 4 4 4 4 */
+/*:ref: dlaed3_ 14 14 4 4 4 7 7 4 7 7 7 4 4 7 7 4 */
+/*:ref: dlamrg_ 14 6 4 4 7 4 4 4 */

@@ -1,0 +1,2 @@
+extern int zlaqgb_(integer *m, integer *n, integer *kl, integer *ku, doublecomplex *ab, integer *ldab, doublereal *r__, doublereal *c__, doublereal *rowcnd, doublereal *colcnd, doublereal *amax, char *equed, ftnlen equed_len);
+/*:ref: dlamch_ 7 2 13 124 */

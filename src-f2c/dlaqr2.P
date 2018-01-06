@@ -1,0 +1,14 @@
+extern int dlaqr2_(logical *wantt, logical *wantz, integer *n, integer *ktop, integer *kbot, integer *nw, doublereal *h__, integer *ldh, integer *iloz, integer *ihiz, doublereal *z__, integer *ldz, integer *ns, integer *nd, doublereal *sr, doublereal *si, doublereal *v, integer *ldv, integer *nh, doublereal *t, integer *ldt, integer *nv, doublereal *wv, integer *ldwv, doublereal *work, integer *lwork);
+/*:ref: dgehrd_ 14 9 4 4 4 7 4 7 7 4 4 */
+/*:ref: dormhr_ 14 16 13 13 4 4 4 4 7 4 7 7 4 7 4 4 124 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dlabad_ 14 2 7 7 */
+/*:ref: dlacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: dcopy_ 14 5 4 7 4 7 4 */
+/*:ref: dlaset_ 14 8 13 4 4 7 7 7 4 124 */
+/*:ref: dlahqr_ 14 14 12 12 4 4 4 7 4 7 7 4 4 7 4 4 */
+/*:ref: dtrexc_ 14 11 13 4 7 4 7 4 4 4 7 4 124 */
+/*:ref: dlanv2_ 14 10 7 7 7 7 7 7 7 7 7 7 */
+/*:ref: dlarfg_ 14 5 4 7 7 4 7 */
+/*:ref: dlarf_ 14 10 13 4 4 7 4 7 7 4 7 124 */
+/*:ref: dgemm_ 14 15 13 13 4 4 4 7 7 4 7 4 7 7 4 124 124 */

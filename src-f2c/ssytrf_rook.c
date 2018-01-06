@@ -1,0 +1,550 @@
+#line 1 "ssytrf_rook.f"
+/* ssytrf_rook.f -- translated by f2c (version 20100827).
+   You must link the resulting object file with libf2c:
+	on Microsoft Windows system, link with libf2c.lib;
+	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
+	or, if you install libf2c.a in a standard place, with -lf2c -lm
+	-- in that order, at the end of the command line, as in
+		cc *.o -lf2c -lm
+	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
+
+		http://www.netlib.org/f2c/libf2c.zip
+*/
+
+#include "f2c.h"
+
+#line 1 "ssytrf_rook.f"
+/* Table of constant values */
+
+static integer c__1 = 1;
+static integer c_n1 = -1;
+static integer c__2 = 2;
+
+/* > \brief \b SSYTRF_ROOK */
+
+/*  =========== DOCUMENTATION =========== */
+
+/* Online html documentation available at */
+/*            http://www.netlib.org/lapack/explore-html/ */
+
+/* > \htmlonly */
+/* > Download SSYTRF_ROOK + dependencies */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ssytrf_
+rook.f"> */
+/* > [TGZ]</a> */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ssytrf_
+rook.f"> */
+/* > [ZIP]</a> */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ssytrf_
+rook.f"> */
+/* > [TXT]</a> */
+/* > \endhtmlonly */
+
+/*  Definition: */
+/*  =========== */
+
+/*       SUBROUTINE SSYTRF_ROOK( UPLO, N, A, LDA, IPIV, WORK, LWORK, INFO ) */
+
+/*       .. Scalar Arguments .. */
+/*       CHARACTER          UPLO */
+/*       INTEGER            INFO, LDA, LWORK, N */
+/*       .. */
+/*       .. Array Arguments .. */
+/*       INTEGER            IPIV( * ) */
+/*       REAL               A( LDA, * ), WORK( * ) */
+/*       .. */
+
+
+/* > \par Purpose: */
+/*  ============= */
+/* > */
+/* > \verbatim */
+/* > */
+/* > SSYTRF_ROOK computes the factorization of a real symmetric matrix A */
+/* > using the bounded Bunch-Kaufman ("rook") diagonal pivoting method. */
+/* > The form of the factorization is */
+/* > */
+/* >    A = U*D*U**T  or  A = L*D*L**T */
+/* > */
+/* > where U (or L) is a product of permutation and unit upper (lower) */
+/* > triangular matrices, and D is symmetric and block diagonal with */
+/* > 1-by-1 and 2-by-2 diagonal blocks. */
+/* > */
+/* > This is the blocked version of the algorithm, calling Level 3 BLAS. */
+/* > \endverbatim */
+
+/*  Arguments: */
+/*  ========== */
+
+/* > \param[in] UPLO */
+/* > \verbatim */
+/* >          UPLO is CHARACTER*1 */
+/* >          = 'U':  Upper triangle of A is stored; */
+/* >          = 'L':  Lower triangle of A is stored. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] N */
+/* > \verbatim */
+/* >          N is INTEGER */
+/* >          The order of the matrix A.  N >= 0. */
+/* > \endverbatim */
+/* > */
+/* > \param[in,out] A */
+/* > \verbatim */
+/* >          A is REAL array, dimension (LDA,N) */
+/* >          On entry, the symmetric matrix A.  If UPLO = 'U', the leading */
+/* >          N-by-N upper triangular part of A contains the upper */
+/* >          triangular part of the matrix A, and the strictly lower */
+/* >          triangular part of A is not referenced.  If UPLO = 'L', the */
+/* >          leading N-by-N lower triangular part of A contains the lower */
+/* >          triangular part of the matrix A, and the strictly upper */
+/* >          triangular part of A is not referenced. */
+/* > */
+/* >          On exit, the block diagonal matrix D and the multipliers used */
+/* >          to obtain the factor U or L (see below for further details). */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LDA */
+/* > \verbatim */
+/* >          LDA is INTEGER */
+/* >          The leading dimension of the array A.  LDA >= max(1,N). */
+/* > \endverbatim */
+/* > */
+/* > \param[out] IPIV */
+/* > \verbatim */
+/* >          IPIV is INTEGER array, dimension (N) */
+/* >          Details of the interchanges and the block structure of D. */
+/* > */
+/* >          If UPLO = 'U': */
+/* >               If IPIV(k) > 0, then rows and columns k and IPIV(k) */
+/* >               were interchanged and D(k,k) is a 1-by-1 diagonal block. */
+/* > */
+/* >               If IPIV(k) < 0 and IPIV(k-1) < 0, then rows and */
+/* >               columns k and -IPIV(k) were interchanged and rows and */
+/* >               columns k-1 and -IPIV(k-1) were inerchaged, */
+/* >               D(k-1:k,k-1:k) is a 2-by-2 diagonal block. */
+/* > */
+/* >          If UPLO = 'L': */
+/* >               If IPIV(k) > 0, then rows and columns k and IPIV(k) */
+/* >               were interchanged and D(k,k) is a 1-by-1 diagonal block. */
+/* > */
+/* >               If IPIV(k) < 0 and IPIV(k+1) < 0, then rows and */
+/* >               columns k and -IPIV(k) were interchanged and rows and */
+/* >               columns k+1 and -IPIV(k+1) were inerchaged, */
+/* >               D(k:k+1,k:k+1) is a 2-by-2 diagonal block. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] WORK */
+/* > \verbatim */
+/* >          WORK is REAL array, dimension (MAX(1,LWORK)). */
+/* >          On exit, if INFO = 0, WORK(1) returns the optimal LWORK. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LWORK */
+/* > \verbatim */
+/* >          LWORK is INTEGER */
+/* >          The length of WORK.  LWORK >=1.  For best performance */
+/* >          LWORK >= N*NB, where NB is the block size returned by ILAENV. */
+/* > */
+/* >          If LWORK = -1, then a workspace query is assumed; the routine */
+/* >          only calculates the optimal size of the WORK array, returns */
+/* >          this value as the first entry of the WORK array, and no error */
+/* >          message related to LWORK is issued by XERBLA. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] INFO */
+/* > \verbatim */
+/* >          INFO is INTEGER */
+/* >          = 0:  successful exit */
+/* >          < 0:  if INFO = -i, the i-th argument had an illegal value */
+/* >          > 0:  if INFO = i, D(i,i) is exactly zero.  The factorization */
+/* >                has been completed, but the block diagonal matrix D is */
+/* >                exactly singular, and division by zero will occur if it */
+/* >                is used to solve a system of equations. */
+/* > \endverbatim */
+
+/*  Authors: */
+/*  ======== */
+
+/* > \author Univ. of Tennessee */
+/* > \author Univ. of California Berkeley */
+/* > \author Univ. of Colorado Denver */
+/* > \author NAG Ltd. */
+
+/* > \date November 2011 */
+
+/* > \ingroup realSYcomputational */
+
+/* > \par Further Details: */
+/*  ===================== */
+/* > */
+/* > \verbatim */
+/* > */
+/* >  If UPLO = 'U', then A = U*D*U**T, where */
+/* >     U = P(n)*U(n)* ... *P(k)U(k)* ..., */
+/* >  i.e., U is a product of terms P(k)*U(k), where k decreases from n to */
+/* >  1 in steps of 1 or 2, and D is a block diagonal matrix with 1-by-1 */
+/* >  and 2-by-2 diagonal blocks D(k).  P(k) is a permutation matrix as */
+/* >  defined by IPIV(k), and U(k) is a unit upper triangular matrix, such */
+/* >  that if the diagonal block D(k) is of order s (s = 1 or 2), then */
+/* > */
+/* >             (   I    v    0   )   k-s */
+/* >     U(k) =  (   0    I    0   )   s */
+/* >             (   0    0    I   )   n-k */
+/* >                k-s   s   n-k */
+/* > */
+/* >  If s = 1, D(k) overwrites A(k,k), and v overwrites A(1:k-1,k). */
+/* >  If s = 2, the upper triangle of D(k) overwrites A(k-1,k-1), A(k-1,k), */
+/* >  and A(k,k), and v overwrites A(1:k-2,k-1:k). */
+/* > */
+/* >  If UPLO = 'L', then A = L*D*L**T, where */
+/* >     L = P(1)*L(1)* ... *P(k)*L(k)* ..., */
+/* >  i.e., L is a product of terms P(k)*L(k), where k increases from 1 to */
+/* >  n in steps of 1 or 2, and D is a block diagonal matrix with 1-by-1 */
+/* >  and 2-by-2 diagonal blocks D(k).  P(k) is a permutation matrix as */
+/* >  defined by IPIV(k), and L(k) is a unit lower triangular matrix, such */
+/* >  that if the diagonal block D(k) is of order s (s = 1 or 2), then */
+/* > */
+/* >             (   I    0     0   )  k-1 */
+/* >     L(k) =  (   0    I     0   )  s */
+/* >             (   0    v     I   )  n-k-s+1 */
+/* >                k-1   s  n-k-s+1 */
+/* > */
+/* >  If s = 1, D(k) overwrites A(k,k), and v overwrites A(k+1:n,k). */
+/* >  If s = 2, the lower triangle of D(k) overwrites A(k,k), A(k+1,k), */
+/* >  and A(k+1,k+1), and v overwrites A(k+2:n,k:k+1). */
+/* > \endverbatim */
+
+/* > \par Contributors: */
+/*  ================== */
+/* > */
+/* > \verbatim */
+/* > */
+/* >   November 2011, Igor Kozachenko, */
+/* >                  Computer Science Division, */
+/* >                  University of California, Berkeley */
+/* > */
+/* >  September 2007, Sven Hammarling, Nicholas J. Higham, Craig Lucas, */
+/* >                  School of Mathematics, */
+/* >                  University of Manchester */
+/* > */
+/* > \endverbatim */
+
+/*  ===================================================================== */
+/* Subroutine */ int ssytrf_rook__(char *uplo, integer *n, doublereal *a, 
+	integer *lda, integer *ipiv, doublereal *work, integer *lwork, 
+	integer *info, ftnlen uplo_len)
+{
+    /* System generated locals */
+    integer a_dim1, a_offset, i__1, i__2;
+
+    /* Local variables */
+    static integer j, k, kb, nb, iws;
+    extern /* Subroutine */ int ssytf2_rook__(char *, integer *, doublereal *,
+	     integer *, integer *, integer *, ftnlen), slasyf_rook__(char *, 
+	    integer *, integer *, integer *, doublereal *, integer *, integer 
+	    *, doublereal *, integer *, integer *, ftnlen);
+    extern logical lsame_(char *, char *, ftnlen, ftnlen);
+    static integer nbmin, iinfo;
+    static logical upper;
+    extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
+    extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
+	    integer *, integer *, ftnlen, ftnlen);
+    static integer ldwork, lwkopt;
+    static logical lquery;
+
+
+/*  -- LAPACK computational routine (version 3.4.0) -- */
+/*  -- LAPACK is a software package provided by Univ. of Tennessee,    -- */
+/*  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..-- */
+/*     November 2011 */
+
+/*     .. Scalar Arguments .. */
+/*     .. */
+/*     .. Array Arguments .. */
+/*     .. */
+
+/*  ===================================================================== */
+
+/*     .. Local Scalars .. */
+/*     .. */
+/*     .. External Functions .. */
+/*     .. */
+/*     .. External Subroutines .. */
+/*     .. */
+/*     .. Intrinsic Functions .. */
+/*     .. */
+/*     .. Executable Statements .. */
+
+/*     Test the input parameters. */
+
+#line 246 "ssytrf_rook.f"
+    /* Parameter adjustments */
+#line 246 "ssytrf_rook.f"
+    a_dim1 = *lda;
+#line 246 "ssytrf_rook.f"
+    a_offset = 1 + a_dim1;
+#line 246 "ssytrf_rook.f"
+    a -= a_offset;
+#line 246 "ssytrf_rook.f"
+    --ipiv;
+#line 246 "ssytrf_rook.f"
+    --work;
+#line 246 "ssytrf_rook.f"
+
+#line 246 "ssytrf_rook.f"
+    /* Function Body */
+#line 246 "ssytrf_rook.f"
+    *info = 0;
+#line 247 "ssytrf_rook.f"
+    upper = lsame_(uplo, "U", (ftnlen)1, (ftnlen)1);
+#line 248 "ssytrf_rook.f"
+    lquery = *lwork == -1;
+#line 249 "ssytrf_rook.f"
+    if (! upper && ! lsame_(uplo, "L", (ftnlen)1, (ftnlen)1)) {
+#line 250 "ssytrf_rook.f"
+	*info = -1;
+#line 251 "ssytrf_rook.f"
+    } else if (*n < 0) {
+#line 252 "ssytrf_rook.f"
+	*info = -2;
+#line 253 "ssytrf_rook.f"
+    } else if (*lda < max(1,*n)) {
+#line 254 "ssytrf_rook.f"
+	*info = -4;
+#line 255 "ssytrf_rook.f"
+    } else if (*lwork < 1 && ! lquery) {
+#line 256 "ssytrf_rook.f"
+	*info = -7;
+#line 257 "ssytrf_rook.f"
+    }
+
+#line 259 "ssytrf_rook.f"
+    if (*info == 0) {
+
+/*        Determine the block size */
+
+#line 263 "ssytrf_rook.f"
+	nb = ilaenv_(&c__1, "SSYTRF_ROOK", uplo, n, &c_n1, &c_n1, &c_n1, (
+		ftnlen)11, (ftnlen)1);
+#line 264 "ssytrf_rook.f"
+	lwkopt = *n * nb;
+#line 265 "ssytrf_rook.f"
+	work[1] = (doublereal) lwkopt;
+#line 266 "ssytrf_rook.f"
+    }
+
+#line 268 "ssytrf_rook.f"
+    if (*info != 0) {
+#line 269 "ssytrf_rook.f"
+	i__1 = -(*info);
+#line 269 "ssytrf_rook.f"
+	xerbla_("SSYTRF_ROOK", &i__1, (ftnlen)11);
+#line 270 "ssytrf_rook.f"
+	return 0;
+#line 271 "ssytrf_rook.f"
+    } else if (lquery) {
+#line 272 "ssytrf_rook.f"
+	return 0;
+#line 273 "ssytrf_rook.f"
+    }
+
+#line 275 "ssytrf_rook.f"
+    nbmin = 2;
+#line 276 "ssytrf_rook.f"
+    ldwork = *n;
+#line 277 "ssytrf_rook.f"
+    if (nb > 1 && nb < *n) {
+#line 278 "ssytrf_rook.f"
+	iws = ldwork * nb;
+#line 279 "ssytrf_rook.f"
+	if (*lwork < iws) {
+/* Computing MAX */
+#line 280 "ssytrf_rook.f"
+	    i__1 = *lwork / ldwork;
+#line 280 "ssytrf_rook.f"
+	    nb = max(i__1,1);
+/* Computing MAX */
+#line 281 "ssytrf_rook.f"
+	    i__1 = 2, i__2 = ilaenv_(&c__2, "SSYTRF_ROOK", uplo, n, &c_n1, &
+		    c_n1, &c_n1, (ftnlen)11, (ftnlen)1);
+#line 281 "ssytrf_rook.f"
+	    nbmin = max(i__1,i__2);
+#line 283 "ssytrf_rook.f"
+	}
+#line 284 "ssytrf_rook.f"
+    } else {
+#line 285 "ssytrf_rook.f"
+	iws = 1;
+#line 286 "ssytrf_rook.f"
+    }
+#line 287 "ssytrf_rook.f"
+    if (nb < nbmin) {
+#line 287 "ssytrf_rook.f"
+	nb = *n;
+#line 287 "ssytrf_rook.f"
+    }
+
+#line 290 "ssytrf_rook.f"
+    if (upper) {
+
+/*        Factorize A as U*D*U**T using the upper triangle of A */
+
+/*        K is the main loop index, decreasing from N to 1 in steps of */
+/*        KB, where KB is the number of columns factorized by SLASYF_ROOK; */
+/*        KB is either NB or NB-1, or K for the last block */
+
+#line 298 "ssytrf_rook.f"
+	k = *n;
+#line 299 "ssytrf_rook.f"
+L10:
+
+/*        If K < 1, exit from loop */
+
+#line 303 "ssytrf_rook.f"
+	if (k < 1) {
+#line 303 "ssytrf_rook.f"
+	    goto L40;
+#line 303 "ssytrf_rook.f"
+	}
+
+#line 306 "ssytrf_rook.f"
+	if (k > nb) {
+
+/*           Factorize columns k-kb+1:k of A and use blocked code to */
+/*           update columns 1:k-kb */
+
+#line 311 "ssytrf_rook.f"
+	    slasyf_rook__(uplo, &k, &nb, &kb, &a[a_offset], lda, &ipiv[1], &
+		    work[1], &ldwork, &iinfo, (ftnlen)1);
+#line 313 "ssytrf_rook.f"
+	} else {
+
+/*           Use unblocked code to factorize columns 1:k of A */
+
+#line 317 "ssytrf_rook.f"
+	    ssytf2_rook__(uplo, &k, &a[a_offset], lda, &ipiv[1], &iinfo, (
+		    ftnlen)1);
+#line 318 "ssytrf_rook.f"
+	    kb = k;
+#line 319 "ssytrf_rook.f"
+	}
+
+/*        Set INFO on the first occurrence of a zero pivot */
+
+#line 323 "ssytrf_rook.f"
+	if (*info == 0 && iinfo > 0) {
+#line 323 "ssytrf_rook.f"
+	    *info = iinfo;
+#line 323 "ssytrf_rook.f"
+	}
+
+/*        No need to adjust IPIV */
+
+/*        Decrease K and return to the start of the main loop */
+
+#line 330 "ssytrf_rook.f"
+	k -= kb;
+#line 331 "ssytrf_rook.f"
+	goto L10;
+
+#line 333 "ssytrf_rook.f"
+    } else {
+
+/*        Factorize A as L*D*L**T using the lower triangle of A */
+
+/*        K is the main loop index, increasing from 1 to N in steps of */
+/*        KB, where KB is the number of columns factorized by SLASYF_ROOK; */
+/*        KB is either NB or NB-1, or N-K+1 for the last block */
+
+#line 341 "ssytrf_rook.f"
+	k = 1;
+#line 342 "ssytrf_rook.f"
+L20:
+
+/*        If K > N, exit from loop */
+
+#line 346 "ssytrf_rook.f"
+	if (k > *n) {
+#line 346 "ssytrf_rook.f"
+	    goto L40;
+#line 346 "ssytrf_rook.f"
+	}
+
+#line 349 "ssytrf_rook.f"
+	if (k <= *n - nb) {
+
+/*           Factorize columns k:k+kb-1 of A and use blocked code to */
+/*           update columns k+kb:n */
+
+#line 354 "ssytrf_rook.f"
+	    i__1 = *n - k + 1;
+#line 354 "ssytrf_rook.f"
+	    slasyf_rook__(uplo, &i__1, &nb, &kb, &a[k + k * a_dim1], lda, &
+		    ipiv[k], &work[1], &ldwork, &iinfo, (ftnlen)1);
+#line 356 "ssytrf_rook.f"
+	} else {
+
+/*           Use unblocked code to factorize columns k:n of A */
+
+#line 360 "ssytrf_rook.f"
+	    i__1 = *n - k + 1;
+#line 360 "ssytrf_rook.f"
+	    ssytf2_rook__(uplo, &i__1, &a[k + k * a_dim1], lda, &ipiv[k], &
+		    iinfo, (ftnlen)1);
+#line 362 "ssytrf_rook.f"
+	    kb = *n - k + 1;
+#line 363 "ssytrf_rook.f"
+	}
+
+/*        Set INFO on the first occurrence of a zero pivot */
+
+#line 367 "ssytrf_rook.f"
+	if (*info == 0 && iinfo > 0) {
+#line 367 "ssytrf_rook.f"
+	    *info = iinfo + k - 1;
+#line 367 "ssytrf_rook.f"
+	}
+
+/*        Adjust IPIV */
+
+#line 372 "ssytrf_rook.f"
+	i__1 = k + kb - 1;
+#line 372 "ssytrf_rook.f"
+	for (j = k; j <= i__1; ++j) {
+#line 373 "ssytrf_rook.f"
+	    if (ipiv[j] > 0) {
+#line 374 "ssytrf_rook.f"
+		ipiv[j] = ipiv[j] + k - 1;
+#line 375 "ssytrf_rook.f"
+	    } else {
+#line 376 "ssytrf_rook.f"
+		ipiv[j] = ipiv[j] - k + 1;
+#line 377 "ssytrf_rook.f"
+	    }
+#line 378 "ssytrf_rook.f"
+/* L30: */
+#line 378 "ssytrf_rook.f"
+	}
+
+/*        Increase K and return to the start of the main loop */
+
+#line 382 "ssytrf_rook.f"
+	k += kb;
+#line 383 "ssytrf_rook.f"
+	goto L20;
+
+#line 385 "ssytrf_rook.f"
+    }
+
+#line 387 "ssytrf_rook.f"
+L40:
+#line 388 "ssytrf_rook.f"
+    work[1] = (doublereal) lwkopt;
+#line 389 "ssytrf_rook.f"
+    return 0;
+
+/*     End of SSYTRF_ROOK */
+
+} /* ssytrf_rook__ */
+

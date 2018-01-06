@@ -1,0 +1,4 @@
+extern doublereal slanst_(char *norm, integer *n, doublereal *d__, doublereal *e, ftnlen norm_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: sisnan_ 12 1 7 */
+/*:ref: slassq_ 14 5 4 7 4 7 7 */

@@ -1,0 +1,8 @@
+extern int zlaqps_(integer *m, integer *n, integer *offset, integer *nb, integer *kb, doublecomplex *a, integer *lda, integer *jpvt, doublecomplex *tau, doublereal *vn1, doublereal *vn2, doublecomplex *auxv, doublecomplex *f, integer *ldf);
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: idamax_ 4 3 4 7 4 */
+/*:ref: zswap_ 14 5 4 9 4 9 4 */
+/*:ref: zgemv_ 14 12 13 4 4 9 9 4 9 4 9 9 4 124 */
+/*:ref: zlarfg_ 14 5 4 9 9 4 9 */
+/*:ref: zgemm_ 14 15 13 13 4 4 4 9 9 4 9 4 9 9 4 124 124 */
+/*:ref: dznrm2_ 7 3 4 9 4 */

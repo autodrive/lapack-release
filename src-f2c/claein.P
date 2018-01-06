@@ -1,0 +1,7 @@
+extern int claein_(logical *rightv, logical *noinit, integer *n, doublecomplex *h__, integer *ldh, doublecomplex *w, doublecomplex *v, doublecomplex *b, integer *ldb, doublereal *rwork, doublereal *eps3, doublereal *smlnum, integer *info);
+/*:ref: scnrm2_ 7 3 4 9 4 */
+/*:ref: csscal_ 14 4 4 7 9 4 */
+/*:ref: cladiv_ 9 3 9 9 9 */
+/*:ref: clatrs_ 14 15 13 13 13 13 4 9 4 9 7 7 4 124 124 124 124 */
+/*:ref: scasum_ 7 3 4 9 4 */
+/*:ref: icamax_ 4 3 4 9 4 */

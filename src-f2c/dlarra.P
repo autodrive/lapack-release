@@ -1,0 +1,1 @@
+extern int dlarra_(integer *n, doublereal *d__, doublereal *e, doublereal *e2, doublereal *spltol, doublereal *tnrm, integer *nsplit, integer *isplit, integer *info);

@@ -1,0 +1,381 @@
+#line 1 "dtpqrt.f"
+/* dtpqrt.f -- translated by f2c (version 20100827).
+   You must link the resulting object file with libf2c:
+	on Microsoft Windows system, link with libf2c.lib;
+	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
+	or, if you install libf2c.a in a standard place, with -lf2c -lm
+	-- in that order, at the end of the command line, as in
+		cc *.o -lf2c -lm
+	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
+
+		http://www.netlib.org/f2c/libf2c.zip
+*/
+
+#include "f2c.h"
+
+#line 1 "dtpqrt.f"
+/* > \brief \b DTPQRT */
+
+/*  =========== DOCUMENTATION =========== */
+
+/* Online html documentation available at */
+/*            http://www.netlib.org/lapack/explore-html/ */
+
+/* > \htmlonly */
+/* > Download DTPQRT + dependencies */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/dtpqrt.
+f"> */
+/* > [TGZ]</a> */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/dtpqrt.
+f"> */
+/* > [ZIP]</a> */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/dtpqrt.
+f"> */
+/* > [TXT]</a> */
+/* > \endhtmlonly */
+
+/*  Definition: */
+/*  =========== */
+
+/*       SUBROUTINE DTPQRT( M, N, L, NB, A, LDA, B, LDB, T, LDT, WORK, */
+/*                          INFO ) */
+
+/*       .. Scalar Arguments .. */
+/*       INTEGER INFO, LDA, LDB, LDT, N, M, L, NB */
+/*       .. */
+/*       .. Array Arguments .. */
+/*       DOUBLE PRECISION A( LDA, * ), B( LDB, * ), T( LDT, * ), WORK( * ) */
+/*       .. */
+
+
+/* > \par Purpose: */
+/*  ============= */
+/* > */
+/* > \verbatim */
+/* > */
+/* > DTPQRT computes a blocked QR factorization of a real */
+/* > "triangular-pentagonal" matrix C, which is composed of a */
+/* > triangular block A and pentagonal block B, using the compact */
+/* > WY representation for Q. */
+/* > \endverbatim */
+
+/*  Arguments: */
+/*  ========== */
+
+/* > \param[in] M */
+/* > \verbatim */
+/* >          M is INTEGER */
+/* >          The number of rows of the matrix B. */
+/* >          M >= 0. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] N */
+/* > \verbatim */
+/* >          N is INTEGER */
+/* >          The number of columns of the matrix B, and the order of the */
+/* >          triangular matrix A. */
+/* >          N >= 0. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] L */
+/* > \verbatim */
+/* >          L is INTEGER */
+/* >          The number of rows of the upper trapezoidal part of B. */
+/* >          MIN(M,N) >= L >= 0.  See Further Details. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] NB */
+/* > \verbatim */
+/* >          NB is INTEGER */
+/* >          The block size to be used in the blocked QR.  N >= NB >= 1. */
+/* > \endverbatim */
+/* > */
+/* > \param[in,out] A */
+/* > \verbatim */
+/* >          A is DOUBLE PRECISION array, dimension (LDA,N) */
+/* >          On entry, the upper triangular N-by-N matrix A. */
+/* >          On exit, the elements on and above the diagonal of the array */
+/* >          contain the upper triangular matrix R. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LDA */
+/* > \verbatim */
+/* >          LDA is INTEGER */
+/* >          The leading dimension of the array A.  LDA >= max(1,N). */
+/* > \endverbatim */
+/* > */
+/* > \param[in,out] B */
+/* > \verbatim */
+/* >          B is DOUBLE PRECISION array, dimension (LDB,N) */
+/* >          On entry, the pentagonal M-by-N matrix B.  The first M-L rows */
+/* >          are rectangular, and the last L rows are upper trapezoidal. */
+/* >          On exit, B contains the pentagonal matrix V.  See Further Details. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LDB */
+/* > \verbatim */
+/* >          LDB is INTEGER */
+/* >          The leading dimension of the array B.  LDB >= max(1,M). */
+/* > \endverbatim */
+/* > */
+/* > \param[out] T */
+/* > \verbatim */
+/* >          T is DOUBLE PRECISION array, dimension (LDT,N) */
+/* >          The upper triangular block reflectors stored in compact form */
+/* >          as a sequence of upper triangular blocks.  See Further Details. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LDT */
+/* > \verbatim */
+/* >          LDT is INTEGER */
+/* >          The leading dimension of the array T.  LDT >= NB. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] WORK */
+/* > \verbatim */
+/* >          WORK is DOUBLE PRECISION array, dimension (NB*N) */
+/* > \endverbatim */
+/* > */
+/* > \param[out] INFO */
+/* > \verbatim */
+/* >          INFO is INTEGER */
+/* >          = 0:  successful exit */
+/* >          < 0:  if INFO = -i, the i-th argument had an illegal value */
+/* > \endverbatim */
+
+/*  Authors: */
+/*  ======== */
+
+/* > \author Univ. of Tennessee */
+/* > \author Univ. of California Berkeley */
+/* > \author Univ. of Colorado Denver */
+/* > \author NAG Ltd. */
+
+/* > \date November 2013 */
+
+/* > \ingroup doubleOTHERcomputational */
+
+/* > \par Further Details: */
+/*  ===================== */
+/* > */
+/* > \verbatim */
+/* > */
+/* >  The input matrix C is a (N+M)-by-N matrix */
+/* > */
+/* >               C = [ A ] */
+/* >                   [ B ] */
+/* > */
+/* >  where A is an upper triangular N-by-N matrix, and B is M-by-N pentagonal */
+/* >  matrix consisting of a (M-L)-by-N rectangular matrix B1 on top of a L-by-N */
+/* >  upper trapezoidal matrix B2: */
+/* > */
+/* >               B = [ B1 ]  <- (M-L)-by-N rectangular */
+/* >                   [ B2 ]  <-     L-by-N upper trapezoidal. */
+/* > */
+/* >  The upper trapezoidal matrix B2 consists of the first L rows of a */
+/* >  N-by-N upper triangular matrix, where 0 <= L <= MIN(M,N).  If L=0, */
+/* >  B is rectangular M-by-N; if M=L=N, B is upper triangular. */
+/* > */
+/* >  The matrix W stores the elementary reflectors H(i) in the i-th column */
+/* >  below the diagonal (of A) in the (N+M)-by-N input matrix C */
+/* > */
+/* >               C = [ A ]  <- upper triangular N-by-N */
+/* >                   [ B ]  <- M-by-N pentagonal */
+/* > */
+/* >  so that W can be represented as */
+/* > */
+/* >               W = [ I ]  <- identity, N-by-N */
+/* >                   [ V ]  <- M-by-N, same form as B. */
+/* > */
+/* >  Thus, all of information needed for W is contained on exit in B, which */
+/* >  we call V above.  Note that V has the same form as B; that is, */
+/* > */
+/* >               V = [ V1 ] <- (M-L)-by-N rectangular */
+/* >                   [ V2 ] <-     L-by-N upper trapezoidal. */
+/* > */
+/* >  The columns of V represent the vectors which define the H(i)'s. */
+/* > */
+/* >  The number of blocks is B = ceiling(N/NB), where each */
+/* >  block is of order NB except for the last block, which is of order */
+/* >  IB = N - (B-1)*NB.  For each of the B blocks, a upper triangular block */
+/* >  reflector factor is computed: T1, T2, ..., TB.  The NB-by-NB (and IB-by-IB */
+/* >  for the last block) T's are stored in the NB-by-N matrix T as */
+/* > */
+/* >               T = [T1 T2 ... TB]. */
+/* > \endverbatim */
+/* > */
+/*  ===================================================================== */
+/* Subroutine */ int dtpqrt_(integer *m, integer *n, integer *l, integer *nb, 
+	doublereal *a, integer *lda, doublereal *b, integer *ldb, doublereal *
+	t, integer *ldt, doublereal *work, integer *info)
+{
+    /* System generated locals */
+    integer a_dim1, a_offset, b_dim1, b_offset, t_dim1, t_offset, i__1, i__2, 
+	    i__3;
+
+    /* Local variables */
+    static integer i__, ib, lb, mb, iinfo;
+    extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen), dtprfb_(
+	    char *, char *, char *, char *, integer *, integer *, integer *, 
+	    integer *, doublereal *, integer *, doublereal *, integer *, 
+	    doublereal *, integer *, doublereal *, integer *, doublereal *, 
+	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), dtpqrt2_(integer *, 
+	    integer *, integer *, doublereal *, integer *, doublereal *, 
+	    integer *, doublereal *, integer *, integer *);
+
+
+/*  -- LAPACK computational routine (version 3.5.0) -- */
+/*  -- LAPACK is a software package provided by Univ. of Tennessee,    -- */
+/*  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..-- */
+/*     November 2013 */
+
+/*     .. Scalar Arguments .. */
+/*     .. */
+/*     .. Array Arguments .. */
+/*     .. */
+
+/* ===================================================================== */
+
+/*     .. */
+/*     .. Local Scalars .. */
+/*     .. */
+/*     .. External Subroutines .. */
+/*     .. */
+/*     .. Executable Statements .. */
+
+/*     Test the input arguments */
+
+#line 217 "dtpqrt.f"
+    /* Parameter adjustments */
+#line 217 "dtpqrt.f"
+    a_dim1 = *lda;
+#line 217 "dtpqrt.f"
+    a_offset = 1 + a_dim1;
+#line 217 "dtpqrt.f"
+    a -= a_offset;
+#line 217 "dtpqrt.f"
+    b_dim1 = *ldb;
+#line 217 "dtpqrt.f"
+    b_offset = 1 + b_dim1;
+#line 217 "dtpqrt.f"
+    b -= b_offset;
+#line 217 "dtpqrt.f"
+    t_dim1 = *ldt;
+#line 217 "dtpqrt.f"
+    t_offset = 1 + t_dim1;
+#line 217 "dtpqrt.f"
+    t -= t_offset;
+#line 217 "dtpqrt.f"
+    --work;
+#line 217 "dtpqrt.f"
+
+#line 217 "dtpqrt.f"
+    /* Function Body */
+#line 217 "dtpqrt.f"
+    *info = 0;
+#line 218 "dtpqrt.f"
+    if (*m < 0) {
+#line 219 "dtpqrt.f"
+	*info = -1;
+#line 220 "dtpqrt.f"
+    } else if (*n < 0) {
+#line 221 "dtpqrt.f"
+	*info = -2;
+#line 222 "dtpqrt.f"
+    } else if (*l < 0 || *l > min(*m,*n) && min(*m,*n) >= 0) {
+#line 223 "dtpqrt.f"
+	*info = -3;
+#line 224 "dtpqrt.f"
+    } else if (*nb < 1 || *nb > *n && *n > 0) {
+#line 225 "dtpqrt.f"
+	*info = -4;
+#line 226 "dtpqrt.f"
+    } else if (*lda < max(1,*n)) {
+#line 227 "dtpqrt.f"
+	*info = -6;
+#line 228 "dtpqrt.f"
+    } else if (*ldb < max(1,*m)) {
+#line 229 "dtpqrt.f"
+	*info = -8;
+#line 230 "dtpqrt.f"
+    } else if (*ldt < *nb) {
+#line 231 "dtpqrt.f"
+	*info = -10;
+#line 232 "dtpqrt.f"
+    }
+#line 233 "dtpqrt.f"
+    if (*info != 0) {
+#line 234 "dtpqrt.f"
+	i__1 = -(*info);
+#line 234 "dtpqrt.f"
+	xerbla_("DTPQRT", &i__1, (ftnlen)6);
+#line 235 "dtpqrt.f"
+	return 0;
+#line 236 "dtpqrt.f"
+    }
+
+/*     Quick return if possible */
+
+#line 240 "dtpqrt.f"
+    if (*m == 0 || *n == 0) {
+#line 240 "dtpqrt.f"
+	return 0;
+#line 240 "dtpqrt.f"
+    }
+
+#line 242 "dtpqrt.f"
+    i__1 = *n;
+#line 242 "dtpqrt.f"
+    i__2 = *nb;
+#line 242 "dtpqrt.f"
+    for (i__ = 1; i__2 < 0 ? i__ >= i__1 : i__ <= i__1; i__ += i__2) {
+
+/*     Compute the QR factorization of the current block */
+
+/* Computing MIN */
+#line 246 "dtpqrt.f"
+	i__3 = *n - i__ + 1;
+#line 246 "dtpqrt.f"
+	ib = min(i__3,*nb);
+/* Computing MIN */
+#line 247 "dtpqrt.f"
+	i__3 = *m - *l + i__ + ib - 1;
+#line 247 "dtpqrt.f"
+	mb = min(i__3,*m);
+#line 248 "dtpqrt.f"
+	if (i__ >= *l) {
+#line 249 "dtpqrt.f"
+	    lb = 0;
+#line 250 "dtpqrt.f"
+	} else {
+#line 251 "dtpqrt.f"
+	    lb = mb - *m + *l - i__ + 1;
+#line 252 "dtpqrt.f"
+	}
+
+#line 254 "dtpqrt.f"
+	dtpqrt2_(&mb, &ib, &lb, &a[i__ + i__ * a_dim1], lda, &b[i__ * b_dim1 
+		+ 1], ldb, &t[i__ * t_dim1 + 1], ldt, &iinfo);
+
+/*     Update by applying H**T to B(:,I+IB:N) from the left */
+
+#line 259 "dtpqrt.f"
+	if (i__ + ib <= *n) {
+#line 260 "dtpqrt.f"
+	    i__3 = *n - i__ - ib + 1;
+#line 260 "dtpqrt.f"
+	    dtprfb_("L", "T", "F", "C", &mb, &i__3, &ib, &lb, &b[i__ * b_dim1 
+		    + 1], ldb, &t[i__ * t_dim1 + 1], ldt, &a[i__ + (i__ + ib) 
+		    * a_dim1], lda, &b[(i__ + ib) * b_dim1 + 1], ldb, &work[1]
+		    , &ib, (ftnlen)1, (ftnlen)1, (ftnlen)1, (ftnlen)1);
+#line 264 "dtpqrt.f"
+	}
+#line 265 "dtpqrt.f"
+    }
+#line 266 "dtpqrt.f"
+    return 0;
+
+/*     End of DTPQRT */
+
+} /* dtpqrt_ */
+

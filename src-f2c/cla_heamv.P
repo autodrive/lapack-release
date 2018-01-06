@@ -1,0 +1,4 @@
+extern int cla_heamv__(integer *uplo, integer *n, doublereal *alpha, doublecomplex *a, integer *lda, doublecomplex *x, integer *incx, doublereal *beta, doublereal *y, integer *incy);
+/*:ref: ilauplo_ 4 2 13 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slamch_ 7 2 13 124 */

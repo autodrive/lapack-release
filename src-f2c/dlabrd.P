@@ -1,0 +1,4 @@
+extern int dlabrd_(integer *m, integer *n, integer *nb, doublereal *a, integer *lda, doublereal *d__, doublereal *e, doublereal *tauq, doublereal *taup, doublereal *x, integer *ldx, doublereal *y, integer *ldy);
+/*:ref: dgemv_ 14 12 13 4 4 7 7 4 7 4 7 7 4 124 */
+/*:ref: dlarfg_ 14 5 4 7 7 4 7 */
+/*:ref: dscal_ 14 4 4 7 7 4 */

@@ -1,0 +1,4 @@
+extern int sladiv_(doublereal *a, doublereal *b, doublereal *c__, doublereal *d__, doublereal *p, doublereal *q);
+extern int sladiv1_(doublereal *a, doublereal *b, doublereal *c__, doublereal *d__, doublereal *p, doublereal *q);
+extern doublereal sladiv2_(doublereal *a, doublereal *b, doublereal *c__, doublereal *d__, doublereal *r__, doublereal *t);
+/*:ref: slamch_ 7 2 13 124 */

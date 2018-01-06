@@ -1,0 +1,3 @@
+extern int sgbequ_(integer *m, integer *n, integer *kl, integer *ku, doublereal *ab, integer *ldab, doublereal *r__, doublereal *c__, doublereal *rowcnd, doublereal *colcnd, doublereal *amax, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slamch_ 7 2 13 124 */

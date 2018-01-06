@@ -1,0 +1,5 @@
+extern int zlapll_(integer *n, doublecomplex *x, integer *incx, doublecomplex *y, integer *incy, doublereal *ssmin);
+/*:ref: zlarfg_ 14 5 4 9 9 4 9 */
+/*:ref: zdotc_ 9 6 9 4 9 4 9 4 */
+/*:ref: zaxpy_ 14 6 4 9 9 4 9 4 */
+/*:ref: dlas2_ 14 5 7 7 7 7 7 */

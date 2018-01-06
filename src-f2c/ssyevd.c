@@ -1,0 +1,545 @@
+#line 1 "ssyevd.f"
+/* ssyevd.f -- translated by f2c (version 20100827).
+   You must link the resulting object file with libf2c:
+	on Microsoft Windows system, link with libf2c.lib;
+	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
+	or, if you install libf2c.a in a standard place, with -lf2c -lm
+	-- in that order, at the end of the command line, as in
+		cc *.o -lf2c -lm
+	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
+
+		http://www.netlib.org/f2c/libf2c.zip
+*/
+
+#include "f2c.h"
+
+#line 1 "ssyevd.f"
+/* Table of constant values */
+
+static integer c__1 = 1;
+static integer c_n1 = -1;
+static integer c__0 = 0;
+static doublereal c_b17 = 1.;
+
+/* > \brief <b> SSYEVD computes the eigenvalues and, optionally, the left and/or right eigenvectors for SY mat
+rices</b> */
+
+/*  =========== DOCUMENTATION =========== */
+
+/* Online html documentation available at */
+/*            http://www.netlib.org/lapack/explore-html/ */
+
+/* > \htmlonly */
+/* > Download SSYEVD + dependencies */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.tgz?format=tgz&filename=/lapack/lapack_routine/ssyevd.
+f"> */
+/* > [TGZ]</a> */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.zip?format=zip&filename=/lapack/lapack_routine/ssyevd.
+f"> */
+/* > [ZIP]</a> */
+/* > <a href="http://www.netlib.org/cgi-bin/netlibfiles.txt?format=txt&filename=/lapack/lapack_routine/ssyevd.
+f"> */
+/* > [TXT]</a> */
+/* > \endhtmlonly */
+
+/*  Definition: */
+/*  =========== */
+
+/*       SUBROUTINE SSYEVD( JOBZ, UPLO, N, A, LDA, W, WORK, LWORK, IWORK, */
+/*                          LIWORK, INFO ) */
+
+/*       .. Scalar Arguments .. */
+/*       CHARACTER          JOBZ, UPLO */
+/*       INTEGER            INFO, LDA, LIWORK, LWORK, N */
+/*       .. */
+/*       .. Array Arguments .. */
+/*       INTEGER            IWORK( * ) */
+/*       REAL               A( LDA, * ), W( * ), WORK( * ) */
+/*       .. */
+
+
+/* > \par Purpose: */
+/*  ============= */
+/* > */
+/* > \verbatim */
+/* > */
+/* > SSYEVD computes all eigenvalues and, optionally, eigenvectors of a */
+/* > real symmetric matrix A. If eigenvectors are desired, it uses a */
+/* > divide and conquer algorithm. */
+/* > */
+/* > The divide and conquer algorithm makes very mild assumptions about */
+/* > floating point arithmetic. It will work on machines with a guard */
+/* > digit in add/subtract, or on those binary machines without guard */
+/* > digits which subtract like the Cray X-MP, Cray Y-MP, Cray C-90, or */
+/* > Cray-2. It could conceivably fail on hexadecimal or decimal machines */
+/* > without guard digits, but we know of none. */
+/* > */
+/* > Because of large use of BLAS of level 3, SSYEVD needs N**2 more */
+/* > workspace than SSYEVX. */
+/* > \endverbatim */
+
+/*  Arguments: */
+/*  ========== */
+
+/* > \param[in] JOBZ */
+/* > \verbatim */
+/* >          JOBZ is CHARACTER*1 */
+/* >          = 'N':  Compute eigenvalues only; */
+/* >          = 'V':  Compute eigenvalues and eigenvectors. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] UPLO */
+/* > \verbatim */
+/* >          UPLO is CHARACTER*1 */
+/* >          = 'U':  Upper triangle of A is stored; */
+/* >          = 'L':  Lower triangle of A is stored. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] N */
+/* > \verbatim */
+/* >          N is INTEGER */
+/* >          The order of the matrix A.  N >= 0. */
+/* > \endverbatim */
+/* > */
+/* > \param[in,out] A */
+/* > \verbatim */
+/* >          A is REAL array, dimension (LDA, N) */
+/* >          On entry, the symmetric matrix A.  If UPLO = 'U', the */
+/* >          leading N-by-N upper triangular part of A contains the */
+/* >          upper triangular part of the matrix A.  If UPLO = 'L', */
+/* >          the leading N-by-N lower triangular part of A contains */
+/* >          the lower triangular part of the matrix A. */
+/* >          On exit, if JOBZ = 'V', then if INFO = 0, A contains the */
+/* >          orthonormal eigenvectors of the matrix A. */
+/* >          If JOBZ = 'N', then on exit the lower triangle (if UPLO='L') */
+/* >          or the upper triangle (if UPLO='U') of A, including the */
+/* >          diagonal, is destroyed. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LDA */
+/* > \verbatim */
+/* >          LDA is INTEGER */
+/* >          The leading dimension of the array A.  LDA >= max(1,N). */
+/* > \endverbatim */
+/* > */
+/* > \param[out] W */
+/* > \verbatim */
+/* >          W is REAL array, dimension (N) */
+/* >          If INFO = 0, the eigenvalues in ascending order. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] WORK */
+/* > \verbatim */
+/* >          WORK is REAL array, */
+/* >                                         dimension (LWORK) */
+/* >          On exit, if INFO = 0, WORK(1) returns the optimal LWORK. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LWORK */
+/* > \verbatim */
+/* >          LWORK is INTEGER */
+/* >          The dimension of the array WORK. */
+/* >          If N <= 1,               LWORK must be at least 1. */
+/* >          If JOBZ = 'N' and N > 1, LWORK must be at least 2*N+1. */
+/* >          If JOBZ = 'V' and N > 1, LWORK must be at least */
+/* >                                                1 + 6*N + 2*N**2. */
+/* > */
+/* >          If LWORK = -1, then a workspace query is assumed; the routine */
+/* >          only calculates the optimal sizes of the WORK and IWORK */
+/* >          arrays, returns these values as the first entries of the WORK */
+/* >          and IWORK arrays, and no error message related to LWORK or */
+/* >          LIWORK is issued by XERBLA. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] IWORK */
+/* > \verbatim */
+/* >          IWORK is INTEGER array, dimension (MAX(1,LIWORK)) */
+/* >          On exit, if INFO = 0, IWORK(1) returns the optimal LIWORK. */
+/* > \endverbatim */
+/* > */
+/* > \param[in] LIWORK */
+/* > \verbatim */
+/* >          LIWORK is INTEGER */
+/* >          The dimension of the array IWORK. */
+/* >          If N <= 1,                LIWORK must be at least 1. */
+/* >          If JOBZ  = 'N' and N > 1, LIWORK must be at least 1. */
+/* >          If JOBZ  = 'V' and N > 1, LIWORK must be at least 3 + 5*N. */
+/* > */
+/* >          If LIWORK = -1, then a workspace query is assumed; the */
+/* >          routine only calculates the optimal sizes of the WORK and */
+/* >          IWORK arrays, returns these values as the first entries of */
+/* >          the WORK and IWORK arrays, and no error message related to */
+/* >          LWORK or LIWORK is issued by XERBLA. */
+/* > \endverbatim */
+/* > */
+/* > \param[out] INFO */
+/* > \verbatim */
+/* >          INFO is INTEGER */
+/* >          = 0:  successful exit */
+/* >          < 0:  if INFO = -i, the i-th argument had an illegal value */
+/* >          > 0:  if INFO = i and JOBZ = 'N', then the algorithm failed */
+/* >                to converge; i off-diagonal elements of an intermediate */
+/* >                tridiagonal form did not converge to zero; */
+/* >                if INFO = i and JOBZ = 'V', then the algorithm failed */
+/* >                to compute an eigenvalue while working on the submatrix */
+/* >                lying in rows and columns INFO/(N+1) through */
+/* >                mod(INFO,N+1). */
+/* > \endverbatim */
+
+/*  Authors: */
+/*  ======== */
+
+/* > \author Univ. of Tennessee */
+/* > \author Univ. of California Berkeley */
+/* > \author Univ. of Colorado Denver */
+/* > \author NAG Ltd. */
+
+/* > \date November 2011 */
+
+/* > \ingroup realSYeigen */
+
+/* > \par Contributors: */
+/*  ================== */
+/* > */
+/* > Jeff Rutter, Computer Science Division, University of California */
+/* > at Berkeley, USA \n */
+/* >  Modified by Francoise Tisseur, University of Tennessee \n */
+/* >  Modified description of INFO. Sven, 16 Feb 05. \n */
+/* > */
+/*  ===================================================================== */
+/* Subroutine */ int ssyevd_(char *jobz, char *uplo, integer *n, doublereal *
+	a, integer *lda, doublereal *w, doublereal *work, integer *lwork, 
+	integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, 
+	ftnlen uplo_len)
+{
+    /* System generated locals */
+    integer a_dim1, a_offset, i__1, i__2;
+    doublereal d__1;
+
+    /* Builtin functions */
+    double sqrt(doublereal);
+
+    /* Local variables */
+    static doublereal eps;
+    static integer inde;
+    static doublereal anrm, rmin, rmax;
+    static integer lopt;
+    static doublereal sigma;
+    extern logical lsame_(char *, char *, ftnlen, ftnlen);
+    static integer iinfo;
+    extern /* Subroutine */ int sscal_(integer *, doublereal *, doublereal *, 
+	    integer *);
+    static integer lwmin, liopt;
+    static logical lower, wantz;
+    static integer indwk2, llwrk2, iscale;
+    extern doublereal slamch_(char *, ftnlen);
+    static doublereal safmin;
+    extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
+	    integer *, integer *, ftnlen, ftnlen);
+    extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
+    static doublereal bignum;
+    extern /* Subroutine */ int slascl_(char *, integer *, integer *, 
+	    doublereal *, doublereal *, integer *, integer *, doublereal *, 
+	    integer *, integer *, ftnlen);
+    static integer indtau;
+    extern /* Subroutine */ int sstedc_(char *, integer *, doublereal *, 
+	    doublereal *, doublereal *, integer *, doublereal *, integer *, 
+	    integer *, integer *, integer *, ftnlen), slacpy_(char *, integer 
+	    *, integer *, doublereal *, integer *, doublereal *, integer *, 
+	    ftnlen);
+    static integer indwrk, liwmin;
+    extern /* Subroutine */ int ssterf_(integer *, doublereal *, doublereal *,
+	     integer *);
+    extern doublereal slansy_(char *, char *, integer *, doublereal *, 
+	    integer *, doublereal *, ftnlen, ftnlen);
+    static integer llwork;
+    static doublereal smlnum;
+    static logical lquery;
+    extern /* Subroutine */ int sormtr_(char *, char *, char *, integer *, 
+	    integer *, doublereal *, integer *, doublereal *, doublereal *, 
+	    integer *, doublereal *, integer *, integer *, ftnlen, ftnlen, 
+	    ftnlen), ssytrd_(char *, integer *, doublereal *, integer *, 
+	    doublereal *, doublereal *, doublereal *, doublereal *, integer *,
+	     integer *, ftnlen);
+
+
+/*  -- LAPACK driver routine (version 3.4.0) -- */
+/*  -- LAPACK is a software package provided by Univ. of Tennessee,    -- */
+/*  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..-- */
+/*     November 2011 */
+
+/*     .. Scalar Arguments .. */
+/*     .. */
+/*     .. Array Arguments .. */
+/*     .. */
+
+/*  ===================================================================== */
+
+/*     .. Parameters .. */
+/*     .. */
+/*     .. Local Scalars .. */
+
+/*     .. */
+/*     .. External Functions .. */
+/*     .. */
+/*     .. External Subroutines .. */
+/*     .. */
+/*     .. Intrinsic Functions .. */
+/*     .. */
+/*     .. Executable Statements .. */
+
+/*     Test the input parameters. */
+
+#line 231 "ssyevd.f"
+    /* Parameter adjustments */
+#line 231 "ssyevd.f"
+    a_dim1 = *lda;
+#line 231 "ssyevd.f"
+    a_offset = 1 + a_dim1;
+#line 231 "ssyevd.f"
+    a -= a_offset;
+#line 231 "ssyevd.f"
+    --w;
+#line 231 "ssyevd.f"
+    --work;
+#line 231 "ssyevd.f"
+    --iwork;
+#line 231 "ssyevd.f"
+
+#line 231 "ssyevd.f"
+    /* Function Body */
+#line 231 "ssyevd.f"
+    wantz = lsame_(jobz, "V", (ftnlen)1, (ftnlen)1);
+#line 232 "ssyevd.f"
+    lower = lsame_(uplo, "L", (ftnlen)1, (ftnlen)1);
+#line 233 "ssyevd.f"
+    lquery = *lwork == -1 || *liwork == -1;
+
+#line 235 "ssyevd.f"
+    *info = 0;
+#line 236 "ssyevd.f"
+    if (! (wantz || lsame_(jobz, "N", (ftnlen)1, (ftnlen)1))) {
+#line 237 "ssyevd.f"
+	*info = -1;
+#line 238 "ssyevd.f"
+    } else if (! (lower || lsame_(uplo, "U", (ftnlen)1, (ftnlen)1))) {
+#line 239 "ssyevd.f"
+	*info = -2;
+#line 240 "ssyevd.f"
+    } else if (*n < 0) {
+#line 241 "ssyevd.f"
+	*info = -3;
+#line 242 "ssyevd.f"
+    } else if (*lda < max(1,*n)) {
+#line 243 "ssyevd.f"
+	*info = -5;
+#line 244 "ssyevd.f"
+    }
+
+#line 246 "ssyevd.f"
+    if (*info == 0) {
+#line 247 "ssyevd.f"
+	if (*n <= 1) {
+#line 248 "ssyevd.f"
+	    liwmin = 1;
+#line 249 "ssyevd.f"
+	    lwmin = 1;
+#line 250 "ssyevd.f"
+	    lopt = lwmin;
+#line 251 "ssyevd.f"
+	    liopt = liwmin;
+#line 252 "ssyevd.f"
+	} else {
+#line 253 "ssyevd.f"
+	    if (wantz) {
+#line 254 "ssyevd.f"
+		liwmin = *n * 5 + 3;
+/* Computing 2nd power */
+#line 255 "ssyevd.f"
+		i__1 = *n;
+#line 255 "ssyevd.f"
+		lwmin = *n * 6 + 1 + (i__1 * i__1 << 1);
+#line 256 "ssyevd.f"
+	    } else {
+#line 257 "ssyevd.f"
+		liwmin = 1;
+#line 258 "ssyevd.f"
+		lwmin = (*n << 1) + 1;
+#line 259 "ssyevd.f"
+	    }
+/* Computing MAX */
+#line 260 "ssyevd.f"
+	    i__1 = lwmin, i__2 = (*n << 1) + ilaenv_(&c__1, "SSYTRD", uplo, n,
+		     &c_n1, &c_n1, &c_n1, (ftnlen)6, (ftnlen)1);
+#line 260 "ssyevd.f"
+	    lopt = max(i__1,i__2);
+#line 262 "ssyevd.f"
+	    liopt = liwmin;
+#line 263 "ssyevd.f"
+	}
+#line 264 "ssyevd.f"
+	work[1] = (doublereal) lopt;
+#line 265 "ssyevd.f"
+	iwork[1] = liopt;
+
+#line 267 "ssyevd.f"
+	if (*lwork < lwmin && ! lquery) {
+#line 268 "ssyevd.f"
+	    *info = -8;
+#line 269 "ssyevd.f"
+	} else if (*liwork < liwmin && ! lquery) {
+#line 270 "ssyevd.f"
+	    *info = -10;
+#line 271 "ssyevd.f"
+	}
+#line 272 "ssyevd.f"
+    }
+
+#line 274 "ssyevd.f"
+    if (*info != 0) {
+#line 275 "ssyevd.f"
+	i__1 = -(*info);
+#line 275 "ssyevd.f"
+	xerbla_("SSYEVD", &i__1, (ftnlen)6);
+#line 276 "ssyevd.f"
+	return 0;
+#line 277 "ssyevd.f"
+    } else if (lquery) {
+#line 278 "ssyevd.f"
+	return 0;
+#line 279 "ssyevd.f"
+    }
+
+/*     Quick return if possible */
+
+#line 283 "ssyevd.f"
+    if (*n == 0) {
+#line 283 "ssyevd.f"
+	return 0;
+#line 283 "ssyevd.f"
+    }
+
+#line 286 "ssyevd.f"
+    if (*n == 1) {
+#line 287 "ssyevd.f"
+	w[1] = a[a_dim1 + 1];
+#line 288 "ssyevd.f"
+	if (wantz) {
+#line 288 "ssyevd.f"
+	    a[a_dim1 + 1] = 1.;
+#line 288 "ssyevd.f"
+	}
+#line 290 "ssyevd.f"
+	return 0;
+#line 291 "ssyevd.f"
+    }
+
+/*     Get machine constants. */
+
+#line 295 "ssyevd.f"
+    safmin = slamch_("Safe minimum", (ftnlen)12);
+#line 296 "ssyevd.f"
+    eps = slamch_("Precision", (ftnlen)9);
+#line 297 "ssyevd.f"
+    smlnum = safmin / eps;
+#line 298 "ssyevd.f"
+    bignum = 1. / smlnum;
+#line 299 "ssyevd.f"
+    rmin = sqrt(smlnum);
+#line 300 "ssyevd.f"
+    rmax = sqrt(bignum);
+
+/*     Scale matrix to allowable range, if necessary. */
+
+#line 304 "ssyevd.f"
+    anrm = slansy_("M", uplo, n, &a[a_offset], lda, &work[1], (ftnlen)1, (
+	    ftnlen)1);
+#line 305 "ssyevd.f"
+    iscale = 0;
+#line 306 "ssyevd.f"
+    if (anrm > 0. && anrm < rmin) {
+#line 307 "ssyevd.f"
+	iscale = 1;
+#line 308 "ssyevd.f"
+	sigma = rmin / anrm;
+#line 309 "ssyevd.f"
+    } else if (anrm > rmax) {
+#line 310 "ssyevd.f"
+	iscale = 1;
+#line 311 "ssyevd.f"
+	sigma = rmax / anrm;
+#line 312 "ssyevd.f"
+    }
+#line 313 "ssyevd.f"
+    if (iscale == 1) {
+#line 313 "ssyevd.f"
+	slascl_(uplo, &c__0, &c__0, &c_b17, &sigma, n, n, &a[a_offset], lda, 
+		info, (ftnlen)1);
+#line 313 "ssyevd.f"
+    }
+
+/*     Call SSYTRD to reduce symmetric matrix to tridiagonal form. */
+
+#line 318 "ssyevd.f"
+    inde = 1;
+#line 319 "ssyevd.f"
+    indtau = inde + *n;
+#line 320 "ssyevd.f"
+    indwrk = indtau + *n;
+#line 321 "ssyevd.f"
+    llwork = *lwork - indwrk + 1;
+#line 322 "ssyevd.f"
+    indwk2 = indwrk + *n * *n;
+#line 323 "ssyevd.f"
+    llwrk2 = *lwork - indwk2 + 1;
+
+#line 325 "ssyevd.f"
+    ssytrd_(uplo, n, &a[a_offset], lda, &w[1], &work[inde], &work[indtau], &
+	    work[indwrk], &llwork, &iinfo, (ftnlen)1);
+
+/*     For eigenvalues only, call SSTERF.  For eigenvectors, first call */
+/*     SSTEDC to generate the eigenvector matrix, WORK(INDWRK), of the */
+/*     tridiagonal matrix, then call SORMTR to multiply it by the */
+/*     Householder transformations stored in A. */
+
+#line 333 "ssyevd.f"
+    if (! wantz) {
+#line 334 "ssyevd.f"
+	ssterf_(n, &w[1], &work[inde], info);
+#line 335 "ssyevd.f"
+    } else {
+#line 336 "ssyevd.f"
+	sstedc_("I", n, &w[1], &work[inde], &work[indwrk], n, &work[indwk2], &
+		llwrk2, &iwork[1], liwork, info, (ftnlen)1);
+#line 338 "ssyevd.f"
+	sormtr_("L", uplo, "N", n, n, &a[a_offset], lda, &work[indtau], &work[
+		indwrk], n, &work[indwk2], &llwrk2, &iinfo, (ftnlen)1, (
+		ftnlen)1, (ftnlen)1);
+#line 340 "ssyevd.f"
+	slacpy_("A", n, n, &work[indwrk], n, &a[a_offset], lda, (ftnlen)1);
+#line 341 "ssyevd.f"
+    }
+
+/*     If matrix was scaled, then rescale eigenvalues appropriately. */
+
+#line 345 "ssyevd.f"
+    if (iscale == 1) {
+#line 345 "ssyevd.f"
+	d__1 = 1. / sigma;
+#line 345 "ssyevd.f"
+	sscal_(n, &d__1, &w[1], &c__1);
+#line 345 "ssyevd.f"
+    }
+
+#line 348 "ssyevd.f"
+    work[1] = (doublereal) lopt;
+#line 349 "ssyevd.f"
+    iwork[1] = liopt;
+
+#line 351 "ssyevd.f"
+    return 0;
+
+/*     End of SSYEVD */
+
+} /* ssyevd_ */
+

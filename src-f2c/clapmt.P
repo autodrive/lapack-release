@@ -1,0 +1,1 @@
+extern int clapmt_(logical *forwrd, integer *m, integer *n, doublecomplex *x, integer *ldx, integer *k);

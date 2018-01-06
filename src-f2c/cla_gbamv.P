@@ -1,0 +1,4 @@
+extern int cla_gbamv__(integer *trans, integer *m, integer *n, integer *kl, integer *ku, doublereal *alpha, doublecomplex *ab, integer *ldab, doublecomplex *x, integer *incx, doublereal *beta, doublereal *y, integer *incy);
+/*:ref: ilatrans_ 4 2 13 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slamch_ 7 2 13 124 */

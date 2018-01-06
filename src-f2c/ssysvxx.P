@@ -1,0 +1,12 @@
+extern int ssysvxx_(char *fact, char *uplo, integer *n, integer *nrhs, doublereal *a, integer *lda, doublereal *af, integer *ldaf, integer *ipiv, char *equed, doublereal *s, doublereal *b, integer *ldb, doublereal *x, integer *ldx, doublereal *rcond, doublereal *rpvgrw, doublereal *berr, integer *n_err_bnds__, doublereal *err_bnds_norm__, doublereal *err_bnds_comp__, integer *nparams, doublereal *params, doublereal *work, integer *iwork, integer *info, ftnlen fact_len, ftnlen uplo_len, ftnlen equed_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: ssyequb_ 14 10 13 4 7 4 7 7 7 7 4 124 */
+/*:ref: slaqsy_ 14 10 13 4 7 4 7 7 7 13 124 124 */
+/*:ref: slascl2_ 14 5 4 4 7 7 4 */
+/*:ref: slacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: ssytrf_ 14 9 13 4 7 4 4 7 4 4 124 */
+/*:ref: sla_syrpvgrw__ 7 10 13 4 4 7 4 7 4 4 7 124 */
+/*:ref: ssytrs_ 14 10 13 4 4 7 4 4 7 4 4 124 */
+/*:ref: ssyrfsx_ 14 26 13 13 4 4 7 4 7 4 4 7 7 4 7 4 7 7 4 7 7 4 7 7 4 4 124 124 */

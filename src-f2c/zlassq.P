@@ -1,0 +1,2 @@
+extern int zlassq_(integer *n, doublecomplex *x, integer *incx, doublereal *scale, doublereal *sumsq);
+/*:ref: disnan_ 12 1 7 */

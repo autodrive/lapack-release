@@ -1,0 +1,8 @@
+extern int ztzrqf_(integer *m, integer *n, doublecomplex *a, integer *lda, doublecomplex *tau, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zlacgv_ 14 3 4 9 4 */
+/*:ref: zlarfg_ 14 5 4 9 9 4 9 */
+/*:ref: zcopy_ 14 5 4 9 4 9 4 */
+/*:ref: zgemv_ 14 12 13 4 4 9 9 4 9 4 9 9 4 124 */
+/*:ref: zaxpy_ 14 6 4 9 9 4 9 4 */
+/*:ref: zgerc_ 14 9 4 4 9 9 4 9 4 9 4 */

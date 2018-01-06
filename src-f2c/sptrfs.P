@@ -1,0 +1,6 @@
+extern int sptrfs_(integer *n, integer *nrhs, doublereal *d__, doublereal *e, doublereal *df, doublereal *ef, doublereal *b, integer *ldb, doublereal *x, integer *ldx, doublereal *ferr, doublereal *berr, doublereal *work, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: spttrs_ 14 7 4 4 7 7 7 4 4 */
+/*:ref: saxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: isamax_ 4 3 4 7 4 */

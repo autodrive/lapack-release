@@ -1,0 +1,8 @@
+extern int dlaqps_(integer *m, integer *n, integer *offset, integer *nb, integer *kb, doublereal *a, integer *lda, integer *jpvt, doublereal *tau, doublereal *vn1, doublereal *vn2, doublereal *auxv, doublereal *f, integer *ldf);
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: idamax_ 4 3 4 7 4 */
+/*:ref: dswap_ 14 5 4 7 4 7 4 */
+/*:ref: dgemv_ 14 12 13 4 4 7 7 4 7 4 7 7 4 124 */
+/*:ref: dlarfg_ 14 5 4 7 7 4 7 */
+/*:ref: dgemm_ 14 15 13 13 4 4 4 7 7 4 7 4 7 7 4 124 124 */
+/*:ref: dnrm2_ 7 3 4 7 4 */

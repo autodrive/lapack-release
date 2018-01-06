@@ -1,0 +1,13 @@
+extern int cla_porfsx_extended__(integer *prec_type__, char *uplo, integer *n, integer *nrhs, doublecomplex *a, integer *lda, doublecomplex *af, integer *ldaf, logical *colequ, doublereal *c__, doublecomplex *b, integer *ldb, doublecomplex *y, integer *ldy, doublereal *berr_out__, integer *n_norms__, doublereal *err_bnds_norm__, doublereal *err_bnds_comp__, doublecomplex *res, doublereal *ayb, doublecomplex *dy, doublecomplex *y_tail__, doublereal *rcond, integer *ithresh, doublereal *rthresh, doublereal *dz_ub__, logical *ignore_cwise__, integer *info, ftnlen uplo_len);
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: ilauplo_ 4 2 13 124 */
+/*:ref: ccopy_ 14 5 4 9 4 9 4 */
+/*:ref: chemv_ 14 11 13 4 9 9 4 9 4 9 9 4 124 */
+/*:ref: blas_chemv_x__ 14 11 4 4 9 9 4 9 4 9 9 4 4 */
+/*:ref: blas_chemv2_x__ 14 12 4 4 9 9 4 9 9 4 9 9 4 4 */
+/*:ref: cpotrs_ 14 9 13 4 4 9 4 9 4 4 124 */
+/*:ref: caxpy_ 14 6 4 9 9 4 9 4 */
+/*:ref: cla_wwaddw__ 14 4 4 9 9 9 */
+/*:ref: cla_heamv__ 14 10 4 4 7 9 4 9 4 7 7 4 */
+/*:ref: cla_lin_berr__ 14 6 4 4 4 9 7 7 */

@@ -1,0 +1,12 @@
+extern int zla_gerfsx_extended__(integer *prec_type__, integer *trans_type__, integer *n, integer *nrhs, doublecomplex *a, integer *lda, doublecomplex *af, integer *ldaf, integer *ipiv, logical *colequ, doublereal *c__, doublecomplex *b, integer *ldb, doublecomplex *y, integer *ldy, doublereal *berr_out__, integer *n_norms__, doublereal *errs_n__, doublereal *errs_c__, doublecomplex *res, doublereal *ayb, doublecomplex *dy, doublecomplex *y_tail__, doublereal *rcond, integer *ithresh, doublereal *rthresh, doublereal *dz_ub__, logical *ignore_cwise__, integer *info);
+/*:ref: chla_transtype__ 13 3 13 124 4 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: zcopy_ 14 5 4 9 4 9 4 */
+/*:ref: zgemv_ 14 12 13 4 4 9 9 4 9 4 9 9 4 124 */
+/*:ref: blas_zgemv_x__ 14 12 4 4 4 9 9 4 9 4 9 9 4 4 */
+/*:ref: blas_zgemv2_x__ 14 13 4 4 4 9 9 4 9 9 4 9 9 4 4 */
+/*:ref: zgetrs_ 14 10 13 4 4 9 4 4 9 4 4 124 */
+/*:ref: zaxpy_ 14 6 4 9 9 4 9 4 */
+/*:ref: zla_wwaddw__ 14 4 4 9 9 9 */
+/*:ref: zla_geamv__ 14 11 4 4 4 7 9 4 9 4 7 7 4 */
+/*:ref: zla_lin_berr__ 14 6 4 4 4 9 7 7 */

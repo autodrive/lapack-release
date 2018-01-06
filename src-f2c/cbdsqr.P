@@ -1,0 +1,12 @@
+extern int cbdsqr_(char *uplo, integer *n, integer *ncvt, integer *nru, integer *ncc, doublereal *d__, doublereal *e, doublecomplex *vt, integer *ldvt, doublecomplex *u, integer *ldu, doublecomplex *c__, integer *ldc, doublereal *rwork, integer *info, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slasq1_ 14 5 4 7 7 7 4 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: slartg_ 14 5 7 7 7 7 7 */
+/*:ref: clasr_ 14 12 13 13 13 4 4 7 7 9 4 124 124 124 */
+/*:ref: slasv2_ 14 9 7 7 7 7 7 7 7 7 7 */
+/*:ref: csrot_ 14 7 4 9 4 9 4 7 7 */
+/*:ref: slas2_ 14 5 7 7 7 7 7 */
+/*:ref: csscal_ 14 4 4 7 9 4 */
+/*:ref: cswap_ 14 5 4 9 4 9 4 */

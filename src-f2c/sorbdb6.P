@@ -1,0 +1,4 @@
+extern int sorbdb6_(integer *m1, integer *m2, integer *n, doublereal *x1, integer *incx1, doublereal *x2, integer *incx2, doublereal *q1, integer *ldq1, doublereal *q2, integer *ldq2, doublereal *work, integer *lwork, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slassq_ 14 5 4 7 4 7 7 */
+/*:ref: sgemv_ 14 12 13 4 4 7 7 4 7 4 7 7 4 124 */

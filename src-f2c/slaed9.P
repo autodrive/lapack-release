@@ -1,0 +1,6 @@
+extern int slaed9_(integer *k, integer *kstart, integer *kstop, integer *n, doublereal *d__, doublereal *q, integer *ldq, doublereal *rho, doublereal *dlamda, doublereal *w, doublereal *s, integer *lds, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slamc3_ 7 2 7 7 */
+/*:ref: slaed4_ 14 8 4 4 7 7 7 7 7 4 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: snrm2_ 7 3 4 7 4 */

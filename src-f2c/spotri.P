@@ -1,0 +1,5 @@
+extern int spotri_(char *uplo, integer *n, doublereal *a, integer *lda, integer *info, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: strtri_ 14 8 13 13 4 7 4 4 124 124 */
+/*:ref: slauum_ 14 6 13 4 7 4 4 124 */

@@ -1,0 +1,2 @@
+extern logical lsamen_(integer *n, char *ca, char *cb, ftnlen ca_len, ftnlen cb_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */

@@ -1,0 +1,2 @@
+extern int classq_(integer *n, doublecomplex *x, integer *incx, doublereal *scale, doublereal *sumsq);
+/*:ref: sisnan_ 12 1 7 */

@@ -1,0 +1,8 @@
+extern int cgetri_(integer *n, doublecomplex *a, integer *lda, integer *ipiv, doublecomplex *work, integer *lwork, integer *info);
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: ctrtri_ 14 8 13 13 4 9 4 4 124 124 */
+/*:ref: cgemv_ 14 12 13 4 4 9 9 4 9 4 9 9 4 124 */
+/*:ref: cgemm_ 14 15 13 13 4 4 4 9 9 4 9 4 9 9 4 124 124 */
+/*:ref: ctrsm_ 14 15 13 13 13 13 4 4 9 9 4 9 4 124 124 124 124 */
+/*:ref: cswap_ 14 5 4 9 4 9 4 */

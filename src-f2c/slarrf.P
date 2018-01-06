@@ -1,0 +1,4 @@
+extern int slarrf_(integer *n, doublereal *d__, doublereal *l, doublereal *ld, integer *clstrt, integer *clend, doublereal *w, doublereal *wgap, doublereal *werr, doublereal *spdiam, doublereal *clgapl, doublereal *clgapr, doublereal *pivmin, doublereal *sigma, doublereal *dplus, doublereal *lplus, doublereal *work, integer *info);
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: sisnan_ 12 1 7 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */

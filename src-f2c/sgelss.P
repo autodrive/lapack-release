@@ -1,0 +1,21 @@
+extern int sgelss_(integer *m, integer *n, integer *nrhs, doublereal *a, integer *lda, doublereal *b, integer *ldb, doublereal *s, doublereal *rcond, integer *rank, doublereal *work, integer *lwork, integer *info);
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: sgeqrf_ 14 8 4 4 7 4 7 7 4 4 */
+/*:ref: sormqr_ 14 15 13 13 4 4 4 7 4 7 7 4 7 4 4 124 124 */
+/*:ref: sgebrd_ 14 11 4 4 7 4 7 7 7 7 7 4 4 */
+/*:ref: sormbr_ 14 17 13 13 13 4 4 4 7 4 7 7 4 7 4 4 124 124 124 */
+/*:ref: sorgbr_ 14 11 13 4 4 4 7 4 7 7 4 4 124 */
+/*:ref: sormlq_ 14 15 13 13 4 4 4 7 4 7 7 4 7 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: slabad_ 14 2 7 7 */
+/*:ref: slange_ 7 7 13 4 4 7 4 7 124 */
+/*:ref: slascl_ 14 11 13 4 4 7 7 4 4 7 4 4 124 */
+/*:ref: slaset_ 14 8 13 4 4 7 7 7 4 124 */
+/*:ref: sbdsqr_ 14 16 13 4 4 4 4 7 7 7 4 7 4 7 4 7 4 124 */
+/*:ref: srscl_ 14 4 4 7 7 4 */
+/*:ref: sgemm_ 14 15 13 13 4 4 4 7 7 4 7 4 7 7 4 124 124 */
+/*:ref: slacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: sgemv_ 14 12 13 4 4 7 7 4 7 4 7 7 4 124 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: sgelqf_ 14 8 4 4 7 4 7 7 4 4 */

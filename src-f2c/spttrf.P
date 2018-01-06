@@ -1,0 +1,2 @@
+extern int spttrf_(integer *n, doublereal *d__, doublereal *e, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */

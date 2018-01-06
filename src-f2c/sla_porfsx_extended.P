@@ -1,0 +1,13 @@
+extern int sla_porfsx_extended__(integer *prec_type__, char *uplo, integer *n, integer *nrhs, doublereal *a, integer *lda, doublereal *af, integer *ldaf, logical *colequ, doublereal *c__, doublereal *b, integer *ldb, doublereal *y, integer *ldy, doublereal *berr_out__, integer *n_norms__, doublereal *err_bnds_norm__, doublereal *err_bnds_comp__, doublereal *res, doublereal *ayb, doublereal *dy, doublereal *y_tail__, doublereal *rcond, integer *ithresh, doublereal *rthresh, doublereal *dz_ub__, logical *ignore_cwise__, integer *info, ftnlen uplo_len);
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: ilauplo_ 4 2 13 124 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: ssymv_ 14 11 13 4 7 7 4 7 4 7 7 4 124 */
+/*:ref: blas_ssymv_x__ 14 11 4 4 7 7 4 7 4 7 7 4 4 */
+/*:ref: blas_ssymv2_x__ 14 12 4 4 7 7 4 7 7 4 7 7 4 4 */
+/*:ref: spotrs_ 14 9 13 4 4 7 4 7 4 4 124 */
+/*:ref: saxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: sla_wwaddw__ 14 4 4 7 7 7 */
+/*:ref: sla_syamv__ 14 10 4 4 7 7 4 7 4 7 7 4 */
+/*:ref: sla_lin_berr__ 14 6 4 4 4 7 7 7 */

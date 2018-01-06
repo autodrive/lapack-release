@@ -1,0 +1,12 @@
+extern int sgsvj1_(char *jobv, integer *m, integer *n, integer *n1, doublereal *a, integer *lda, doublereal *d__, doublereal *sva, integer *mv, doublereal *v, integer *ldv, doublereal *eps, doublereal *sfmin, doublereal *tol, integer *nsweep, doublereal *work, integer *lwork, integer *info, ftnlen jobv_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: sdot_ 7 5 4 7 4 7 4 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: slascl_ 14 11 13 4 4 7 7 4 4 7 4 4 124 */
+/*:ref: srotm_ 14 6 4 7 4 7 4 7 */
+/*:ref: saxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: snrm2_ 7 3 4 7 4 */
+/*:ref: slassq_ 14 5 4 7 4 7 7 */
+/*:ref: isamax_ 4 3 4 7 4 */
+/*:ref: sswap_ 14 5 4 7 4 7 4 */

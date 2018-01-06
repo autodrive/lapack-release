@@ -1,0 +1,11 @@
+extern int zgglse_(integer *m, integer *n, integer *p, doublecomplex *a, integer *lda, doublecomplex *b, integer *ldb, doublecomplex *c__, doublecomplex *d__, doublecomplex *x, doublecomplex *work, integer *lwork, integer *info);
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zggrqf_ 14 12 4 4 4 9 4 9 9 4 9 9 4 4 */
+/*:ref: zunmqr_ 14 15 13 13 4 4 4 9 4 9 9 4 9 4 4 124 124 */
+/*:ref: ztrtrs_ 14 13 13 13 13 4 4 9 4 9 4 4 124 124 124 */
+/*:ref: zcopy_ 14 5 4 9 4 9 4 */
+/*:ref: zgemv_ 14 12 13 4 4 9 9 4 9 4 9 9 4 124 */
+/*:ref: ztrmv_ 14 11 13 13 13 4 9 4 9 4 124 124 124 */
+/*:ref: zaxpy_ 14 6 4 9 9 4 9 4 */
+/*:ref: zunmrq_ 14 15 13 13 4 4 4 9 4 9 9 4 9 4 4 124 124 */

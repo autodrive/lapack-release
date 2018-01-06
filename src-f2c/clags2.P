@@ -1,0 +1,3 @@
+extern int clags2_(logical *upper, doublereal *a1, doublecomplex *a2, doublereal *a3, doublereal *b1, doublecomplex *b2, doublereal *b3, doublereal *csu, doublecomplex *snu, doublereal *csv, doublecomplex *snv, doublereal *csq, doublecomplex *snq);
+/*:ref: slasv2_ 14 9 7 7 7 7 7 7 7 7 7 */
+/*:ref: clartg_ 14 5 9 9 7 9 9 */

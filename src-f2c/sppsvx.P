@@ -1,0 +1,13 @@
+extern int sppsvx_(char *fact, char *uplo, integer *n, integer *nrhs, doublereal *ap, doublereal *afp, char *equed, doublereal *s, doublereal *b, integer *ldb, doublereal *x, integer *ldx, doublereal *rcond, doublereal *ferr, doublereal *berr, doublereal *work, integer *iwork, integer *info, ftnlen fact_len, ftnlen uplo_len, ftnlen equed_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: sppequ_ 14 8 13 4 7 7 7 7 4 124 */
+/*:ref: slaqsp_ 14 9 13 4 7 7 7 7 13 124 124 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: spptrf_ 14 5 13 4 7 4 124 */
+/*:ref: slansp_ 7 7 13 13 4 7 7 124 124 */
+/*:ref: sppcon_ 14 9 13 4 7 7 7 7 4 4 124 */
+/*:ref: slacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: spptrs_ 14 8 13 4 4 7 7 4 4 124 */
+/*:ref: spprfs_ 14 15 13 4 4 7 7 7 4 7 4 7 7 7 4 4 124 */

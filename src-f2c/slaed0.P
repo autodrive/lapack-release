@@ -1,0 +1,9 @@
+extern int slaed0_(integer *icompq, integer *qsiz, integer *n, doublereal *d__, doublereal *e, doublereal *q, integer *ldq, doublereal *qstore, integer *ldqs, doublereal *work, integer *iwork, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: ssteqr_ 14 9 13 4 7 7 7 4 7 4 124 */
+/*:ref: sgemm_ 14 15 13 13 4 4 4 7 7 4 7 4 7 7 4 124 124 */
+/*:ref: slaed1_ 14 10 4 7 7 4 4 7 4 7 4 4 */
+/*:ref: slaed7_ 14 22 4 4 4 4 4 4 7 7 4 4 7 4 7 4 4 4 4 4 7 7 4 4 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: slacpy_ 14 8 13 4 4 7 4 7 4 124 */

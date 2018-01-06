@@ -1,0 +1,11 @@
+extern int sgglse_(integer *m, integer *n, integer *p, doublereal *a, integer *lda, doublereal *b, integer *ldb, doublereal *c__, doublereal *d__, doublereal *x, doublereal *work, integer *lwork, integer *info);
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: sggrqf_ 14 12 4 4 4 7 4 7 7 4 7 7 4 4 */
+/*:ref: sormqr_ 14 15 13 13 4 4 4 7 4 7 7 4 7 4 4 124 124 */
+/*:ref: strtrs_ 14 13 13 13 13 4 4 7 4 7 4 4 124 124 124 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: sgemv_ 14 12 13 4 4 7 7 4 7 4 7 7 4 124 */
+/*:ref: strmv_ 14 11 13 13 13 4 7 4 7 4 124 124 124 */
+/*:ref: saxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: sormrq_ 14 15 13 13 4 4 4 7 4 7 7 4 7 4 4 124 124 */

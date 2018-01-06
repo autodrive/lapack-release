@@ -1,0 +1,9 @@
+extern int dtbrfs_(char *uplo, char *trans, char *diag, integer *n, integer *kd, integer *nrhs, doublereal *ab, integer *ldab, doublereal *b, integer *ldb, doublereal *x, integer *ldx, doublereal *ferr, doublereal *berr, doublereal *work, integer *iwork, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dcopy_ 14 5 4 7 4 7 4 */
+/*:ref: dtbmv_ 14 12 13 13 13 4 4 7 4 7 4 124 124 124 */
+/*:ref: daxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: dlacn2_ 14 7 4 7 7 4 7 4 4 */
+/*:ref: dtbsv_ 14 12 13 13 13 4 4 7 4 7 4 124 124 124 */

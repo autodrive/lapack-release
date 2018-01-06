@@ -1,0 +1,6 @@
+extern int slasd1_(integer *nl, integer *nr, integer *sqre, doublereal *d__, doublereal *alpha, doublereal *beta, doublereal *u, integer *ldu, doublereal *vt, integer *ldvt, integer *idxq, integer *iwork, doublereal *work, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slascl_ 14 11 13 4 4 7 7 4 4 7 4 4 124 */
+/*:ref: slasd2_ 14 23 4 4 4 4 7 7 7 7 7 4 7 4 7 7 4 7 4 4 4 4 4 4 4 */
+/*:ref: slasd3_ 14 20 4 4 4 4 7 7 4 7 7 4 7 4 7 4 7 4 4 4 7 4 */
+/*:ref: slamrg_ 14 6 4 4 7 4 4 4 */

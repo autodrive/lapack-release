@@ -1,0 +1,1 @@
+extern int claqr1_(integer *n, doublecomplex *h__, integer *ldh, doublecomplex *s1, doublecomplex *s2, doublecomplex *v);

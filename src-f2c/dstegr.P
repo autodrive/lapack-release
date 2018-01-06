@@ -1,0 +1,2 @@
+extern int dstegr_(char *jobz, char *range, integer *n, doublereal *d__, doublereal *e, doublereal *vl, doublereal *vu, integer *il, integer *iu, doublereal *abstol, integer *m, doublereal *w, doublereal *z__, integer *ldz, integer *isuppz, doublereal *work, integer *lwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen range_len);
+/*:ref: dstemr_ 14 23 13 13 4 7 7 7 7 4 4 4 7 7 4 4 4 12 7 4 4 4 4 124 124 */

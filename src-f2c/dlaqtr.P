@@ -1,0 +1,10 @@
+extern int dlaqtr_(logical *ltran, logical *lreal, integer *n, doublereal *t, integer *ldt, doublereal *b, doublereal *w, doublereal *scale, doublereal *x, doublereal *work, integer *info);
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dlange_ 7 7 13 4 4 7 4 7 124 */
+/*:ref: dasum_ 7 3 4 7 4 */
+/*:ref: idamax_ 4 3 4 7 4 */
+/*:ref: dscal_ 14 4 4 7 7 4 */
+/*:ref: daxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: dlaln2_ 14 18 12 4 4 7 7 7 4 7 7 7 4 7 7 7 4 7 7 4 */
+/*:ref: ddot_ 7 5 4 7 4 7 4 */
+/*:ref: dladiv_ 14 6 7 7 7 7 7 7 */

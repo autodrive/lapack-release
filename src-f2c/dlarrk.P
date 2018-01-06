@@ -1,0 +1,2 @@
+extern int dlarrk_(integer *n, integer *iw, doublereal *gl, doublereal *gu, doublereal *d__, doublereal *e2, doublereal *pivmin, doublereal *reltol, doublereal *w, doublereal *werr, integer *info);
+/*:ref: dlamch_ 7 2 13 124 */

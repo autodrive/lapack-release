@@ -1,0 +1,5 @@
+extern doublereal dla_porcond__(char *uplo, integer *n, doublereal *a, integer *lda, doublereal *af, integer *ldaf, integer *cmode, doublereal *c__, integer *info, doublereal *work, integer *iwork, ftnlen uplo_len);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: dlacn2_ 14 7 4 7 7 4 7 4 4 */
+/*:ref: dpotrs_ 14 9 13 4 4 7 4 7 4 4 124 */

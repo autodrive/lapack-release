@@ -1,0 +1,4 @@
+extern int dgesv_(integer *n, integer *nrhs, doublereal *a, integer *lda, integer *ipiv, doublereal *b, integer *ldb, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dgetrf_ 14 6 4 4 7 4 4 4 */
+/*:ref: dgetrs_ 14 10 13 4 4 7 4 4 7 4 4 124 */

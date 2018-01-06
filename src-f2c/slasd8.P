@@ -1,0 +1,9 @@
+extern int slasd8_(integer *icompq, integer *k, doublereal *d__, doublereal *z__, doublereal *vf, doublereal *vl, doublereal *difl, doublereal *difr, integer *lddifr, doublereal *dsigma, doublereal *work, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slamc3_ 7 2 7 7 */
+/*:ref: snrm2_ 7 3 4 7 4 */
+/*:ref: slascl_ 14 11 13 4 4 7 7 4 4 7 4 4 124 */
+/*:ref: slaset_ 14 8 13 4 4 7 7 7 4 124 */
+/*:ref: slasd4_ 14 9 4 4 7 7 7 7 7 7 4 */
+/*:ref: sdot_ 7 5 4 7 4 7 4 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */

@@ -1,0 +1,6 @@
+extern int zsytri2_(char *uplo, integer *n, doublecomplex *a, integer *lda, integer *ipiv, doublecomplex *work, integer *lwork, integer *info, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zsytri_ 14 8 13 4 9 4 4 9 4 124 */
+/*:ref: zsytri2x_ 14 9 13 4 9 4 4 9 4 4 124 */

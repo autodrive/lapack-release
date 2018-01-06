@@ -1,0 +1,9 @@
+extern int stgsen_(integer *ijob, logical *wantq, logical *wantz, logical *select, integer *n, doublereal *a, integer *lda, doublereal *b, integer *ldb, doublereal *alphar, doublereal *alphai, doublereal *beta, doublereal *q, integer *ldq, doublereal *z__, integer *ldz, integer *m, doublereal *pl, doublereal *pr, doublereal *dif, doublereal *work, integer *lwork, integer *iwork, integer *liwork, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: slassq_ 14 5 4 7 4 7 7 */
+/*:ref: stgexc_ 14 16 12 12 4 7 4 7 4 7 4 7 4 4 4 7 4 4 */
+/*:ref: slacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: stgsyl_ 14 23 13 4 4 4 7 4 7 4 7 4 7 4 7 4 7 4 7 7 7 4 4 4 124 */
+/*:ref: slacn2_ 14 7 4 7 7 4 7 4 4 */
+/*:ref: slag2_ 14 10 7 4 7 4 7 7 7 7 7 7 */

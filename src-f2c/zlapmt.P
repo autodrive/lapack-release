@@ -1,0 +1,1 @@
+extern int zlapmt_(logical *forwrd, integer *m, integer *n, doublecomplex *x, integer *ldx, integer *k);

@@ -1,0 +1,7 @@
+extern int zgetf2_(integer *m, integer *n, doublecomplex *a, integer *lda, integer *ipiv, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: izamax_ 4 3 4 9 4 */
+/*:ref: zswap_ 14 5 4 9 4 9 4 */
+/*:ref: zscal_ 14 4 4 9 9 4 */
+/*:ref: zgeru_ 14 9 4 4 9 9 4 9 4 9 4 */

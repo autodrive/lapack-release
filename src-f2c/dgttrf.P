@@ -1,0 +1,2 @@
+extern int dgttrf_(integer *n, doublereal *dl, doublereal *d__, doublereal *du, doublereal *du2, integer *ipiv, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */

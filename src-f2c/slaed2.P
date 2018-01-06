@@ -1,0 +1,10 @@
+extern int slaed2_(integer *k, integer *n, integer *n1, doublereal *d__, doublereal *q, integer *ldq, integer *indxq, doublereal *rho, doublereal *z__, doublereal *dlamda, doublereal *w, doublereal *q2, integer *indx, integer *indxc, integer *indxp, integer *coltyp, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: sscal_ 14 4 4 7 7 4 */
+/*:ref: slamrg_ 14 6 4 4 7 4 4 4 */
+/*:ref: isamax_ 4 3 4 7 4 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: slacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: slapy2_ 7 2 7 7 */
+/*:ref: srot_ 14 7 4 7 4 7 4 7 7 */

@@ -1,0 +1,2 @@
+extern int claev2_(doublecomplex *a, doublecomplex *b, doublecomplex *c__, doublereal *rt1, doublereal *rt2, doublereal *cs1, doublecomplex *sn1);
+/*:ref: slaev2_ 14 7 7 7 7 7 7 7 7 */

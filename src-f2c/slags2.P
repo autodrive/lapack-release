@@ -1,0 +1,3 @@
+extern int slags2_(logical *upper, doublereal *a1, doublereal *a2, doublereal *a3, doublereal *b1, doublereal *b2, doublereal *b3, doublereal *csu, doublereal *snu, doublereal *csv, doublereal *snv, doublereal *csq, doublereal *snq);
+/*:ref: slasv2_ 14 9 7 7 7 7 7 7 7 7 7 */
+/*:ref: slartg_ 14 5 7 7 7 7 7 */

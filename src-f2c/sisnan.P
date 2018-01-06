@@ -1,0 +1,2 @@
+extern logical sisnan_(doublereal *sin__);
+/*:ref: slaisnan_ 12 2 7 7 */

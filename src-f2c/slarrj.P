@@ -1,0 +1,1 @@
+extern int slarrj_(integer *n, doublereal *d__, doublereal *e2, integer *ifirst, integer *ilast, doublereal *rtol, integer *offset, doublereal *w, doublereal *werr, doublereal *work, integer *iwork, doublereal *pivmin, doublereal *spdiam, integer *info);

@@ -1,0 +1,4 @@
+extern int dptsv_(integer *n, integer *nrhs, doublereal *d__, doublereal *e, doublereal *b, integer *ldb, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dpttrf_ 14 4 4 7 7 4 */
+/*:ref: dpttrs_ 14 7 4 4 7 7 7 4 4 */

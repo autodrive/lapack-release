@@ -1,0 +1,9 @@
+extern int dggglm_(integer *n, integer *m, integer *p, doublereal *a, integer *lda, doublereal *b, integer *ldb, doublereal *d__, doublereal *x, doublereal *y, doublereal *work, integer *lwork, integer *info);
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dggqrf_ 14 12 4 4 4 7 4 7 7 4 7 7 4 4 */
+/*:ref: dormqr_ 14 15 13 13 4 4 4 7 4 7 7 4 7 4 4 124 124 */
+/*:ref: dtrtrs_ 14 13 13 13 13 4 4 7 4 7 4 4 124 124 124 */
+/*:ref: dcopy_ 14 5 4 7 4 7 4 */
+/*:ref: dgemv_ 14 12 13 4 4 7 7 4 7 4 7 7 4 124 */
+/*:ref: dormrq_ 14 15 13 13 4 4 4 7 4 7 7 4 7 4 4 124 124 */

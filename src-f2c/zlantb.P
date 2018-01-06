@@ -1,0 +1,4 @@
+extern doublereal zlantb_(char *norm, char *uplo, char *diag, integer *n, integer *k, doublecomplex *ab, integer *ldab, doublereal *work, ftnlen norm_len, ftnlen uplo_len, ftnlen diag_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: disnan_ 12 1 7 */
+/*:ref: zlassq_ 14 5 4 9 4 7 7 */

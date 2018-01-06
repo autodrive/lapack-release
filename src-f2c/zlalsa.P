@@ -1,0 +1,6 @@
+extern int zlalsa_(integer *icompq, integer *smlsiz, integer *n, integer *nrhs, doublecomplex *b, integer *ldb, doublecomplex *bx, integer *ldbx, doublereal *u, integer *ldu, doublereal *vt, integer *k, doublereal *difl, doublereal *difr, doublereal *z__, doublereal *poles, integer *givptr, integer *givcol, integer *ldgcol, integer *perm, doublereal *givnum, doublereal *c__, doublereal *s, doublereal *rwork, integer *iwork, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlasdt_ 14 7 4 4 4 4 4 4 4 */
+/*:ref: dgemm_ 14 15 13 13 4 4 4 7 7 4 7 4 7 7 4 124 124 */
+/*:ref: zcopy_ 14 5 4 9 4 9 4 */
+/*:ref: zlals0_ 14 24 4 4 4 4 4 9 4 9 4 4 4 4 4 7 4 7 7 7 7 4 7 7 7 4 */

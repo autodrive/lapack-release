@@ -1,0 +1,1 @@
+extern integer iparmq_(integer *ispec, char *name__, char *opts, integer *n, integer *ilo, integer *ihi, integer *lwork, ftnlen name_len, ftnlen opts_len);

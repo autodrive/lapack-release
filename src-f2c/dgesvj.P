@@ -1,0 +1,17 @@
+extern int dgesvj_(char *joba, char *jobu, char *jobv, integer *m, integer *n, doublereal *a, integer *lda, doublereal *sva, integer *mv, doublereal *v, integer *ldv, doublereal *work, integer *lwork, integer *info, ftnlen joba_len, ftnlen jobu_len, ftnlen jobv_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dlaset_ 14 8 13 4 4 7 7 7 4 124 */
+/*:ref: dlassq_ 14 5 4 7 4 7 7 */
+/*:ref: dlascl_ 14 11 13 4 4 7 7 4 4 7 4 4 124 */
+/*:ref: dgsvj0_ 14 18 13 4 4 7 4 7 7 4 7 4 7 7 7 4 7 4 4 124 */
+/*:ref: dgsvj1_ 14 19 13 4 4 4 7 4 7 7 4 7 4 7 7 7 4 7 4 4 124 */
+/*:ref: idamax_ 4 3 4 7 4 */
+/*:ref: dswap_ 14 5 4 7 4 7 4 */
+/*:ref: dnrm2_ 7 3 4 7 4 */
+/*:ref: ddot_ 7 5 4 7 4 7 4 */
+/*:ref: dcopy_ 14 5 4 7 4 7 4 */
+/*:ref: drotm_ 14 6 4 7 4 7 4 7 */
+/*:ref: daxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: dscal_ 14 4 4 7 7 4 */

@@ -1,0 +1,4 @@
+extern int zgbsv_(integer *n, integer *kl, integer *ku, integer *nrhs, doublecomplex *ab, integer *ldab, integer *ipiv, doublecomplex *b, integer *ldb, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zgbtrf_ 14 8 4 4 4 4 9 4 4 4 */
+/*:ref: zgbtrs_ 14 12 13 4 4 4 4 9 4 4 9 4 4 124 */

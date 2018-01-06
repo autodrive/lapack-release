@@ -1,0 +1,17 @@
+extern int sgesvdx_(char *jobu, char *jobvt, char *range, integer *m, integer *n, doublereal *a, integer *lda, doublereal *vl, doublereal *vu, integer *il, integer *iu, integer *ns, doublereal *s, doublereal *u, integer *ldu, doublereal *vt, integer *ldvt, doublereal *work, integer *lwork, integer *iwork, integer *info, ftnlen jobu_len, ftnlen jobvt_len, ftnlen range_len);
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slange_ 7 7 13 4 4 7 4 7 124 */
+/*:ref: slascl_ 14 11 13 4 4 7 7 4 4 7 4 4 124 */
+/*:ref: sgeqrf_ 14 8 4 4 7 4 7 7 4 4 */
+/*:ref: slacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: slaset_ 14 8 13 4 4 7 7 7 4 124 */
+/*:ref: sgebrd_ 14 11 4 4 7 4 7 7 7 7 7 4 4 */
+/*:ref: sbdsvdx_ 14 20 13 13 13 4 7 7 7 7 4 4 4 7 7 4 7 4 4 124 124 124 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: sormbr_ 14 17 13 13 13 4 4 4 7 4 7 7 4 7 4 4 124 124 124 */
+/*:ref: sormqr_ 14 15 13 13 4 4 4 7 4 7 7 4 7 4 4 124 124 */
+/*:ref: sgelqf_ 14 8 4 4 7 4 7 7 4 4 */
+/*:ref: sormlq_ 14 15 13 13 4 4 4 7 4 7 7 4 7 4 4 124 124 */

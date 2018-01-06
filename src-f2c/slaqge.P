@@ -1,0 +1,2 @@
+extern int slaqge_(integer *m, integer *n, doublereal *a, integer *lda, doublereal *r__, doublereal *c__, doublereal *rowcnd, doublereal *colcnd, doublereal *amax, char *equed, ftnlen equed_len);
+/*:ref: slamch_ 7 2 13 124 */

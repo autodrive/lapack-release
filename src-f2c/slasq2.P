@@ -1,0 +1,5 @@
+extern int slasq2_(integer *n, doublereal *z__, integer *info);
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slasrt_ 14 5 13 4 7 4 124 */
+/*:ref: slasq3_ 14 20 4 4 7 4 7 7 7 7 4 4 4 12 4 7 7 7 7 7 7 7 */

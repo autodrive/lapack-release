@@ -1,0 +1,5 @@
+extern int dlapll_(integer *n, doublereal *x, integer *incx, doublereal *y, integer *incy, doublereal *ssmin);
+/*:ref: dlarfg_ 14 5 4 7 7 4 7 */
+/*:ref: ddot_ 7 5 4 7 4 7 4 */
+/*:ref: daxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: dlas2_ 14 5 7 7 7 7 7 */

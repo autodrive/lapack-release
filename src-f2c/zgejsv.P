@@ -1,0 +1,29 @@
+extern int zgejsv_(char *joba, char *jobu, char *jobv, char *jobr, char *jobt, char *jobp, integer *m, integer *n, doublecomplex *a, integer *lda, doublereal *sva, doublecomplex *u, integer *ldu, doublecomplex *v, integer *ldv, doublecomplex *cwork, integer *lwork, doublereal *rwork, integer *lrwork, integer *iwork, integer *info, ftnlen joba_len, ftnlen jobu_len, ftnlen jobv_len, ftnlen jobr_len, ftnlen jobt_len, ftnlen jobp_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: zgeqp3_ 14 10 4 4 9 4 4 9 9 4 7 4 */
+/*:ref: zgeqrf_ 14 8 4 4 9 4 9 9 4 4 */
+/*:ref: zgelqf_ 14 8 4 4 9 4 9 9 4 4 */
+/*:ref: zgesvj_ 14 19 13 13 13 4 4 9 4 7 4 9 4 9 4 7 4 4 124 124 124 */
+/*:ref: zunmlq_ 14 15 13 13 4 4 4 9 4 9 9 4 9 4 4 124 124 */
+/*:ref: zunmqr_ 14 15 13 13 4 4 4 9 4 9 9 4 9 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: zlassq_ 14 5 4 9 4 7 7 */
+/*:ref: dscal_ 14 4 4 7 7 4 */
+/*:ref: zlaset_ 14 8 13 4 4 9 9 9 4 124 */
+/*:ref: zlascl_ 14 11 13 4 4 7 7 4 4 9 4 4 124 */
+/*:ref: zlacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: zungqr_ 14 9 4 4 4 9 4 9 9 4 4 */
+/*:ref: zcopy_ 14 5 4 9 4 9 4 */
+/*:ref: izamax_ 4 3 4 9 4 */
+/*:ref: dlassq_ 14 5 4 7 4 7 7 */
+/*:ref: dlascl_ 14 11 13 4 4 7 7 4 4 7 4 4 124 */
+/*:ref: idamax_ 4 3 4 7 4 */
+/*:ref: zlaswp_ 14 7 4 9 4 4 4 4 4 */
+/*:ref: zdscal_ 14 4 4 7 9 4 */
+/*:ref: zpocon_ 14 10 13 4 9 4 7 7 9 7 4 124 */
+/*:ref: zlacgv_ 14 3 4 9 4 */
+/*:ref: zlapmr_ 14 6 12 4 4 9 4 4 */
+/*:ref: dznrm2_ 7 3 4 9 4 */
+/*:ref: ztrsm_ 14 15 13 13 13 13 4 4 9 9 4 9 4 124 124 124 124 */
+/*:ref: zswap_ 14 5 4 9 4 9 4 */

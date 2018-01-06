@@ -1,0 +1,9 @@
+extern int sgeqp3_(integer *m, integer *n, doublereal *a, integer *lda, integer *jpvt, doublereal *tau, doublereal *work, integer *lwork, integer *info);
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: sswap_ 14 5 4 7 4 7 4 */
+/*:ref: sgeqrf_ 14 8 4 4 7 4 7 7 4 4 */
+/*:ref: sormqr_ 14 15 13 13 4 4 4 7 4 7 7 4 7 4 4 124 124 */
+/*:ref: snrm2_ 7 3 4 7 4 */
+/*:ref: slaqps_ 14 14 4 4 4 4 4 7 4 4 7 7 7 7 7 4 */
+/*:ref: slaqp2_ 14 10 4 4 4 7 4 4 7 7 7 7 */

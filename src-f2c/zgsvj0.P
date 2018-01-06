@@ -1,0 +1,12 @@
+extern int zgsvj0_(char *jobv, integer *m, integer *n, doublecomplex *a, integer *lda, doublecomplex *d__, doublereal *sva, integer *mv, doublecomplex *v, integer *ldv, doublereal *eps, doublereal *sfmin, doublereal *tol, integer *nsweep, doublecomplex *work, integer *lwork, integer *info, ftnlen jobv_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: idamax_ 4 3 4 7 4 */
+/*:ref: zswap_ 14 5 4 9 4 9 4 */
+/*:ref: dznrm2_ 7 3 4 9 4 */
+/*:ref: zlassq_ 14 5 4 9 4 7 7 */
+/*:ref: zdotc_ 9 6 9 4 9 4 9 4 */
+/*:ref: zcopy_ 14 5 4 9 4 9 4 */
+/*:ref: zlascl_ 14 11 13 4 4 7 7 4 4 9 4 4 124 */
+/*:ref: zrot_ 14 7 4 9 4 9 4 7 9 */
+/*:ref: zaxpy_ 14 6 4 9 9 4 9 4 */

@@ -1,0 +1,8 @@
+extern int slaein_(logical *rightv, logical *noinit, integer *n, doublereal *h__, integer *ldh, doublereal *wr, doublereal *wi, doublereal *vr, doublereal *vi, doublereal *b, integer *ldb, doublereal *work, doublereal *eps3, doublereal *smlnum, doublereal *bignum, integer *info);
+/*:ref: snrm2_ 7 3 4 7 4 */
+/*:ref: sscal_ 14 4 4 7 7 4 */
+/*:ref: slatrs_ 14 15 13 13 13 13 4 7 4 7 7 7 4 124 124 124 124 */
+/*:ref: sasum_ 7 3 4 7 4 */
+/*:ref: isamax_ 4 3 4 7 4 */
+/*:ref: slapy2_ 7 2 7 7 */
+/*:ref: sladiv_ 14 6 7 7 7 7 7 7 */

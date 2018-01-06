@@ -1,0 +1,8 @@
+extern int dlasq1_(integer *n, doublereal *d__, doublereal *e, doublereal *work, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlas2_ 14 5 7 7 7 7 7 */
+/*:ref: dlasrt_ 14 5 13 4 7 4 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dcopy_ 14 5 4 7 4 7 4 */
+/*:ref: dlascl_ 14 11 13 4 4 7 7 4 4 7 4 4 124 */
+/*:ref: dlasq2_ 14 3 4 7 4 */

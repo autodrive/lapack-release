@@ -1,0 +1,6 @@
+extern int dlasq3_(integer *i0, integer *n0, doublereal *z__, integer *pp, doublereal *dmin__, doublereal *sigma, doublereal *desig, doublereal *qmax, integer *nfail, integer *iter, integer *ndiv, logical *ieee, integer *ttype, doublereal *dmin1, doublereal *dmin2, doublereal *dn, doublereal *dn1, doublereal *dn2, doublereal *g, doublereal *tau);
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dlasq4_ 14 14 4 4 7 4 4 7 7 7 7 7 7 7 4 7 */
+/*:ref: dlasq5_ 14 14 4 4 7 4 7 7 7 7 7 7 7 7 12 7 */
+/*:ref: disnan_ 12 1 7 */
+/*:ref: dlasq6_ 14 10 4 4 7 4 7 7 7 7 7 7 */

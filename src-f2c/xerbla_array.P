@@ -1,0 +1,2 @@
+extern int xerbla_array__(D_fp srname_array__, integer *srname_len__, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */

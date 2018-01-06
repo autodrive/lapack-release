@@ -1,0 +1,7 @@
+extern int slagv2_(doublereal *a, integer *lda, doublereal *b, integer *ldb, doublereal *alphar, doublereal *alphai, doublereal *beta, doublereal *csl, doublereal *snl, doublereal *csr, doublereal *snr);
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: slartg_ 14 5 7 7 7 7 7 */
+/*:ref: srot_ 14 7 4 7 4 7 4 7 7 */
+/*:ref: slag2_ 14 10 7 4 7 4 7 7 7 7 7 7 */
+/*:ref: slapy2_ 7 2 7 7 */
+/*:ref: slasv2_ 14 9 7 7 7 7 7 7 7 7 7 */

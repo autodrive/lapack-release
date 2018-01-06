@@ -1,0 +1,2 @@
+extern int zlag2c_(integer *m, integer *n, doublecomplex *a, integer *lda, doublecomplex *sa, integer *ldsa, integer *info);
+/*:ref: slamch_ 7 2 13 124 */

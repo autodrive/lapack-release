@@ -1,0 +1,12 @@
+extern int zposvxx_(char *fact, char *uplo, integer *n, integer *nrhs, doublecomplex *a, integer *lda, doublecomplex *af, integer *ldaf, char *equed, doublereal *s, doublecomplex *b, integer *ldb, doublecomplex *x, integer *ldx, doublereal *rcond, doublereal *rpvgrw, doublereal *berr, integer *n_err_bnds__, doublereal *err_bnds_norm__, doublereal *err_bnds_comp__, integer *nparams, doublereal *params, doublecomplex *work, doublereal *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len, ftnlen equed_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zpoequb_ 14 7 4 9 4 7 7 7 4 */
+/*:ref: zlaqhe_ 14 10 13 4 9 4 7 7 7 13 124 124 */
+/*:ref: zlascl2_ 14 5 4 4 7 9 4 */
+/*:ref: zlacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: zpotrf_ 14 6 13 4 9 4 4 124 */
+/*:ref: zla_porpvgrw__ 7 8 13 4 9 4 9 4 7 124 */
+/*:ref: zpotrs_ 14 9 13 4 4 9 4 9 4 4 124 */
+/*:ref: zporfsx_ 14 25 13 13 4 4 9 4 9 4 7 9 4 9 4 7 7 4 7 7 4 7 9 7 4 124 124 */

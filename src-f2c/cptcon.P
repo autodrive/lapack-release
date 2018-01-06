@@ -1,0 +1,3 @@
+extern int cptcon_(integer *n, doublereal *d__, doublecomplex *e, doublereal *anorm, doublereal *rcond, doublereal *rwork, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: isamax_ 4 3 4 7 4 */

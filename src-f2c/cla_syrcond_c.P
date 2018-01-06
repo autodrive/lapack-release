@@ -1,0 +1,5 @@
+extern doublereal cla_syrcond_c__(char *uplo, integer *n, doublecomplex *a, integer *lda, doublecomplex *af, integer *ldaf, integer *ipiv, doublereal *c__, logical *capply, integer *info, doublecomplex *work, doublereal *rwork, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: clacn2_ 14 6 4 9 9 7 4 4 */
+/*:ref: csytrs_ 14 10 13 4 4 9 4 4 9 4 4 124 */

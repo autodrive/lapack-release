@@ -1,0 +1,10 @@
+extern int slatdf_(integer *ijob, integer *n, doublereal *z__, integer *ldz, doublereal *rhs, doublereal *rdsum, doublereal *rdscal, integer *ipiv, integer *jpiv);
+/*:ref: slaswp_ 14 7 4 7 4 4 4 4 4 */
+/*:ref: sdot_ 7 5 4 7 4 7 4 */
+/*:ref: saxpy_ 14 6 4 7 7 4 7 4 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: slassq_ 14 5 4 7 4 7 7 */
+/*:ref: sgecon_ 14 10 13 4 7 4 7 7 7 4 4 124 */
+/*:ref: sscal_ 14 4 4 7 7 4 */
+/*:ref: sgesc2_ 14 7 4 7 4 7 4 4 7 */
+/*:ref: sasum_ 7 3 4 7 4 */

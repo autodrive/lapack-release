@@ -1,0 +1,2 @@
+extern int slarrr_(integer *n, doublereal *d__, doublereal *e, integer *info);
+/*:ref: slamch_ 7 2 13 124 */

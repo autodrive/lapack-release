@@ -1,0 +1,8 @@
+extern int zhptrs_(char *uplo, integer *n, integer *nrhs, doublecomplex *ap, integer *ipiv, doublecomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zswap_ 14 5 4 9 4 9 4 */
+/*:ref: zgeru_ 14 9 4 4 9 9 4 9 4 9 4 */
+/*:ref: zdscal_ 14 4 4 7 9 4 */
+/*:ref: zlacgv_ 14 3 4 9 4 */
+/*:ref: zgemv_ 14 12 13 4 4 9 9 4 9 4 9 9 4 124 */

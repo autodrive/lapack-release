@@ -1,0 +1,4 @@
+extern int dlatsqr_(integer *m, integer *n, integer *mb, integer *nb, doublereal *a, integer *lda, doublereal *t, integer *ldt, doublereal *work, integer *lwork, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dgeqrt_ 14 9 4 4 4 7 4 7 4 7 4 */
+/*:ref: dtpqrt_ 14 12 4 4 4 4 7 4 7 4 7 4 7 4 */

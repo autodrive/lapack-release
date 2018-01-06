@@ -1,0 +1,5 @@
+extern int clarfy_(char *uplo, integer *n, doublecomplex *v, integer *incv, doublecomplex *tau, doublecomplex *c__, integer *ldc, doublecomplex *work, ftnlen uplo_len);
+/*:ref: chemv_ 14 11 13 4 9 9 4 9 4 9 9 4 124 */
+/*:ref: cdotc_ 9 6 9 4 9 4 9 4 */
+/*:ref: caxpy_ 14 6 4 9 9 4 9 4 */
+/*:ref: cher2_ 14 10 13 4 9 9 4 9 4 9 4 124 */

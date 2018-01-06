@@ -1,0 +1,17 @@
+extern int cggev3_(char *jobvl, char *jobvr, integer *n, doublecomplex *a, integer *lda, doublecomplex *b, integer *ldb, doublecomplex *alpha, doublecomplex *beta, doublecomplex *vl, integer *ldvl, doublecomplex *vr, integer *ldvr, doublecomplex *work, integer *lwork, doublereal *rwork, integer *info, ftnlen jobvl_len, ftnlen jobvr_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: cgeqrf_ 14 8 4 4 9 4 9 9 4 4 */
+/*:ref: cunmqr_ 14 15 13 13 4 4 4 9 4 9 9 4 9 4 4 124 124 */
+/*:ref: cungqr_ 14 9 4 4 4 9 4 9 9 4 4 */
+/*:ref: cgghd3_ 14 18 13 13 4 4 4 9 4 9 4 9 4 9 4 9 4 4 124 124 */
+/*:ref: chgeqz_ 14 23 13 13 13 4 4 4 9 4 9 4 9 9 9 4 9 4 9 4 7 4 124 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: slabad_ 14 2 7 7 */
+/*:ref: clange_ 7 7 13 4 4 9 4 7 124 */
+/*:ref: clascl_ 14 11 13 4 4 7 7 4 4 9 4 4 124 */
+/*:ref: cggbal_ 14 13 13 4 9 4 9 4 4 4 7 7 7 4 124 */
+/*:ref: claset_ 14 8 13 4 4 9 9 9 4 124 */
+/*:ref: clacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: ctgevc_ 14 19 13 13 12 4 9 4 9 4 9 4 9 4 4 4 9 7 4 124 124 */
+/*:ref: cggbak_ 14 13 13 13 4 4 4 7 7 4 9 4 4 124 124 */

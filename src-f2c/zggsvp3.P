@@ -1,0 +1,12 @@
+extern int zggsvp3_(char *jobu, char *jobv, char *jobq, integer *m, integer *p, integer *n, doublecomplex *a, integer *lda, doublecomplex *b, integer *ldb, doublereal *tola, doublereal *tolb, integer *k, integer *l, doublecomplex *u, integer *ldu, doublecomplex *v, integer *ldv, doublecomplex *q, integer *ldq, integer *iwork, doublereal *rwork, doublecomplex *tau, doublecomplex *work, integer *lwork, integer *info, ftnlen jobu_len, ftnlen jobv_len, ftnlen jobq_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: zgeqp3_ 14 10 4 4 9 4 4 9 9 4 7 4 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zlapmt_ 14 6 12 4 4 9 4 4 */
+/*:ref: zlaset_ 14 8 13 4 4 9 9 9 4 124 */
+/*:ref: zlacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: zung2r_ 14 8 4 4 4 9 4 9 9 4 */
+/*:ref: zgerq2_ 14 7 4 4 9 4 9 9 4 */
+/*:ref: zunmr2_ 14 14 13 13 4 4 4 9 4 9 9 4 9 4 124 124 */
+/*:ref: zunm2r_ 14 14 13 13 4 4 4 9 4 9 9 4 9 4 124 124 */
+/*:ref: zgeqr2_ 14 7 4 4 9 4 9 9 4 */

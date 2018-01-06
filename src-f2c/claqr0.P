@@ -1,0 +1,7 @@
+extern int claqr0_(logical *wantt, logical *wantz, integer *n, integer *ilo, integer *ihi, doublecomplex *h__, integer *ldh, doublecomplex *w, integer *iloz, integer *ihiz, doublecomplex *z__, integer *ldz, doublecomplex *work, integer *lwork, integer *info);
+/*:ref: clahqr_ 14 13 12 12 4 4 4 9 4 9 4 4 9 4 4 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: claqr3_ 14 25 12 12 4 4 4 4 9 4 4 4 9 4 4 4 9 9 4 4 9 4 4 9 4 9 4 */
+/*:ref: clacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: claqr4_ 14 15 12 12 4 4 4 9 4 9 4 4 9 4 9 4 4 */
+/*:ref: claqr5_ 14 24 12 12 4 4 4 4 4 9 9 4 4 4 9 4 9 4 9 4 4 9 4 4 9 4 */

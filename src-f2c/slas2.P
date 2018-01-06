@@ -1,0 +1,1 @@
+extern int slas2_(doublereal *f, doublereal *g, doublereal *h__, doublereal *ssmin, doublereal *ssmax);

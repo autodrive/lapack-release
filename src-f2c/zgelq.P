@@ -1,0 +1,5 @@
+extern int zgelq_(integer *m, integer *n, doublecomplex *a, integer *lda, doublecomplex *t, integer *tsize, doublecomplex *work, integer *lwork, integer *info);
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zgelqt_ 14 9 4 4 4 9 4 9 4 9 4 */
+/*:ref: zlaswlq_ 14 11 4 4 4 4 9 4 9 4 9 4 4 */

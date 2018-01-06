@@ -1,0 +1,5 @@
+extern int slarfg_(integer *n, doublereal *alpha, doublereal *x, integer *incx, doublereal *tau);
+/*:ref: snrm2_ 7 3 4 7 4 */
+/*:ref: slapy2_ 7 2 7 7 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: sscal_ 14 4 4 7 7 4 */

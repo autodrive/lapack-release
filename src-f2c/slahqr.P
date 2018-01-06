@@ -1,0 +1,7 @@
+extern int slahqr_(logical *wantt, logical *wantz, integer *n, integer *ilo, integer *ihi, doublereal *h__, integer *ldh, doublereal *wr, doublereal *wi, integer *iloz, integer *ihiz, doublereal *z__, integer *ldz, integer *info);
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: slabad_ 14 2 7 7 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */
+/*:ref: slarfg_ 14 5 4 7 7 4 7 */
+/*:ref: slanv2_ 14 10 7 7 7 7 7 7 7 7 7 7 */
+/*:ref: srot_ 14 7 4 7 4 7 4 7 7 */

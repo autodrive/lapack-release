@@ -1,0 +1,14 @@
+extern int zhetrf_aa_2stage__(char *uplo, integer *n, doublecomplex *a, integer *lda, doublecomplex *tb, integer *ltb, integer *ipiv, integer *ipiv2, doublecomplex *work, integer *lwork, integer *info, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: zgemm_ 14 15 13 13 4 4 4 9 9 4 9 4 9 9 4 124 124 */
+/*:ref: zlacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: zhegst_ 14 9 4 13 4 9 4 9 4 4 124 */
+/*:ref: zcopy_ 14 5 4 9 4 9 4 */
+/*:ref: zgetrf_ 14 6 4 4 9 4 4 4 */
+/*:ref: zlacgv_ 14 3 4 9 4 */
+/*:ref: zlaset_ 14 8 13 4 4 9 9 9 4 124 */
+/*:ref: ztrsm_ 14 15 13 13 13 13 4 4 9 9 4 9 4 124 124 124 124 */
+/*:ref: zswap_ 14 5 4 9 4 9 4 */
+/*:ref: zgbtrf_ 14 8 4 4 4 4 9 4 4 4 */

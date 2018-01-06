@@ -1,0 +1,7 @@
+extern int zlaein_(logical *rightv, logical *noinit, integer *n, doublecomplex *h__, integer *ldh, doublecomplex *w, doublecomplex *v, doublecomplex *b, integer *ldb, doublereal *rwork, doublereal *eps3, doublereal *smlnum, integer *info);
+/*:ref: dznrm2_ 7 3 4 9 4 */
+/*:ref: zdscal_ 14 4 4 7 9 4 */
+/*:ref: zladiv_ 9 3 9 9 9 */
+/*:ref: zlatrs_ 14 15 13 13 13 13 4 9 4 9 7 7 4 124 124 124 124 */
+/*:ref: dzasum_ 7 3 4 9 4 */
+/*:ref: izamax_ 4 3 4 9 4 */

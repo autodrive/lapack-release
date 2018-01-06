@@ -1,0 +1,15 @@
+extern int dspevx_(char *jobz, char *range, char *uplo, integer *n, doublereal *ap, doublereal *vl, doublereal *vu, integer *il, integer *iu, doublereal *abstol, integer *m, doublereal *w, doublereal *z__, integer *ldz, doublereal *work, integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: dlansp_ 7 7 13 13 4 7 7 124 124 */
+/*:ref: dscal_ 14 4 4 7 7 4 */
+/*:ref: dsptrd_ 14 8 13 4 7 7 7 7 4 124 */
+/*:ref: dcopy_ 14 5 4 7 4 7 4 */
+/*:ref: dsterf_ 14 4 4 7 7 4 */
+/*:ref: dopgtr_ 14 9 13 4 7 7 7 4 7 4 124 */
+/*:ref: dsteqr_ 14 9 13 4 7 7 7 4 7 4 124 */
+/*:ref: dstebz_ 14 20 13 13 4 7 7 4 4 7 7 7 4 4 7 4 4 7 4 4 124 124 */
+/*:ref: dstein_ 14 13 4 7 7 4 7 4 4 7 4 7 4 4 4 */
+/*:ref: dopmtr_ 14 14 13 13 13 4 4 7 7 7 4 7 4 124 124 124 */
+/*:ref: dswap_ 14 5 4 7 4 7 4 */

@@ -1,0 +1,11 @@
+extern int claed8_(integer *k, integer *n, integer *qsiz, doublecomplex *q, integer *ldq, doublereal *d__, doublereal *rho, integer *cutpnt, doublereal *z__, doublereal *dlamda, doublecomplex *q2, integer *ldq2, doublereal *w, integer *indxp, integer *indx, integer *indxq, integer *perm, integer *givptr, integer *givcol, doublereal *givnum, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: sscal_ 14 4 4 7 7 4 */
+/*:ref: slamrg_ 14 6 4 4 7 4 4 4 */
+/*:ref: isamax_ 4 3 4 7 4 */
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: ccopy_ 14 5 4 9 4 9 4 */
+/*:ref: clacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: slapy2_ 7 2 7 7 */
+/*:ref: csrot_ 14 7 4 9 4 9 4 7 7 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */

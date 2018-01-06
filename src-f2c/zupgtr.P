@@ -1,0 +1,5 @@
+extern int zupgtr_(char *uplo, integer *n, doublecomplex *ap, doublecomplex *tau, doublecomplex *q, integer *ldq, doublecomplex *work, integer *info, ftnlen uplo_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zung2l_ 14 8 4 4 4 9 4 9 9 4 */
+/*:ref: zung2r_ 14 8 4 4 4 9 4 9 9 4 */

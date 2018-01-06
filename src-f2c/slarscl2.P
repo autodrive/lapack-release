@@ -1,0 +1,1 @@
+extern int slarscl2_(integer *m, integer *n, doublereal *d__, doublereal *x, integer *ldx);

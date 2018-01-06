@@ -1,0 +1,2 @@
+extern int slarnv_(integer *idist, integer *iseed, integer *n, doublereal *x);
+/*:ref: slaruv_ 14 3 4 4 7 */

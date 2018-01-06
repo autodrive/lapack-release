@@ -1,0 +1,1 @@
+extern int slamrg_(integer *n1, integer *n2, doublereal *a, integer *strd1, integer *strd2, integer *index);

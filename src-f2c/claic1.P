@@ -1,0 +1,3 @@
+extern int claic1_(integer *job, integer *j, doublecomplex *x, doublereal *sest, doublecomplex *w, doublecomplex *gamma, doublereal *sestpr, doublecomplex *s, doublecomplex *c__);
+/*:ref: slamch_ 7 2 13 124 */
+/*:ref: cdotc_ 9 6 9 4 9 4 9 4 */

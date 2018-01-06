@@ -1,0 +1,8 @@
+extern int claed0_(integer *qsiz, integer *n, doublereal *d__, doublereal *e, doublecomplex *q, integer *ldq, doublecomplex *qstore, integer *ldqs, doublereal *rwork, integer *iwork, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
+/*:ref: ssteqr_ 14 9 13 4 7 7 7 4 7 4 124 */
+/*:ref: clacrm_ 14 9 4 4 9 4 7 4 9 4 7 */
+/*:ref: claed7_ 14 22 4 4 4 4 4 4 7 9 4 7 4 7 4 4 4 4 4 7 9 7 4 4 */
+/*:ref: ccopy_ 14 5 4 9 4 9 4 */
+/*:ref: scopy_ 14 5 4 7 4 7 4 */

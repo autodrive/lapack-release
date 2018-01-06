@@ -1,0 +1,4 @@
+extern int ctplqt_(integer *m, integer *n, integer *l, integer *mb, doublecomplex *a, integer *lda, doublecomplex *b, integer *ldb, doublecomplex *t, integer *ldt, doublecomplex *work, integer *info);
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: ctplqt2_ 14 10 4 4 4 9 4 9 4 9 4 4 */
+/*:ref: ctprfb_ 14 22 13 13 13 13 4 4 4 4 9 4 9 4 9 4 9 4 9 4 124 124 124 124 */

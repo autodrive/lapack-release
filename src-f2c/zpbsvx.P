@@ -1,0 +1,13 @@
+extern int zpbsvx_(char *fact, char *uplo, integer *n, integer *kd, integer *nrhs, doublecomplex *ab, integer *ldab, doublecomplex *afb, integer *ldafb, char *equed, doublereal *s, doublecomplex *b, integer *ldb, doublecomplex *x, integer *ldx, doublereal *rcond, doublereal *ferr, doublereal *berr, doublecomplex *work, doublereal *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len, ftnlen equed_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: zpbequ_ 14 10 13 4 4 9 4 7 7 7 4 124 */
+/*:ref: zlaqhb_ 14 11 13 4 4 9 4 7 7 7 13 124 124 */
+/*:ref: zcopy_ 14 5 4 9 4 9 4 */
+/*:ref: zpbtrf_ 14 7 13 4 4 9 4 4 124 */
+/*:ref: zlanhb_ 7 9 13 13 4 4 9 4 7 124 124 */
+/*:ref: zpbcon_ 14 11 13 4 4 9 4 7 7 9 7 4 124 */
+/*:ref: zlacpy_ 14 8 13 4 4 9 4 9 4 124 */
+/*:ref: zpbtrs_ 14 10 13 4 4 4 9 4 9 4 4 124 */
+/*:ref: zpbrfs_ 14 18 13 4 4 4 9 4 9 4 9 4 9 4 7 7 9 7 4 124 */

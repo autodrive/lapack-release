@@ -1,0 +1,14 @@
+extern int dgbsvx_(char *fact, char *trans, integer *n, integer *kl, integer *ku, integer *nrhs, doublereal *ab, integer *ldab, doublereal *afb, integer *ldafb, integer *ipiv, char *equed, doublereal *r__, doublereal *c__, doublereal *b, integer *ldb, doublereal *x, integer *ldx, doublereal *rcond, doublereal *ferr, doublereal *berr, doublereal *work, integer *iwork, integer *info, ftnlen fact_len, ftnlen trans_len, ftnlen equed_len);
+/*:ref: lsame_ 12 4 13 13 124 124 */
+/*:ref: dlamch_ 7 2 13 124 */
+/*:ref: xerbla_ 14 3 13 4 124 */
+/*:ref: dgbequ_ 14 12 4 4 4 4 7 4 7 7 7 7 7 4 */
+/*:ref: dlaqgb_ 14 13 4 4 4 4 7 4 7 7 7 7 7 13 124 */
+/*:ref: dcopy_ 14 5 4 7 4 7 4 */
+/*:ref: dgbtrf_ 14 8 4 4 4 4 7 4 4 4 */
+/*:ref: dlantb_ 7 11 13 13 13 4 4 7 4 7 124 124 124 */
+/*:ref: dlangb_ 7 8 13 4 4 4 7 4 7 124 */
+/*:ref: dgbcon_ 14 13 13 4 4 4 7 4 4 7 7 7 4 4 124 */
+/*:ref: dlacpy_ 14 8 13 4 4 7 4 7 4 124 */
+/*:ref: dgbtrs_ 14 12 13 4 4 4 4 7 4 4 7 4 4 124 */
+/*:ref: dgbrfs_ 14 20 13 4 4 4 4 7 4 7 4 4 7 4 7 4 7 7 7 4 4 124 */

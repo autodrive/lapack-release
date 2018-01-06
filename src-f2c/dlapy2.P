@@ -1,0 +1,2 @@
+extern doublereal dlapy2_(doublereal *x, doublereal *y);
+/*:ref: disnan_ 12 1 7 */

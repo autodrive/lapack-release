@@ -1,0 +1,178 @@
+#line 1 "sscal.f"
+/* sscal.f -- translated by f2c (version 20100827).
+   You must link the resulting object file with libf2c:
+	on Microsoft Windows system, link with libf2c.lib;
+	on Linux or Unix systems, link with .../path/to/libf2c.a -lm
+	or, if you install libf2c.a in a standard place, with -lf2c -lm
+	-- in that order, at the end of the command line, as in
+		cc *.o -lf2c -lm
+	Source for libf2c is in /netlib/f2c/libf2c.zip, e.g.,
+
+		http://www.netlib.org/f2c/libf2c.zip
+*/
+
+#include "f2c.h"
+
+#line 1 "sscal.f"
+/* > \brief \b SSCAL */
+
+/*  =========== DOCUMENTATION =========== */
+
+/* Online html documentation available at */
+/*            http://www.netlib.org/lapack/explore-html/ */
+
+/*  Definition: */
+/*  =========== */
+
+/*       SUBROUTINE SSCAL(N,SA,SX,INCX) */
+
+/*       .. Scalar Arguments .. */
+/*       REAL SA */
+/*       INTEGER INCX,N */
+/*       .. */
+/*       .. Array Arguments .. */
+/*       REAL SX(*) */
+/*       .. */
+
+
+/* > \par Purpose: */
+/*  ============= */
+/* > */
+/* > \verbatim */
+/* > */
+/* >    scales a vector by a constant. */
+/* >    uses unrolled loops for increment equal to 1. */
+/* > \endverbatim */
+
+/*  Authors: */
+/*  ======== */
+
+/* > \author Univ. of Tennessee */
+/* > \author Univ. of California Berkeley */
+/* > \author Univ. of Colorado Denver */
+/* > \author NAG Ltd. */
+
+/* > \date December 2016 */
+
+/* > \ingroup single_blas_level1 */
+
+/* > \par Further Details: */
+/*  ===================== */
+/* > */
+/* > \verbatim */
+/* > */
+/* >     jack dongarra, linpack, 3/11/78. */
+/* >     modified 3/93 to return if incx .le. 0. */
+/* >     modified 12/3/93, array(1) declarations changed to array(*) */
+/* > \endverbatim */
+/* > */
+/*  ===================================================================== */
+/* Subroutine */ int sscal_(integer *n, doublereal *sa, doublereal *sx, 
+	integer *incx)
+{
+    /* System generated locals */
+    integer i__1, i__2;
+
+    /* Local variables */
+    static integer i__, m, mp1, nincx;
+
+
+/*  -- Reference BLAS level1 routine (version 3.7.0) -- */
+/*  -- Reference BLAS is a software package provided by Univ. of Tennessee,    -- */
+/*  -- Univ. of California Berkeley, Univ. of Colorado Denver and NAG Ltd..-- */
+/*     December 2016 */
+
+/*     .. Scalar Arguments .. */
+/*     .. */
+/*     .. Array Arguments .. */
+/*     .. */
+
+/*  ===================================================================== */
+
+/*     .. Local Scalars .. */
+/*     .. */
+/*     .. Intrinsic Functions .. */
+/*     .. */
+#line 77 "sscal.f"
+    /* Parameter adjustments */
+#line 77 "sscal.f"
+    --sx;
+#line 77 "sscal.f"
+
+#line 77 "sscal.f"
+    /* Function Body */
+#line 77 "sscal.f"
+    if (*n <= 0 || *incx <= 0) {
+#line 77 "sscal.f"
+	return 0;
+#line 77 "sscal.f"
+    }
+#line 78 "sscal.f"
+    if (*incx == 1) {
+
+/*        code for increment equal to 1 */
+
+
+/*        clean-up loop */
+
+#line 85 "sscal.f"
+	m = *n % 5;
+#line 86 "sscal.f"
+	if (m != 0) {
+#line 87 "sscal.f"
+	    i__1 = m;
+#line 87 "sscal.f"
+	    for (i__ = 1; i__ <= i__1; ++i__) {
+#line 88 "sscal.f"
+		sx[i__] = *sa * sx[i__];
+#line 89 "sscal.f"
+	    }
+#line 90 "sscal.f"
+	    if (*n < 5) {
+#line 90 "sscal.f"
+		return 0;
+#line 90 "sscal.f"
+	    }
+#line 91 "sscal.f"
+	}
+#line 92 "sscal.f"
+	mp1 = m + 1;
+#line 93 "sscal.f"
+	i__1 = *n;
+#line 93 "sscal.f"
+	for (i__ = mp1; i__ <= i__1; i__ += 5) {
+#line 94 "sscal.f"
+	    sx[i__] = *sa * sx[i__];
+#line 95 "sscal.f"
+	    sx[i__ + 1] = *sa * sx[i__ + 1];
+#line 96 "sscal.f"
+	    sx[i__ + 2] = *sa * sx[i__ + 2];
+#line 97 "sscal.f"
+	    sx[i__ + 3] = *sa * sx[i__ + 3];
+#line 98 "sscal.f"
+	    sx[i__ + 4] = *sa * sx[i__ + 4];
+#line 99 "sscal.f"
+	}
+#line 100 "sscal.f"
+    } else {
+
+/*        code for increment not equal to 1 */
+
+#line 104 "sscal.f"
+	nincx = *n * *incx;
+#line 105 "sscal.f"
+	i__1 = nincx;
+#line 105 "sscal.f"
+	i__2 = *incx;
+#line 105 "sscal.f"
+	for (i__ = 1; i__2 < 0 ? i__ >= i__1 : i__ <= i__1; i__ += i__2) {
+#line 106 "sscal.f"
+	    sx[i__] = *sa * sx[i__];
+#line 107 "sscal.f"
+	}
+#line 108 "sscal.f"
+    }
+#line 109 "sscal.f"
+    return 0;
+} /* sscal_ */
+

@@ -1,0 +1,1 @@
+extern int srot_(integer *n, doublereal *sx, integer *incx, doublereal *sy, integer *incy, doublereal *c__, doublereal *s);

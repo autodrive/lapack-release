@@ -1,0 +1,1 @@
+extern int srotmg_(doublereal *sd1, doublereal *sd2, doublereal *sx1, doublereal *sy1, doublereal *sparam);

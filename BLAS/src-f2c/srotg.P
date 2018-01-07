@@ -1,0 +1,1 @@
+extern int srotg_(doublereal *sa, doublereal *sb, doublereal *c__, doublereal *s);

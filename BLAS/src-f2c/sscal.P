@@ -1,0 +1,1 @@
+extern int sscal_(integer *n, doublereal *sa, doublereal *sx, integer *incx);

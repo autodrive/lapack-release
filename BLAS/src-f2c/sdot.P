@@ -1,0 +1,1 @@
+extern doublereal sdot_(integer *n, doublereal *sx, integer *incx, doublereal *sy, integer *incy);

@@ -1,0 +1,1 @@
+extern doublereal scasum_(integer *n, doublecomplex *cx, integer *incx);

@@ -1,0 +1,2 @@
+extern int caxpy_(integer *n, doublecomplex *ca, doublecomplex *cx, integer *incx, doublecomplex *cy, integer *incy);
+/*:ref: scabs1_ 7 1 9 */

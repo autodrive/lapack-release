@@ -1,0 +1,1 @@
+extern integer isamax_(integer *n, doublereal *sx, integer *incx);

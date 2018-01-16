@@ -1,0 +1,1 @@
+extern doublereal dsecnd_(void);

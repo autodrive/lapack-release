@@ -1,0 +1,2 @@
+extern doublereal dsecnd_(void);
+/*:ref: etime_ 7 1 7 */

@@ -1,0 +1,2 @@
+extern int mysub_(integer *n, doublereal *x, doublereal *y);
+/*:ref: second_ 7 0 */

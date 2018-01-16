@@ -1,0 +1,95 @@
+"../INSTALL/CMakeLists.txt" does not end in .f or .F
+"../INSTALL/Makefile" does not end in .f or .F
+"../INSTALL/make.inc.ALPHA" does not end in .f or .F
+"../INSTALL/make.inc.gfortran" does not end in .f or .F
+"../INSTALL/make.inc.gfortran_debug" does not end in .f or .F
+"../INSTALL/make.inc.HPPA" does not end in .f or .F
+"../INSTALL/make.inc.ifort" does not end in .f or .F
+"../INSTALL/make.inc.IRIX64" does not end in .f or .F
+"../INSTALL/make.inc.O2K" does not end in .f or .F
+"../INSTALL/make.inc.pgf95" does not end in .f or .F
+"../INSTALL/make.inc.pghpf" does not end in .f or .F
+"../INSTALL/make.inc.SGI5" does not end in .f or .F
+"../INSTALL/make.inc.SUN4" does not end in .f or .F
+"../INSTALL/make.inc.SUN4SOL2" does not end in .f or .F
+"../INSTALL/make.inc.XLF" does not end in .f or .F
+../INSTALL/dlamch.f:
+   dlamch:
+Error on line 89 of ../INSTALL/dlamch.f: Declaration error for digits: unknown intrinsic function
+Error on line 89 of ../INSTALL/dlamch.f: Declaration error for epsilon: unknown intrinsic function
+Error on line 89 of ../INSTALL/dlamch.f: Declaration error for huge: unknown intrinsic function
+Error on line 89 of ../INSTALL/dlamch.f: Declaration error for maxexponent: unknown intrinsic function
+Error on line 89 of ../INSTALL/dlamch.f: Declaration error for minexponent: unknown intrinsic function
+Error on line 89 of ../INSTALL/dlamch.f: Declaration error for radix: unknown intrinsic function
+Error on line 89 of ../INSTALL/dlamch.f: Declaration error for tiny: unknown intrinsic function
+   dlamc3:
+../INSTALL/dlamchf77.f:
+   dlamch:
+   dlamc1:
+   dlamc2:
+   dlamc3:
+   dlamc4:
+   dlamc5:
+../INSTALL/dlamchtst.f:
+   MAIN:
+../INSTALL/dsecnd_EXT_ETIME_.f:
+   dsecnd:
+../INSTALL/dsecnd_EXT_ETIME.f:
+   dsecnd:
+../INSTALL/dsecnd_INT_CPU_TIME.f:
+   dsecnd:
+Error on line 51 of ../INSTALL/dsecnd_INT_CPU_TIME.f: Declaration error for cpu_time: unknown intrinsic function
+../INSTALL/dsecnd_INT_ETIME.f:
+   dsecnd:
+Error on line 53 of ../INSTALL/dsecnd_INT_ETIME.f: Declaration error for etime: unknown intrinsic function
+../INSTALL/dsecnd_NONE.f:
+   dsecnd:
+../INSTALL/dsecndtst.f:
+   MAIN:
+   mysub:
+../INSTALL/ilaver.f:
+   ilaver:
+../INSTALL/LAPACK_version.f:
+   MAIN lapack_version:
+../INSTALL/lsame.f:
+   lsame:
+../INSTALL/lsametst.f:
+   MAIN:
+../INSTALL/second_EXT_ETIME_.f:
+   second:
+../INSTALL/second_EXT_ETIME.f:
+   second:
+../INSTALL/second_INT_CPU_TIME.f:
+   second:
+Error on line 51 of ../INSTALL/second_INT_CPU_TIME.f: Declaration error for cpu_time: unknown intrinsic function
+../INSTALL/second_INT_ETIME.f:
+   second:
+Error on line 53 of ../INSTALL/second_INT_ETIME.f: Declaration error for etime: unknown intrinsic function
+../INSTALL/second_NONE.f:
+   second:
+../INSTALL/secondtst.f:
+   MAIN:
+   mysub:
+../INSTALL/slamch.f:
+   slamch:
+Error on line 93 of ../INSTALL/slamch.f: Declaration error for digits: unknown intrinsic function
+Error on line 93 of ../INSTALL/slamch.f: Declaration error for epsilon: unknown intrinsic function
+Error on line 93 of ../INSTALL/slamch.f: Declaration error for huge: unknown intrinsic function
+Error on line 93 of ../INSTALL/slamch.f: Declaration error for maxexponent: unknown intrinsic function
+Error on line 93 of ../INSTALL/slamch.f: Declaration error for minexponent: unknown intrinsic function
+Error on line 93 of ../INSTALL/slamch.f: Declaration error for radix: unknown intrinsic function
+Error on line 93 of ../INSTALL/slamch.f: Declaration error for tiny: unknown intrinsic function
+   slamc3:
+../INSTALL/slamchf77.f:
+   slamch:
+   slamc1:
+   slamc2:
+   slamc3:
+   slamc4:
+   slamc5:
+../INSTALL/slamchtst.f:
+   MAIN:
+../INSTALL/tstiee.f:
+   MAIN tstiee:
+   ilaenv:
+   ieeeck:

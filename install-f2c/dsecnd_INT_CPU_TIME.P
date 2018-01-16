@@ -1,0 +1,2 @@
+extern doublereal dsecnd_(void);
+/*:ref: cpu_time__ 14 1 7 */
